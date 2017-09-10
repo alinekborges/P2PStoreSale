@@ -7,14 +7,25 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		02BEA64E7D56D1D27E9DCC47 /* Pods_P2PSocketsSale.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 43CBD1A9DD1C55D0E1C29731 /* Pods_P2PSocketsSale.framework */; };
 		6B3B6BD61F62D1550018C292 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B3B6BD51F62D1550018C292 /* AppDelegate.swift */; };
 		6B3B6BD81F62D1550018C292 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B3B6BD71F62D1550018C292 /* ViewController.swift */; };
 		6B3B6BDB1F62D1550018C292 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6B3B6BD91F62D1550018C292 /* Main.storyboard */; };
 		6B3B6BDD1F62D1550018C292 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6B3B6BDC1F62D1550018C292 /* Assets.xcassets */; };
 		6B3B6BE01F62D1550018C292 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6B3B6BDE1F62D1550018C292 /* LaunchScreen.storyboard */; };
+		6B3B6BE91F62D4E00018C292 /* Store.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B3B6BE81F62D4E00018C292 /* Store.swift */; };
+		6B3B6BEB1F6445550018C292 /* MultipeerServiceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B3B6BEA1F6445550018C292 /* MultipeerServiceManager.swift */; };
+		6B3B6BF11F64E87E0018C292 /* Product.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B3B6BF01F64E87E0018C292 /* Product.swift */; };
+		6B3B6BF31F64ED110018C292 /* NewStoreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B3B6BF21F64ED110018C292 /* NewStoreViewController.swift */; };
+		6B3B6BF61F657ED50018C292 /* StoreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B3B6BF41F657ED50018C292 /* StoreViewController.swift */; };
+		6B3B6BF71F657ED50018C292 /* StoreViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6B3B6BF51F657ED50018C292 /* StoreViewController.xib */; };
+		6B3B6BFA1F657EF90018C292 /* ViewController+FromXib.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B3B6BF91F657EF90018C292 /* ViewController+FromXib.swift */; };
+		6B3B6BFC1F6584630018C292 /* UIView+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B3B6BFB1F6584630018C292 /* UIView+Utils.swift */; };
+		6B3B6C011F6589E30018C292 /* CustomPickerCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B3B6C001F6589E30018C292 /* CustomPickerCollectionViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		43CBD1A9DD1C55D0E1C29731 /* Pods_P2PSocketsSale.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_P2PSocketsSale.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6B3B6BD21F62D1550018C292 /* P2PSocketsSale.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = P2PSocketsSale.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6B3B6BD51F62D1550018C292 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		6B3B6BD71F62D1550018C292 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -22,6 +33,17 @@
 		6B3B6BDC1F62D1550018C292 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		6B3B6BDF1F62D1550018C292 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		6B3B6BE11F62D1550018C292 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		6B3B6BE81F62D4E00018C292 /* Store.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Store.swift; path = Store/Store.swift; sourceTree = "<group>"; };
+		6B3B6BEA1F6445550018C292 /* MultipeerServiceManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MultipeerServiceManager.swift; path = Store/MultipeerServiceManager.swift; sourceTree = "<group>"; };
+		6B3B6BF01F64E87E0018C292 /* Product.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Product.swift; path = Model/Product.swift; sourceTree = "<group>"; };
+		6B3B6BF21F64ED110018C292 /* NewStoreViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewStoreViewController.swift; sourceTree = "<group>"; };
+		6B3B6BF41F657ED50018C292 /* StoreViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = StoreViewController.swift; path = Store/StoreViewController.swift; sourceTree = "<group>"; };
+		6B3B6BF51F657ED50018C292 /* StoreViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = StoreViewController.xib; path = Store/StoreViewController.xib; sourceTree = "<group>"; };
+		6B3B6BF91F657EF90018C292 /* ViewController+FromXib.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "ViewController+FromXib.swift"; path = "Util/ViewController+FromXib.swift"; sourceTree = "<group>"; };
+		6B3B6BFB1F6584630018C292 /* UIView+Utils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "UIView+Utils.swift"; path = "Util/UIView+Utils.swift"; sourceTree = "<group>"; };
+		6B3B6C001F6589E30018C292 /* CustomPickerCollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CustomPickerCollectionViewController.swift; path = Picker/CustomPickerCollectionViewController.swift; sourceTree = "<group>"; };
+		94F3FEA2319BFD85FA2EEC21 /* Pods-P2PSocketsSale.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-P2PSocketsSale.debug.xcconfig"; path = "Pods/Target Support Files/Pods-P2PSocketsSale/Pods-P2PSocketsSale.debug.xcconfig"; sourceTree = "<group>"; };
+		CEB8C4FE9CF9A13B8EDC2412 /* Pods-P2PSocketsSale.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-P2PSocketsSale.release.xcconfig"; path = "Pods/Target Support Files/Pods-P2PSocketsSale/Pods-P2PSocketsSale.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -29,6 +51,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				02BEA64E7D56D1D27E9DCC47 /* Pods_P2PSocketsSale.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -40,6 +63,8 @@
 			children = (
 				6B3B6BD41F62D1550018C292 /* P2PSocketsSale */,
 				6B3B6BD31F62D1550018C292 /* Products */,
+				84F1B0CFF0D131FF1C925A0B /* Pods */,
+				A503868D30391EAE5550FA8B /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -54,14 +79,72 @@
 		6B3B6BD41F62D1550018C292 /* P2PSocketsSale */ = {
 			isa = PBXGroup;
 			children = (
+				6B3B6BFD1F65895B0018C292 /* Picker */,
+				6B3B6BF81F657EDA0018C292 /* Util */,
+				6B3B6BEF1F64E8580018C292 /* Model */,
+				6B3B6BE71F62D45A0018C292 /* Store */,
 				6B3B6BD51F62D1550018C292 /* AppDelegate.swift */,
 				6B3B6BD71F62D1550018C292 /* ViewController.swift */,
 				6B3B6BD91F62D1550018C292 /* Main.storyboard */,
 				6B3B6BDC1F62D1550018C292 /* Assets.xcassets */,
 				6B3B6BDE1F62D1550018C292 /* LaunchScreen.storyboard */,
 				6B3B6BE11F62D1550018C292 /* Info.plist */,
+				6B3B6BF21F64ED110018C292 /* NewStoreViewController.swift */,
 			);
 			path = P2PSocketsSale;
+			sourceTree = "<group>";
+		};
+		6B3B6BE71F62D45A0018C292 /* Store */ = {
+			isa = PBXGroup;
+			children = (
+				6B3B6BE81F62D4E00018C292 /* Store.swift */,
+				6B3B6BEA1F6445550018C292 /* MultipeerServiceManager.swift */,
+				6B3B6BF41F657ED50018C292 /* StoreViewController.swift */,
+				6B3B6BF51F657ED50018C292 /* StoreViewController.xib */,
+			);
+			name = Store;
+			sourceTree = "<group>";
+		};
+		6B3B6BEF1F64E8580018C292 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				6B3B6BF01F64E87E0018C292 /* Product.swift */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		6B3B6BF81F657EDA0018C292 /* Util */ = {
+			isa = PBXGroup;
+			children = (
+				6B3B6BF91F657EF90018C292 /* ViewController+FromXib.swift */,
+				6B3B6BFB1F6584630018C292 /* UIView+Utils.swift */,
+			);
+			name = Util;
+			sourceTree = "<group>";
+		};
+		6B3B6BFD1F65895B0018C292 /* Picker */ = {
+			isa = PBXGroup;
+			children = (
+				6B3B6C001F6589E30018C292 /* CustomPickerCollectionViewController.swift */,
+			);
+			name = Picker;
+			sourceTree = "<group>";
+		};
+		84F1B0CFF0D131FF1C925A0B /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				94F3FEA2319BFD85FA2EEC21 /* Pods-P2PSocketsSale.debug.xcconfig */,
+				CEB8C4FE9CF9A13B8EDC2412 /* Pods-P2PSocketsSale.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		A503868D30391EAE5550FA8B /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				43CBD1A9DD1C55D0E1C29731 /* Pods_P2PSocketsSale.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -71,9 +154,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 6B3B6BE41F62D1550018C292 /* Build configuration list for PBXNativeTarget "P2PSocketsSale" */;
 			buildPhases = (
+				0741D920368AB95C8F4590B8 /* [CP] Check Pods Manifest.lock */,
 				6B3B6BCE1F62D1550018C292 /* Sources */,
 				6B3B6BCF1F62D1550018C292 /* Frameworks */,
 				6B3B6BD01F62D1550018C292 /* Resources */,
+				B7680ED4180E83EDB19E63CE /* [CP] Embed Pods Frameworks */,
+				126A78775B93A28E3B31FB0B /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -124,6 +210,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6B3B6BF71F657ED50018C292 /* StoreViewController.xib in Resources */,
 				6B3B6BE01F62D1550018C292 /* LaunchScreen.storyboard in Resources */,
 				6B3B6BDD1F62D1550018C292 /* Assets.xcassets in Resources */,
 				6B3B6BDB1F62D1550018C292 /* Main.storyboard in Resources */,
@@ -132,13 +219,69 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		0741D920368AB95C8F4590B8 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		126A78775B93A28E3B31FB0B /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-P2PSocketsSale/Pods-P2PSocketsSale-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		B7680ED4180E83EDB19E63CE /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-P2PSocketsSale/Pods-P2PSocketsSale-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		6B3B6BCE1F62D1550018C292 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6B3B6BFA1F657EF90018C292 /* ViewController+FromXib.swift in Sources */,
+				6B3B6BE91F62D4E00018C292 /* Store.swift in Sources */,
 				6B3B6BD81F62D1550018C292 /* ViewController.swift in Sources */,
+				6B3B6C011F6589E30018C292 /* CustomPickerCollectionViewController.swift in Sources */,
+				6B3B6BF11F64E87E0018C292 /* Product.swift in Sources */,
+				6B3B6BF31F64ED110018C292 /* NewStoreViewController.swift in Sources */,
 				6B3B6BD61F62D1550018C292 /* AppDelegate.swift in Sources */,
+				6B3B6BEB1F6445550018C292 /* MultipeerServiceManager.swift in Sources */,
+				6B3B6BFC1F6584630018C292 /* UIView+Utils.swift in Sources */,
+				6B3B6BF61F657ED50018C292 /* StoreViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -261,6 +404,7 @@
 		};
 		6B3B6BE51F62D1550018C292 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 94F3FEA2319BFD85FA2EEC21 /* Pods-P2PSocketsSale.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 68SZERZ856;
@@ -269,11 +413,13 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.alineborges.P2PSocketsSale;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = 2;
 			};
 			name = Debug;
 		};
 		6B3B6BE61F62D1550018C292 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = CEB8C4FE9CF9A13B8EDC2412 /* Pods-P2PSocketsSale.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 68SZERZ856;
@@ -282,6 +428,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.alineborges.P2PSocketsSale;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = 2;
 			};
 			name = Release;
 		};
@@ -304,6 +451,7 @@
 				6B3B6BE61F62D1550018C292 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
