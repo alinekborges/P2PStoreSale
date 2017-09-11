@@ -47,20 +47,6 @@ class MultipeerServiceManager: NSObject {
          self.serviceBrowser.startBrowsingForPeers()
     }
     
-    func send(colorName : String) {
-        //NSLog("%@", "sendColor: \(colorName) to \(session.connectedPeers.count) peers")
-        
-        if session.connectedPeers.count > 0 {
-            do {
-                try self.session.send(colorName.data(using: .utf8)!, toPeers: session.connectedPeers, with: .unreliable)
-            }
-            catch let error {
-                NSLog("%@", "Error for sending: \(error)")
-            }
-        }
-        
-    }
-    
     deinit {
         self.serviceAdvertiser.stopAdvertisingPeer()
         self.serviceBrowser.stopBrowsingForPeers()

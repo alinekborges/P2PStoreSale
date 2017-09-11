@@ -14,11 +14,13 @@ class Message: Mappable {
     enum MessageType: String {
         case newElection = "newElection"
         case bossKeepAlive = "bossKeepAlive"
+        case announcingProducts = "announcingProducts"
     }
     
     var type: MessageType?
     var peerID: String?
     var message: String?
+    var baseStore: StoreBase?
     
     init() {
         
@@ -32,6 +34,7 @@ class Message: Mappable {
         type    <- map["type"]
         peerID    <- map["peerID"]
         message    <- map["message"]
+        baseStore    <- map["baseStore"]
     }
     
     func toData() -> Data {

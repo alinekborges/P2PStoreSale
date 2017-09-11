@@ -12,7 +12,7 @@ import MultipeerConnectivity
 protocol StoreMultipeerDelegate {
     
     func isSelectedAsBoss()
-    
+    func selectedNewBoss(_ peerID: MCPeerID)
 }
 
 class StoreMultipeerManager: NSObject {
@@ -67,10 +67,15 @@ class StoreMultipeerManager: NSObject {
                 self.boss = self.manager.myPeerId
             } else {
                 self.boss = peerWithID(elected)
+                newBoss(self.boss!)
             }
             
         }
         
+    }
+    
+    func newBoss(_ peerID: MCPeerID) {
+        self.delegate?.selectedNewBoss(peerID)
     }
     
     //every tick, we set boss as false
@@ -104,10 +109,15 @@ class StoreMultipeerManager: NSObject {
             peers = [peer!]
         }
         
+        if peers.isEmpty {
+            print("no peers to sending messages to! Connected peers: \(self.session.connectedPeers). Message: \(message.message)")
+            return
+        }
+        
         do {
             try self.session.send(message.toData(), toPeers: peers, with: MCSessionSendDataMode.reliable)
         } catch let error {
-            print("boss: error sending message \(error.localizedDescription)")
+            print("boss: error sending message: \(error.localizedDescription) to peers: \(peers.map( {$0.displayName} ).description)")
         }
         
     }
@@ -129,14 +139,14 @@ extension StoreMultipeerManager: ServiceManagerDelegate {
             return
         }
         
-        print("\(self.peerID) message received type: \(type)")
+        print("\(self.peerID) message received: \(message!.message!)")
         
         switch type {
         case .bossKeepAlive:
             self.bossIsAlive = true
             if (boss == nil) {
                 boss = self.peerWithID(message!.peerID!)
-                print("received message from new boss \(boss?.displayName)!")
+                print("received message from boss \(boss?.displayName)! He is the boss!")
             }
         default:
             break

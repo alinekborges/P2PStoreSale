@@ -7,17 +7,29 @@
 //
 
 import Foundation
+import ObjectMapper
 
-class Product {
+class Product: Mappable {
     
-    var emoji: String
-    var quantity: Int
-    var price: Int
+    var emoji: String?
+    var quantity: Int?
+    var price: Int?
     
     init(emoji: String, quantity: Int, price: Int) {
         self.emoji = emoji
         self.quantity = quantity
         self.price = price
     }
+    
+    required init?(map: Map) {
+        
+    }
+    
+    func mapping(map: Map) {
+        emoji    <- map["emoji"]
+        quantity    <- map["quantity"]
+        price    <- map["price"]
+    }
+    
     
 }

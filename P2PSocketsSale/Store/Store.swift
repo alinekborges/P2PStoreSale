@@ -8,6 +8,7 @@
 
 import Foundation
 import Dispatch
+import MultipeerConnectivity
 
 protocol StoreDelegate {
     
@@ -25,6 +26,9 @@ class Store: NSObject {
     var name: String
     
     var products: [Product]
+    var score: Int
+    
+    var privateKey: String
     
     var isBoss:Bool {
         return bossManager != nil
@@ -34,6 +38,9 @@ class Store: NSObject {
         self.name = name
         self.products = products
         self.manager = StoreMultipeerManager(peerID: name)
+        self.score = 0
+        
+        privateKey = name + products.first!.emoji! //create random privateKey using name + emoji
         
         super.init()
         manager.delegate = self
@@ -51,14 +58,37 @@ class Store: NSObject {
         self.manager.disconnect()
     }
    
+    func baseStore() -> StoreBase {
+        let base = StoreBase(name: self.name,
+             products: self.products,
+             score: self.score,
+             publicKey: self.name) //for now, public key is my name
+        return base
+    }
+    
+    func announceStoreMessage() -> Message {
+        let base = self.baseStore()
+        let message = Message()
+        
+        message.type = .announcingProducts
+        message.message = "Products for store \(self.name): \(self.products.map({$0.emoji!}).joined())"
+        message.peerID = self.name
+        message.baseStore = base
+        return message
+    }
 }
 
 extension Store: StoreMultipeerDelegate {
     func isSelectedAsBoss() {
         self.delegate?.isSelectedAsBoss()
         self.bossManager = StoreBossManager(manager: self.manager)
-        print("instantiating boss manager")
+    }
+    
+    func selectedNewBoss(_ peerID: MCPeerID) {
+        //when new boss is selected, I send to him my products,
+        let message = announceStoreMessage()
+        self.manager.send(message: message, toPeer: peerID)
     }
 }
-    
+
 

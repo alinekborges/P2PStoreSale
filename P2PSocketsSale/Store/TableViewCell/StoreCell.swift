@@ -22,7 +22,7 @@ class StoreCell: UITableViewCell {
     
     func setStore(_ store: StoreBase) {
         let icons = store.products!
-            .map( {$0.emoji} )
+            .map( {$0.emoji!} )
             .joined()
         self.titleLabel.text = "\(store.name ?? "")\(icons)"
         self.scoreLabel.text = "\(store.score!)"
