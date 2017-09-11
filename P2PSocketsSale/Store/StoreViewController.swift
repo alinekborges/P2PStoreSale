@@ -12,9 +12,18 @@ class StoreViewController: UIViewController {
     
     var store: Store
     
+    @IBOutlet weak var titleLabel: UILabel!
+    @IBOutlet weak var backgroundView: UIView!
+    @IBOutlet weak var buyView: UIView!
+    @IBOutlet weak var buyButton: UIButton!
+    @IBOutlet weak var tableView: UITableView!
+    
+    var timer: Timer?
+    
     init(store: Store) {
         self.store = store
         super.init(nibName: String(describing: StoreViewController.self), bundle: nil)
+        store.delegate = self
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -24,8 +33,24 @@ class StoreViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
         
+        self.titleLabel.text = self.store.name
+        
+        self.tableView.register(UINib(nibName: StoreProductCell.identifier, bundle: nil), forCellReuseIdentifier: StoreProductCell.identifier)
+        self.tableView.register(UINib(nibName: StoreCell.identifier, bundle: nil), forCellReuseIdentifier: StoreCell.identifier)
+        self.tableView.delegate = self
+        self.tableView.dataSource = self
+        self.tableView.allowsSelection = false
+        
+        timer = Timer.scheduledTimer(timeInterval: Constants.timeInterval, target: self, selector: #selector(self.onTick), userInfo: nil, repeats: true)
+    }
+    
+    func onTick() {
+        if store.isBoss {
+            self.store.bossManager?.sendKeepAlive()
+        } else {
+            //check stuff
+        }
     }
 
     @IBAction func emojiPickerAction(_ sender: UIButton) {
@@ -51,5 +76,55 @@ class StoreViewController: UIViewController {
         
     }
     
+    func updateBossUI() {
+        
+        UIView.animate(withDuration: 0.3) { 
+            self.backgroundView.backgroundColor = .teal
+            self.titleLabel.textColor = .white
+            self.buyView.isHidden = true
+            self.buyButton.isHidden = true
+        }
+        
+        print("I \(store.name) am selected as boss!")
+        self.tableView.reloadData()
+    }
+}
 
+extension StoreViewController: StoreDelegate {
+    func isSelectedAsBoss() {
+        updateBossUI()
+    }
+}
+
+extension StoreViewController: UITableViewDelegate, UITableViewDataSource {
+    
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 1
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        if store.isBoss {
+            //return store.bossManager!.allStores.count
+            return 0
+        } else {
+            return store.products.count
+        }
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
+        if store.isBoss {
+            let cell = tableView.dequeueReusableCell(withIdentifier: StoreCell.identifier, for: indexPath) as! StoreCell
+            let item = self.store.bossManager!.allStores[indexPath.row]
+            cell.setStore(item)
+            return cell
+        } else {
+            let cell = tableView.dequeueReusableCell(withIdentifier: StoreProductCell.identifier, for: indexPath) as! StoreProductCell
+            let item = self.store.products[indexPath.row]
+            cell.setProduct(item)
+            return cell
+        }
+        
+    }
+    
 }

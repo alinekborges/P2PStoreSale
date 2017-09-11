@@ -21,19 +21,18 @@ class ViewController: UIViewController {
         
         
         //store1 = Store(port: 6790)
-        let product = Product(emoji: "💩", quantity: 10, price: Int(10.0))
-        self.didCreateStore(withName: "test01", products: [product])
         
-        self.didCreateStore(withName: "test02", products: [product])
-        
-        self.didCreateStore(withName: "test03", products: [product])
-        
-        self.didCreateStore(withName: "test04", products: [product])
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    @IBAction func newStoreAction(_ sender: Any) {
+        
+        let product = Product(emoji: "💩", quantity: 10, price: Int(10.0))
+        self.didCreateStore(withName: "test\(random())", products: [product])
+        
     }
     
     @IBAction func buttonAction(_ sender: Any) {
@@ -82,20 +81,5 @@ extension ViewController: CreateNewStore {
             print("Você chegou ao máximo de lojas!")
         }
     }
-}
-
-extension ViewController: SocketDelegate {
-    
-    func didReceiveMessage(_ message: String, fromHost host: String) {
-        
-        DispatchQueue.main.async {
-            print("received message from host:: \(host)")
-            print("message:: \(message)")
-            //self.label.text = message
-            
-        }
-        
-    }
-    
 }
 

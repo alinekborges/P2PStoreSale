@@ -6,7 +6,7 @@ target 'P2PSocketsSale' do
   use_frameworks!
 
   # Pods for P2PSocketsSale
-  pod 'CocoaAsyncSocket'  
+  pod 'ObjectMapper', '~> 2.2'  
 
 
 end

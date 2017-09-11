@@ -13,16 +13,13 @@ import MultipeerConnectivity
 protocol ServiceManagerDelegate {
     
     func receiveData(manager : MultipeerServiceManager, user: String, message: String)
+    func connectedDevicesChanged(_ session: MCSession, peer peerID: MCPeerID, didChange state: MCSessionState)
+    
 }
 
-
-
-class MultipeerServiceManager: NSObject, MCSessionDelegate, MCNearbyServiceBrowserDelegate, MCNearbyServiceAdvertiserDelegate {
+class MultipeerServiceManager: NSObject {
     
-    
-    // Service type must be a unique string, at most 15 characters long
-    // and can contain only ASCII lowercase letters, numbers and hyphens.
-    private let ServiceType = "emoji-store"
+    private let ServiceType = "emoji-amazon"
     private var myPeerId: MCPeerID!
     private var serviceAdvertiser : MCNearbyServiceAdvertiser
     private let serviceBrowser : MCNearbyServiceBrowser
@@ -40,8 +37,6 @@ class MultipeerServiceManager: NSObject, MCSessionDelegate, MCNearbyServiceBrows
         self.myPeerId = MCPeerID(displayName: peerID)
         self.serviceAdvertiser = MCNearbyServiceAdvertiser(peer: myPeerId, discoveryInfo: nil, serviceType: ServiceType)
         self.serviceBrowser = MCNearbyServiceBrowser(peer: myPeerId, serviceType: ServiceType)
-        
-        
         
         super.init()
         
@@ -71,23 +66,22 @@ class MultipeerServiceManager: NSObject, MCSessionDelegate, MCNearbyServiceBrows
         self.serviceBrowser.stopBrowsingForPeers()
     }
     
-    
-    //MARK: MCNearbyServiceBrowser Delegates
+}
+
+extension MultipeerServiceManager: MCSessionDelegate, MCNearbyServiceBrowserDelegate, MCNearbyServiceAdvertiserDelegate  {
     
     func browser(_ browser: MCNearbyServiceBrowser, didNotStartBrowsingForPeers error: Error) {
         //SLog("%@", "didNotStartBrowsingForPeers: \(error)")
     }
     
     func browser(_ browser: MCNearbyServiceBrowser, foundPeer peerID: MCPeerID, withDiscoveryInfo info: [String : String]?) {
-        //NSLog("%@", "foundPeer: \(peerID)")
-        //NSLog("%@", "invitePeer: \(peerID)")
+        //print("found peer \(peerID)")
         browser.invitePeer(peerID, to: self.session, withContext: nil, timeout: 10)
     }
     
     func browser(_ browser: MCNearbyServiceBrowser, lostPeer peerID: MCPeerID) {
         //NSLog("%@", "lostPeer: \(peerID)")
     }
-    
     
     
     //MARK: MCNearbyServiceAdvertiser Delegates
@@ -109,6 +103,8 @@ class MultipeerServiceManager: NSObject, MCSessionDelegate, MCNearbyServiceBrows
         //NSLog("%@", "peer \(peerID) didChangeState: \(state)")
         /*self.delegate?.connectedDevicesChanged(manager: self, connectedDevices:
             session.connectedPeers.map{$0.displayName})*/
+        print("state changed for peer \(peerID), state: \(state.rawValue)")
+        self.delegate?.connectedDevicesChanged(session, peer: peerID, didChange: state)
     }
     
     func session(_ session: MCSession, didReceive data: Data, fromPeer peerID: MCPeerID) {
@@ -119,21 +115,15 @@ class MultipeerServiceManager: NSObject, MCSessionDelegate, MCNearbyServiceBrows
     }
     
     func session(_ session: MCSession, didReceive stream: InputStream, withName streamName: String, fromPeer peerID: MCPeerID) {
-        //NSLog("%@", "didReceiveStream")
+        //nothing
     }
     
     func session(_ session: MCSession, didStartReceivingResourceWithName resourceName: String, fromPeer peerID: MCPeerID, with progress: Progress) {
-        //NSLog("%@", "didStartReceivingResourceWithName")
+        //nothing
     }
     
     func session(_ session: MCSession, didFinishReceivingResourceWithName resourceName: String, fromPeer peerID: MCPeerID, at localURL: URL, withError error: Error?) {
-        //NSLog("%@", "didFinishReceivingResourceWithName")
+        //nothing
     }
-    
-    
-    
-    
-    
-    
     
 }

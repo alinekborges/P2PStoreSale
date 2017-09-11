@@ -9,42 +9,43 @@
 import Foundation
 import Dispatch
 
-protocol SocketDelegate {
-    func didReceiveMessage(_ message: String, fromHost host: String)
+protocol StoreDelegate {
+    
+    func isSelectedAsBoss()
+    
 }
 
 class Store: NSObject {
     
-    var manager: MultipeerServiceManager!
+    var manager: StoreMultipeerManager
+    var bossManager: StoreBossManager?
+    
+    var delegate: StoreDelegate?
+    
     var name: String
     
     var products: [Product]
     
+    var isBoss:Bool {
+        return bossManager != nil
+    }
+    
     init(name: String, products: [Product]) {
         self.name = name
         self.products = products
-        self.manager = MultipeerServiceManager(peerID: name)
+        self.manager = StoreMultipeerManager(peerID: name)
         
         super.init()
-        
-    }
-    
-    func send(message: String, products: [Product]) {
-        self.manager.send(colorName: message)
+        manager.delegate = self
     }
    
 }
 
-extension Store: ServiceManagerDelegate {
-    
-    func connectedDevicesChanged(manager: MultipeerServiceManager, connectedDevices: [String]) {
-        print("new connected device")
+extension Store: StoreMultipeerDelegate {
+    func isSelectedAsBoss() {
+        self.delegate?.isSelectedAsBoss()
+        self.bossManager = StoreBossManager(manager: self.manager)
     }
-    
-    func receiveData(manager: MultipeerServiceManager, user: String, message: String) {
-        print("message received: \(message)")
-    }
-    
 }
     
 
