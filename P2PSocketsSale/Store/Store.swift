@@ -38,6 +38,18 @@ class Store: NSObject {
         super.init()
         manager.delegate = self
     }
+    
+    func onTick() {
+        if self.isBoss {
+            self.bossManager?.sendKeepAlive()
+        } else {
+            self.manager.onTick()
+        }
+    }
+    
+    func disconnect() {
+        self.manager.disconnect()
+    }
    
 }
 
@@ -45,6 +57,7 @@ extension Store: StoreMultipeerDelegate {
     func isSelectedAsBoss() {
         self.delegate?.isSelectedAsBoss()
         self.bossManager = StoreBossManager(manager: self.manager)
+        print("instantiating boss manager")
     }
 }
     

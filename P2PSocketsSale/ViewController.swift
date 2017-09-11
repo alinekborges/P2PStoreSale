@@ -31,7 +31,7 @@ class ViewController: UIViewController {
     @IBAction func newStoreAction(_ sender: Any) {
         
         let product = Product(emoji: "💩", quantity: 10, price: Int(10.0))
-        self.didCreateStore(withName: "test\(random())", products: [product])
+        self.didCreateStore(withName: "\(random())", products: [product])
         
     }
     

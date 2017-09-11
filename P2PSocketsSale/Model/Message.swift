@@ -11,9 +11,9 @@ import ObjectMapper
 
 class Message: Mappable {
     
-    enum MessageType {
-        case newElection
-        case bossKeepAlive
+    enum MessageType: String {
+        case newElection = "newElection"
+        case bossKeepAlive = "bossKeepAlive"
     }
     
     var type: MessageType?
@@ -33,5 +33,11 @@ class Message: Mappable {
         peerID    <- map["peerID"]
         message    <- map["message"]
     }
+    
+    func toData() -> Data {
+        let string = self.toJSONString()
+        return string!.data(using: .utf8)!
+    }
+    
     
 }

@@ -46,11 +46,7 @@ class StoreViewController: UIViewController {
     }
     
     func onTick() {
-        if store.isBoss {
-            self.store.bossManager?.sendKeepAlive()
-        } else {
-            //check stuff
-        }
+        self.store.onTick()
     }
 
     @IBAction func emojiPickerAction(_ sender: UIButton) {
@@ -76,17 +72,36 @@ class StoreViewController: UIViewController {
         
     }
     
+    @IBAction func disconnectStore(_ sender: Any) {
+        
+        let alert = UIAlertController(title: self.store.name, message: "Are you sure you want to disconnect?", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "YES", style: .default, handler: { _ in
+            print("disconnect")
+            self.store.disconnect()
+            self.view.removeFromSuperview()
+            self.timer?.invalidate()
+        }))
+        
+        alert.addAction(UIAlertAction(title: "NO", style: .cancel, handler: nil))
+        
+        self.present(alert, animated: true, completion: nil)
+        
+    }
+    
+    
     func updateBossUI() {
         
-        UIView.animate(withDuration: 0.3) { 
-            self.backgroundView.backgroundColor = .teal
-            self.titleLabel.textColor = .white
-            self.buyView.isHidden = true
-            self.buyButton.isHidden = true
+        DispatchQueue.main.async {
+            UIView.animate(withDuration: 0.3) {
+                self.backgroundView.backgroundColor = .teal
+                self.titleLabel.textColor = .white
+                self.buyView.isHidden = true
+                self.buyButton.isHidden = true
+            }
+            
+            print("I \(self.store.name) am selected as boss!")
+            self.tableView.reloadData()
         }
-        
-        print("I \(store.name) am selected as boss!")
-        self.tableView.reloadData()
     }
 }
 
@@ -115,8 +130,10 @@ extension StoreViewController: UITableViewDelegate, UITableViewDataSource {
         
         if store.isBoss {
             let cell = tableView.dequeueReusableCell(withIdentifier: StoreCell.identifier, for: indexPath) as! StoreCell
-            let item = self.store.bossManager!.allStores[indexPath.row]
-            cell.setStore(item)
+            if (!self.store.bossManager!.allStores.isEmpty) {
+                let item = self.store.bossManager!.allStores[indexPath.row]
+                cell.setStore(item)
+            }
             return cell
         } else {
             let cell = tableView.dequeueReusableCell(withIdentifier: StoreProductCell.identifier, for: indexPath) as! StoreProductCell

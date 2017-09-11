@@ -12,7 +12,7 @@ import MultipeerConnectivity
 
 protocol ServiceManagerDelegate {
     
-    func receiveData(manager : MultipeerServiceManager, user: String, message: String)
+    func receiveData(manager : MultipeerServiceManager, user: String, string: String)
     func connectedDevicesChanged(_ session: MCSession, peer peerID: MCPeerID, didChange state: MCSessionState)
     
 }
@@ -20,7 +20,7 @@ protocol ServiceManagerDelegate {
 class MultipeerServiceManager: NSObject {
     
     private let ServiceType = "emoji-amazon"
-    private var myPeerId: MCPeerID!
+    var myPeerId: MCPeerID!
     private var serviceAdvertiser : MCNearbyServiceAdvertiser
     private let serviceBrowser : MCNearbyServiceBrowser
     
@@ -66,6 +66,11 @@ class MultipeerServiceManager: NSObject {
         self.serviceBrowser.stopBrowsingForPeers()
     }
     
+    func disconnect() {
+        self.serviceAdvertiser.stopAdvertisingPeer()
+        self.serviceBrowser.stopBrowsingForPeers()
+        self.session.disconnect()
+    }
 }
 
 extension MultipeerServiceManager: MCSessionDelegate, MCNearbyServiceBrowserDelegate, MCNearbyServiceAdvertiserDelegate  {
@@ -111,7 +116,7 @@ extension MultipeerServiceManager: MCSessionDelegate, MCNearbyServiceBrowserDele
         NSLog("%@", "didReceiveData: \(data)")
         NSLog("%@", "MCPeerID: \(peerID.displayName)")
         let str = String(data: data, encoding: .utf8)!
-        self.delegate?.receiveData(manager : self, user: peerID.displayName, message: str)
+        self.delegate?.receiveData(manager : self, user: peerID.displayName, string: str)
     }
     
     func session(_ session: MCSession, didReceive stream: InputStream, withName streamName: String, fromPeer peerID: MCPeerID) {
