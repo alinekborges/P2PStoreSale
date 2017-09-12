@@ -118,6 +118,9 @@
                                     <state key="normal" title="Buy">
                                         <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     </state>
+                                    <connections>
+                                        <action selector="buyAction:" destination="-1" eventType="touchUpInside" id="9Ys-rM-d7Y"/>
+                                    </connections>
                                 </button>
                             </subviews>
                         </stackView>

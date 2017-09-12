@@ -24,6 +24,8 @@ class MultipeerServiceManager: NSObject {
     private var serviceAdvertiser : MCNearbyServiceAdvertiser
     private let serviceBrowser : MCNearbyServiceBrowser
     
+    var connectedPeers: [MCPeerID] = []
+    
     var delegate : ServiceManagerDelegate?
     
     lazy var session : MCSession = {
@@ -91,10 +93,18 @@ extension MultipeerServiceManager: MCSessionDelegate, MCNearbyServiceBrowserDele
     //MARK: MCSession Delegates
     
     func session(_ session: MCSession, peer peerID: MCPeerID, didChange state: MCSessionState) {
-        //NSLog("%@", "peer \(peerID) didChangeState: \(state)")
-        /*self.delegate?.connectedDevicesChanged(manager: self, connectedDevices:
-            session.connectedPeers.map{$0.displayName})*/
-        print("state changed for peer \(peerID), state: \(state.rawValue)")
+        
+        
+        let isInPeerList: Bool = self.connectedPeers.map({$0.displayName}).contains(peerID.displayName)
+        
+        if state == .connected && !isInPeerList {
+            self.connectedPeers.append(peerID)
+        } else if state == .notConnected && isInPeerList {
+            if let index = self.connectedPeers.index(of: peerID) {
+                self.connectedPeers.remove(at: index)
+            } 
+        }
+        
         self.delegate?.connectedDevicesChanged(session, peer: peerID, didChange: state)
     }
     

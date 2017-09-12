@@ -15,6 +15,10 @@ class Product: Mappable {
     var quantity: Int?
     var price: Int?
     
+    convenience init() {
+        self.init(emoji: Constants.emojis.random()!, quantity: 9.random(), price: 9.random())
+    }
+    
     init(emoji: String, quantity: Int, price: Int) {
         self.emoji = emoji
         self.quantity = quantity
@@ -30,6 +34,7 @@ class Product: Mappable {
         quantity    <- map["quantity"]
         price    <- map["price"]
     }
+    
     
     
 }

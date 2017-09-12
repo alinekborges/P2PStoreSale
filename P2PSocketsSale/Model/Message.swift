@@ -15,12 +15,17 @@ class Message: Mappable {
         case newElection = "newElection"
         case bossKeepAlive = "bossKeepAlive"
         case announcingProducts = "announcingProducts"
+        case buyOrder = "buyOrder"
+        case buyOrderResponse = "buyOrderResponse"
+        case completeBuy = "completeBuy"
     }
     
     var type: MessageType?
     var peerID: String?
     var message: String?
     var baseStore: StoreBase?
+    var buyOrder: BuyOrder?
+    var buyOrderResponse: BuyOrderResponse?
     
     init() {
         
@@ -34,6 +39,7 @@ class Message: Mappable {
         type    <- map["type"]
         peerID    <- map["peerID"]
         message    <- map["message"]
+        buyOrder    <- map["buyOrder"]
         baseStore    <- map["baseStore"]
     }
     
@@ -43,4 +49,53 @@ class Message: Mappable {
     }
     
     
+    func encrypt(withPublicKey key: String) -> String {
+        //TODO: Actually encrypt this
+        return self.toJSONString()
+    }
+}
+
+class BuyOrder: Mappable {
+    
+    var emoji: String?
+    var quantity: Int?
+    
+    init(emoji: String, quantity: Int) {
+        self.emoji = emoji
+        self.quantity = quantity
+    }
+    
+    required init?(map: Map) {
+        
+    }
+    
+    func mapping(map: Map) {
+        emoji    <- map["emoji"]
+        quantity    <- map["quantity"]
+    }
+    
+    var description: String {
+        return "\(quantity!) \(emoji!)"
+    }
+}
+
+
+class BuyOrderResponse: Mappable {
+    
+    var peerID: String?
+    var publicKey: String?
+    
+    init(peerID: String, publicKey: String) {
+        self.peerID = peerID
+        self.publicKey = publicKey
+    }
+    
+    required init?(map: Map) {
+        
+    }
+    
+    func mapping(map: Map) {
+        peerID    <- map["peerID"]
+        publicKey    <- map["publicKey"]
+    }
 }

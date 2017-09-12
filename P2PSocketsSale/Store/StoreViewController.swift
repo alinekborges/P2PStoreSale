@@ -20,6 +20,9 @@ class StoreViewController: UIViewController {
     
     var timer: Timer?
     
+    var currentEmoji: String = "💩"
+    var currentQuantity: Int = 1
+    
     init(store: Store) {
         self.store = store
         super.init(nibName: String(describing: StoreViewController.self), bundle: nil)
@@ -30,7 +33,8 @@ class StoreViewController: UIViewController {
         fatalError("init(coder:) has not been implemented")
     }
 
-
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -43,6 +47,8 @@ class StoreViewController: UIViewController {
         self.tableView.allowsSelection = false
         
         timer = Timer.scheduledTimer(timeInterval: Constants.timeInterval, target: self, selector: #selector(self.onTick), userInfo: nil, repeats: true)
+        
+        self.registerNotification(notificationName: "update_UI", withSelector: #selector(self.updateUI))
     }
     
     func onTick() {
@@ -55,6 +61,7 @@ class StoreViewController: UIViewController {
         
         picker.didPickEmoji = {emoji in
             sender.setTitle(emoji, for: .normal)
+            self.currentEmoji = emoji
             self.dismiss(animated: true, completion: nil)
         }
     }
@@ -66,9 +73,16 @@ class StoreViewController: UIViewController {
         
         picker.didPickNumber = {number in
             sender.setTitle("\(number)", for: .normal)
+            self.currentQuantity = number
             self.dismiss(animated: true, completion: nil)
             
         }
+        
+    }
+    
+    @IBAction func buyAction(_ sender: Any) {
+        let order = BuyOrder(emoji: self.currentEmoji, quantity: self.currentQuantity)
+        self.store.sendBuyOrder(order)
         
     }
     
@@ -103,12 +117,17 @@ class StoreViewController: UIViewController {
             self.tableView.reloadData()
         }
     }
+    
+    func updateUI() {
+        self.tableView.reloadData()
+    }
 }
 
 extension StoreViewController: StoreDelegate {
     func isSelectedAsBoss() {
         updateBossUI()
     }
+
 }
 
 extension StoreViewController: UITableViewDelegate, UITableViewDataSource {
@@ -119,8 +138,7 @@ extension StoreViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if store.isBoss {
-            //return store.bossManager!.allStores.count
-            return 0
+            return store.bossManager!.allStores.count
         } else {
             return store.products.count
         }

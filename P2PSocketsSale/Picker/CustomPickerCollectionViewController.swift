@@ -12,7 +12,7 @@ private let reuseIdentifier = "PickerCell"
 
 class CustomPickerCollectionViewController: UICollectionViewController {
     
-    let emojis = ["❤️", "💩", "😈", "👻", "🐶", "💸", "🎃", "😍", "😸"]
+    let emojis = Constants.emojis
     let numbers = ["1", "2", "3", "4", "5", "6", "7", "8", "9"]
     
     var didPickEmoji: ((String)->())?

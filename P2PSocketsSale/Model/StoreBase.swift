@@ -34,4 +34,40 @@ class StoreBase: Mappable {
         publicKey    <- map["publicKey"]
     }
     
+    func hasEmoji(emoji: String, withQuantity quantity: Int) -> Bool {
+        for product in self.products! {
+            if (product.emoji! == emoji && product.quantity! >= quantity ) {
+                return true
+            }
+        }
+        
+        return false
+    }
+    
+    func productForEmoji(emoji: String) -> Product? {
+        for product in self.products! {
+            if (product.emoji! == emoji) {
+                return product
+            }
+        }
+        
+        return nil
+    }
+    
+    func updateValues(store: StoreBase) {
+        self.products = store.products
+        self.publicKey = store.publicKey
+        self.score = store.score
+    }
+    
+    var description: String {
+        return "Store \(self.name!): \(self.products!.map({$0.emoji!}).joined())"
+    }
+}
+
+extension StoreBase: Equatable {
+    static func == (lhs: StoreBase, rhs: StoreBase) -> Bool {
+        return
+            lhs.name == rhs.name
+    }
 }

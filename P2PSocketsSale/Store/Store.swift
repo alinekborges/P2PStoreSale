@@ -34,6 +34,8 @@ class Store: NSObject {
         return bossManager != nil
     }
     
+    
+    
     init(name: String, products: [Product]) {
         self.name = name
         self.products = products
@@ -71,10 +73,20 @@ class Store: NSObject {
         let message = Message()
         
         message.type = .announcingProducts
-        message.message = "Products for store \(self.name): \(self.products.map({$0.emoji!}).joined())"
+        message.message = "Announcing products to boss for store \(self.name): \(self.products.map({$0.emoji!}).joined())"
         message.peerID = self.name
         message.baseStore = base
         return message
+    }
+    
+    func sendBuyOrder(_ order: BuyOrder) {
+        let message = Message()
+        message.type = .buyOrder
+        message.message = "I'm \(self.name) and I want to buy \(order.quantity!) \(order.emoji!)"
+        message.peerID = self.name
+        message.buyOrder = order
+        
+        self.manager.sendToBoss(message: message)
     }
 }
 
