@@ -13,6 +13,7 @@ protocol StoreMultipeerDelegate {
     
     func isSelectedAsBoss()
     func selectedNewBoss(_ peerID: MCPeerID)
+    func selectedPeerForBuy(_ peerID: MCPeerID?, publicKey: String?)
     
 }
 
@@ -35,6 +36,7 @@ class StoreMultipeerManager: NSObject {
     
     var timeAfterElection: Int = 0
     
+    
     init(peerID: String) {
         self.peerID = peerID
         self.manager = MultipeerServiceManager(peerID: peerID)
@@ -45,10 +47,7 @@ class StoreMultipeerManager: NSObject {
         self.manager.delegate = self
     }
     
-    func doBuy(_ buyOrder: BuyOrder, fromPeer peer: String, withPublicKey: String) {
-        let message = Message()
-        message.type = .completeBuy
-    }
+    
     
     //Election will happen in alphabetical order
     func newElection() {
@@ -122,6 +121,8 @@ class StoreMultipeerManager: NSObject {
         }
     }
     
+    //func sendEncryptedMessage(
+    
     func send(message: Message, toPeer peer: MCPeerID? = nil) {
         var peers:[MCPeerID]!
         if peer == nil {
@@ -173,7 +174,13 @@ extension StoreMultipeerManager: ServiceManagerDelegate {
                 newBoss(self.boss!)
             }
         case .buyOrderResponse:
-            print("Got order response from boss!!")
+            guard let peer = message?.buyOrderResponse?.peerID else {
+                return
+            }
+            
+            let peerID = MCPeerID(displayName: peer)
+                
+            self.delegate?.selectedPeerForBuy(peer, publicKey: message?.buyOrderResponse?.publicKey)
         default:
             break
         }

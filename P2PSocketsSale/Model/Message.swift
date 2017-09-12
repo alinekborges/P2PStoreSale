@@ -51,7 +51,7 @@ class Message: Mappable {
     
     func encrypt(withPublicKey key: String) -> String {
         //TODO: Actually encrypt this
-        return self.toJSONString()
+        return self.toJSONString()!
     }
 }
 

@@ -30,6 +30,8 @@ class Store: NSObject {
     
     var privateKey: String
     
+    var buyOrder: BuyOrder?
+    
     var isBoss:Bool {
         return bossManager != nil
     }
@@ -87,6 +89,20 @@ class Store: NSObject {
         message.buyOrder = order
         
         self.manager.sendToBoss(message: message)
+        self.buyOrder = order
+    }
+    
+    func completeBuy(_ order: BuyOrder, peerID: MCPeerID, publicKey: String) {
+        let message = Message()
+        message.message = "I will buy \(order.emoji!) from \(peerID) and I have the key"
+        message.type = .completeBuy
+        message.buyOrder = order
+        
+        
+        //encrypt message with public key
+        let encrypted = message.encrypt(withPublicKey: publicKey)
+        
+        self.manager.send(message: message, toPeer: peerID)
     }
 }
 
@@ -100,6 +116,16 @@ extension Store: StoreMultipeerDelegate {
         //when new boss is selected, I send to him my products,
         let message = announceStoreMessage()
         self.manager.send(message: message, toPeer: peerID)
+    }
+    
+    func selectedPeerForBuy(_ peerID: MCPeerID?, publicKey: String?) {
+        guard let peerID = peerID, let publicKey = publicKey, let buyOrder = self.buyOrder else {
+            print("(boss) not enought parameters to complete buy")
+            return
+        }
+        
+        self.completeBuy(buyOrder, peerID: peerID, publicKey: publicKey)
+
     }
 }
 
