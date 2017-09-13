@@ -1,0 +1,1561 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>RSAUtils Class Reference</title>
+    <link rel="stylesheet" type="text/css" href="../css/jazzy.css" />
+    <link rel="stylesheet" type="text/css" href="../css/highlight.css" />
+    <meta charset='utf-8'>
+    <script src="../js/jquery.min.js" defer></script>
+    <script src="../js/jazzy.js" defer></script>
+    
+  </head>
+  <body>
+    <a name="//apple_ref/swift/Class/RSAUtils" class="dashAnchor"></a>
+    <a title="RSAUtils Class Reference"></a>
+    <header>
+      <div class="content-wrapper">
+        <p><a href="../index.html"> Docs</a> (8% documented)</p>
+      </div>
+    </header>
+    <div class="content-wrapper">
+      <p id="breadcrumbs">
+        <a href="../index.html"> Reference</a>
+        <img id="carat" src="../img/carat.png" />
+        RSAUtils Class Reference
+      </p>
+    </div>
+    <div class="content-wrapper">
+      <nav class="sidebar">
+        <ul class="nav-groups">
+          <li class="nav-group-name">
+            <a href="../Classes.html">Classes</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Classes/AppDelegate.html">AppDelegate</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/BuyOrder.html">BuyOrder</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/BuyOrderResponse.html">BuyOrderResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/CustomPickerCollectionViewController.html">CustomPickerCollectionViewController</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/CustomPickerCollectionViewController/Style.html">– Style</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/Message.html">Message</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/Message/MessageType.html">– MessageType</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/MultipeerServiceManager.html">MultipeerServiceManager</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/NewStoreViewController.html">NewStoreViewController</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/NotificationUtils.html">NotificationUtils</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/PickerCollectionViewCell.html">PickerCollectionViewCell</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/Product.html">Product</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/ProductCell.html">ProductCell</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/RSAUtils.html">RSAUtils</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/RSAUtils/RSAUtilsError.html">– RSAUtilsError</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/Store.html">Store</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/StoreBase.html">StoreBase</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/StoreBossManager.html">StoreBossManager</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/StoreCell.html">StoreCell</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/StoreMultipeerManager.html">StoreMultipeerManager</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/StoreProductCell.html">StoreProductCell</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/StoreViewController.html">StoreViewController</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/UIViewControllerFromXib.html">UIViewControllerFromXib</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/ViewController.html">ViewController</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Global Variables.html">Global Variables</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Global Variables.html#/s:v14P2PSocketsSaleP33_55C4AA10B6989A87E62EF8AB53793D3119queueAssociationKeyVs5UInt8">queueAssociationKey</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Global Variables.html#/s:v14P2PSocketsSaleP33_68ADC7A650E85510312839F7CE1F542015reuseIdentifierSS">reuseIdentifier</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Extensions.html">Extensions</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Extensions/Array.html">Array</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Extensions/Int.html">Int</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Extensions/NSObject.html">NSObject</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Extensions/UIColor.html">UIColor</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Extensions/UIView.html">UIView</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Protocols.html">Protocols</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Protocols/CreateNewStore.html">CreateNewStore</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols/PeerMessageDelegate.html">PeerMessageDelegate</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols/ServiceManagerDelegate.html">ServiceManagerDelegate</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols/StoreDelegate.html">StoreDelegate</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols/StoreMultipeerDelegate.html">StoreMultipeerDelegate</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Structs.html">Structs</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Structs/Constants.html">Constants</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/Keys.html">Keys</a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </nav>
+      <article class="main-content">
+        <section>
+          <section class="section">
+            <h1>RSAUtils</h1>
+            <p>Undocumented</p>
+
+          </section>
+          <section class="section task-group-section">
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:ZvC14P2PSocketsSale8RSAUtilsP33_C9BDA47C1C28D70060E87725F2BC83E419PADDING_FOR_DECRYPTVSC10SecPadding"></a>
+                    <a name="//apple_ref/swift/Variable/PADDING_FOR_DECRYPT" class="dashAnchor"></a>
+                    <a class="token" href="#/s:ZvC14P2PSocketsSale8RSAUtilsP33_C9BDA47C1C28D70060E87725F2BC83E419PADDING_FOR_DECRYPTVSC10SecPadding">PADDING_FOR_DECRYPT</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:CC14P2PSocketsSale8RSAUtils13RSAUtilsError"></a>
+                    <a name="//apple_ref/swift/Class/RSAUtilsError" class="dashAnchor"></a>
+                    <a class="token" href="#/s:CC14P2PSocketsSale8RSAUtils13RSAUtilsError">RSAUtilsError</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                        <a href="../Classes/RSAUtils/RSAUtilsError.html" class="slightly-smaller">See more</a>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:ZFC14P2PSocketsSale8RSAUtilsP33_C9BDA47C1C28D70060E87725F2BC83E412base64EncodeFV10Foundation4DataSS"></a>
+                    <a name="//apple_ref/swift/Method/base64Encode(_:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:ZFC14P2PSocketsSale8RSAUtilsP33_C9BDA47C1C28D70060E87725F2BC83E412base64EncodeFV10Foundation4DataSS">base64Encode(_:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:ZFC14P2PSocketsSale8RSAUtilsP33_C9BDA47C1C28D70060E87725F2BC83E412base64DecodeFSSV10Foundation4Data"></a>
+                    <a name="//apple_ref/swift/Method/base64Decode(_:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:ZFC14P2PSocketsSale8RSAUtilsP33_C9BDA47C1C28D70060E87725F2BC83E412base64DecodeFSSV10Foundation4Data">base64Decode(_:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:ZFC14P2PSocketsSale8RSAUtils24deleteRSAKeyFromKeychainFSST_"></a>
+                    <a name="//apple_ref/swift/Method/deleteRSAKeyFromKeychain(_:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:ZFC14P2PSocketsSale8RSAUtils24deleteRSAKeyFromKeychainFSST_">deleteRSAKeyFromKeychain(_:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Deletes an existing RSA key specified by a tag from keychain.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">static</span> <span class="kd">func</span> <span class="nf">deleteRSAKeyFromKeychain</span><span class="p">(</span><span class="n">_</span> <span class="nv">tagName</span><span class="p">:</span> <span class="kt">String</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>tagName</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>tag name to query for RSA key from keychain</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:ZFC14P2PSocketsSale8RSAUtils21getRSAKeyFromKeychainFSSGSqCSo6SecKey_"></a>
+                    <a name="//apple_ref/swift/Method/getRSAKeyFromKeychain(_:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:ZFC14P2PSocketsSale8RSAUtils21getRSAKeyFromKeychainFSSGSqCSo6SecKey_">getRSAKeyFromKeychain(_:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Gets an existing RSA key specified by a tag from keychain.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">static</span> <span class="kd">func</span> <span class="nf">getRSAKeyFromKeychain</span><span class="p">(</span><span class="n">_</span> <span class="nv">tagName</span><span class="p">:</span> <span class="kt">String</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">SecKey</span><span class="p">?</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>tagName</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>tag name to query for RSA key from keychain</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>SecKey reference to the RSA key</p>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:ZFC14P2PSocketsSale8RSAUtils16addRSAPrivateKeyFzTSS7tagNameSS_GSqCSo6SecKey_"></a>
+                    <a name="//apple_ref/swift/Method/addRSAPrivateKey(_:tagName:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:ZFC14P2PSocketsSale8RSAUtils16addRSAPrivateKeyFzTSS7tagNameSS_GSqCSo6SecKey_">addRSAPrivateKey(_:tagName:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Adds a RSA private key (PKCS#1 or PKCS#8) to keychain and returns its SecKey reference.</p>
+
+<p>On disk, a PEM RSA PKCS#8 private key file starts with string <q>&mdash;&ndash;BEGIN PRIVATE KEY&mdash;&ndash;</q>, and ends with string <q>&mdash;&ndash;END PRIVATE KEY&mdash;&ndash;</q>; PKCS#1 private key file starts with string <q>&mdash;&ndash;BEGIN RSA PRIVATE KEY&mdash;&ndash;</q>, and ends with string <q>&mdash;&ndash;END RSA PRIVATE KEY&mdash;&ndash;</q>.</p>
+<div class="aside aside-throws">
+    <p class="aside-title">Throws</p>
+    <p><code><a href="../Classes/RSAUtils/RSAUtilsError.html">RSAUtilsError</a></code> if the input key is not a valid PKCS#8 private key</p>
+
+</div>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">@discardableResult</span> <span class="kd">public</span> <span class="kd">static</span> <span class="kd">func</span> <span class="nf">addRSAPrivateKey</span><span class="p">(</span><span class="n">_</span> <span class="nv">privkeyBase64</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="nv">tagName</span><span class="p">:</span> <span class="kt">String</span><span class="p">)</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt">SecKey</span><span class="p">?</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>privkeyBase64</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>RSA private key (PKCS#1 or PKCS#8) in base64</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>tagName</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>tag name to store RSA key to keychain</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>SecKey reference to the RSA private key.</p>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:ZFC14P2PSocketsSale8RSAUtilsP33_C9BDA47C1C28D70060E87725F2BC83E416addRSAPrivateKeyFzTV10Foundation4Data7tagNameSS_GSqCSo6SecKey_"></a>
+                    <a name="//apple_ref/swift/Method/addRSAPrivateKey(_:tagName:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:ZFC14P2PSocketsSale8RSAUtilsP33_C9BDA47C1C28D70060E87725F2BC83E416addRSAPrivateKeyFzTV10Foundation4Data7tagNameSS_GSqCSo6SecKey_">addRSAPrivateKey(_:tagName:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Adds a RSA private key to keychain and returns its SecKey reference.</p>
+<div class="aside aside-throws">
+    <p class="aside-title">Throws</p>
+    <p><code><a href="../Classes/RSAUtils/RSAUtilsError.html">RSAUtilsError</a></code> if the input key is not a valid PKCS#8 private key</p>
+
+</div>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">@discardableResult</span> <span class="kd">private</span> <span class="kd">static</span> <span class="kd">func</span> <span class="nf">addRSAPrivateKey</span><span class="p">(</span><span class="n">_</span> <span class="nv">privkey</span><span class="p">:</span> <span class="kt">Data</span><span class="p">,</span> <span class="nv">tagName</span><span class="p">:</span> <span class="kt">String</span><span class="p">)</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt">SecKey</span><span class="p">?</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>privkey</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>RSA private key (PKCS#1 or PKCS#8)</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>tagName</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>tag name to store RSA key to keychain</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>SecKey reference to the RSA private key.</p>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:ZFC14P2PSocketsSale8RSAUtilsP33_C9BDA47C1C28D70060E87725F2BC83E421stripPrivateKeyHeaderFzV10Foundation4DataGSqS2__"></a>
+                    <a name="//apple_ref/swift/Method/stripPrivateKeyHeader(_:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:ZFC14P2PSocketsSale8RSAUtilsP33_C9BDA47C1C28D70060E87725F2BC83E421stripPrivateKeyHeaderFzV10Foundation4DataGSqS2__">stripPrivateKeyHeader(_:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Verifies that the supplied key is in fact a PEM RSA private key, and strips its header.</p>
+
+<p>If the supplied key is PKCS#8, its ASN.1 header should be stripped. Otherwise (PKCS#1), the whole key data is left intact.</p>
+
+<p>On disk, a PEM RSA PKCS#8 private key file starts with string <q>&mdash;&ndash;BEGIN PRIVATE KEY&mdash;&ndash;</q>, and ends with string <q>&mdash;&ndash;END PRIVATE KEY&mdash;&ndash;</q>; PKCS#1 private key file starts with string <q>&mdash;&ndash;BEGIN RSA PRIVATE KEY&mdash;&ndash;</q>, and ends with string <q>&mdash;&ndash;END RSA PRIVATE KEY&mdash;&ndash;</q>.</p>
+<div class="aside aside-throws">
+    <p class="aside-title">Throws</p>
+    <p><code><a href="../Classes/RSAUtils/RSAUtilsError.html">RSAUtilsError</a></code> if the input key is not a valid RSA PKCS#8 private key</p>
+
+</div>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">private</span> <span class="kd">static</span> <span class="kd">func</span> <span class="nf">stripPrivateKeyHeader</span><span class="p">(</span><span class="n">_</span> <span class="nv">privkey</span><span class="p">:</span> <span class="kt">Data</span><span class="p">)</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt">Data</span><span class="p">?</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>privkey</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>RSA private key (PKCS#1 or PKCS#8)</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>the RSA private key with header stripped.</p>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:ZFC14P2PSocketsSale8RSAUtils15addRSAPublicKeyFzTSS7tagNameSS_GSqCSo6SecKey_"></a>
+                    <a name="//apple_ref/swift/Method/addRSAPublicKey(_:tagName:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:ZFC14P2PSocketsSale8RSAUtils15addRSAPublicKeyFzTSS7tagNameSS_GSqCSo6SecKey_">addRSAPublicKey(_:tagName:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Adds a RSA public key to keychain and returns its SecKey reference.</p>
+<div class="aside aside-throws">
+    <p class="aside-title">Throws</p>
+    <p><code><a href="../Classes/RSAUtils/RSAUtilsError.html">RSAUtilsError</a></code> if the input key is indeed not a X509 public key</p>
+
+</div>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">static</span> <span class="kd">func</span> <span class="nf">addRSAPublicKey</span><span class="p">(</span><span class="n">_</span> <span class="nv">pubkeyBase64</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="nv">tagName</span><span class="p">:</span> <span class="kt">String</span><span class="p">)</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt">SecKey</span><span class="p">?</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>pubkeyBase64</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>X509 public key in base64 (data between <q>&mdash;&ndash;BEGIN PUBLIC KEY&mdash;&ndash;</q> and <q>&mdash;&ndash;END PUBLIC KEY&mdash;&ndash;</q>)</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>tagName</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>tag name to store RSA key to keychain</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>SecKey reference to the RSA public key.</p>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:ZFC14P2PSocketsSale8RSAUtilsP33_C9BDA47C1C28D70060E87725F2BC83E415addRSAPublicKeyFzTV10Foundation4Data7tagNameSS_GSqCSo6SecKey_"></a>
+                    <a name="//apple_ref/swift/Method/addRSAPublicKey(_:tagName:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:ZFC14P2PSocketsSale8RSAUtilsP33_C9BDA47C1C28D70060E87725F2BC83E415addRSAPublicKeyFzTV10Foundation4Data7tagNameSS_GSqCSo6SecKey_">addRSAPublicKey(_:tagName:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Adds a RSA pubic key to keychain and returns its SecKey reference.</p>
+<div class="aside aside-throws">
+    <p class="aside-title">Throws</p>
+    <p><code><a href="../Classes/RSAUtils/RSAUtilsError.html">RSAUtilsError</a></code> if the input key is not a valid X509 public key</p>
+
+</div>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">private</span> <span class="kd">static</span> <span class="kd">func</span> <span class="nf">addRSAPublicKey</span><span class="p">(</span><span class="n">_</span> <span class="nv">pubkey</span><span class="p">:</span> <span class="kt">Data</span><span class="p">,</span> <span class="nv">tagName</span><span class="p">:</span> <span class="kt">String</span><span class="p">)</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt">SecKey</span><span class="p">?</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>pubkey</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>X509 public key</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>tagName</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>tag name to store RSA key to keychain</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>SecKey reference to the RSA public key.</p>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:ZFC14P2PSocketsSale8RSAUtilsP33_C9BDA47C1C28D70060E87725F2BC83E420stripPublicKeyHeaderFzV10Foundation4DataGSqS2__"></a>
+                    <a name="//apple_ref/swift/Method/stripPublicKeyHeader(_:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:ZFC14P2PSocketsSale8RSAUtilsP33_C9BDA47C1C28D70060E87725F2BC83E420stripPublicKeyHeaderFzV10Foundation4DataGSqS2__">stripPublicKeyHeader(_:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Verifies that the supplied key is in fact a X509 public key, and strips its header.</p>
+
+<p>On disk, a X509 public key file starts with string <q>&mdash;&ndash;BEGIN PUBLIC KEY&mdash;&ndash;</q>, and ends with string <q>&mdash;&ndash;END PUBLIC KEY&mdash;&ndash;</q></p>
+<div class="aside aside-throws">
+    <p class="aside-title">Throws</p>
+    <p><code><a href="../Classes/RSAUtils/RSAUtilsError.html">RSAUtilsError</a></code> if the input key is not a valid X509 public key</p>
+
+</div>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">private</span> <span class="kd">static</span> <span class="kd">func</span> <span class="nf">stripPublicKeyHeader</span><span class="p">(</span><span class="n">_</span> <span class="nv">pubkey</span><span class="p">:</span> <span class="kt">Data</span><span class="p">)</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt">Data</span><span class="p">?</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>pubkey</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>X509 public key</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>the RSA public key with header stripped.</p>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:ZFC14P2PSocketsSale8RSAUtils17encryptWithRSAKeyFTV10Foundation4Data9rsaKeyRefCSo6SecKey7paddingVSC10SecPadding_GSqS2__"></a>
+                    <a name="//apple_ref/swift/Method/encryptWithRSAKey(_:rsaKeyRef:padding:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:ZFC14P2PSocketsSale8RSAUtils17encryptWithRSAKeyFTV10Foundation4Data9rsaKeyRefCSo6SecKey7paddingVSC10SecPadding_GSqS2__">encryptWithRSAKey(_:rsaKeyRef:padding:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Encrypts data with a RSA key.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">static</span> <span class="kd">func</span> <span class="nf">encryptWithRSAKey</span><span class="p">(</span><span class="n">_</span> <span class="nv">data</span><span class="p">:</span> <span class="kt">Data</span><span class="p">,</span> <span class="nv">rsaKeyRef</span><span class="p">:</span> <span class="kt">SecKey</span><span class="p">,</span> <span class="nv">padding</span><span class="p">:</span> <span class="kt">SecPadding</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Data</span><span class="p">?</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>data</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>the data to be encrypted</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>rsaKeyRef</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>the RSA key</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>padding</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>padding used for encryption</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>the data in encrypted form</p>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:ZFC14P2PSocketsSale8RSAUtils17decryptWithRSAKeyFTV10Foundation4Data9rsaKeyRefCSo6SecKey7paddingVSC10SecPadding_GSqS2__"></a>
+                    <a name="//apple_ref/swift/Method/decryptWithRSAKey(_:rsaKeyRef:padding:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:ZFC14P2PSocketsSale8RSAUtils17decryptWithRSAKeyFTV10Foundation4Data9rsaKeyRefCSo6SecKey7paddingVSC10SecPadding_GSqS2__">decryptWithRSAKey(_:rsaKeyRef:padding:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Decrypts data with a RSA key.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">static</span> <span class="kd">func</span> <span class="nf">decryptWithRSAKey</span><span class="p">(</span><span class="n">_</span> <span class="nv">encryptedData</span><span class="p">:</span> <span class="kt">Data</span><span class="p">,</span> <span class="nv">rsaKeyRef</span><span class="p">:</span> <span class="kt">SecKey</span><span class="p">,</span> <span class="nv">padding</span><span class="p">:</span> <span class="kt">SecPadding</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Data</span><span class="p">?</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>encryptedData</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>the data to be decrypted</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>rsaKeyRef</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>the RSA key</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>padding</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>padding used for decryption</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>the decrypted data</p>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:ZFC14P2PSocketsSale8RSAUtilsP33_C9BDA47C1C28D70060E87725F2BC83E413removePaddingFGSaVs5UInt8_GSaS1__"></a>
+                    <a name="//apple_ref/swift/Method/removePadding(_:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:ZFC14P2PSocketsSale8RSAUtilsP33_C9BDA47C1C28D70060E87725F2BC83E413removePaddingFGSaVs5UInt8_GSaS1__">removePadding(_:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:ZFC14P2PSocketsSale8RSAUtils17encryptWithRSAKeyFT4dataV10Foundation4Data7tagNameSS_GSqS2__"></a>
+                    <a name="//apple_ref/swift/Method/encryptWithRSAKey(data:tagName:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:ZFC14P2PSocketsSale8RSAUtils17encryptWithRSAKeyFT4dataV10Foundation4Data7tagNameSS_GSqS2__">encryptWithRSAKey(data:tagName:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Encrypts data using a RSA key from keychain specified by <code>tagName</code>.</p>
+
+<p>Note: The RSA key must be added to keychain by calling <code>addRSAPublicKey()</code> or <code>addRSAPrivateKey()</code> period to calling this function.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">static</span> <span class="kd">func</span> <span class="nf">encryptWithRSAKey</span><span class="p">(</span><span class="nv">data</span><span class="p">:</span> <span class="kt">Data</span><span class="p">,</span> <span class="nv">tagName</span><span class="p">:</span> <span class="kt">String</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Data</span><span class="p">?</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>data</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>data to be encrypted</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>tagName</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>tag name to query for RSA key from keychain.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>the data in encrypted form</p>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:ZFC14P2PSocketsSale8RSAUtils17encryptWithRSAKeyFT3strSS7tagNameSS_GSqV10Foundation4Data_"></a>
+                    <a name="//apple_ref/swift/Method/encryptWithRSAKey(str:tagName:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:ZFC14P2PSocketsSale8RSAUtils17encryptWithRSAKeyFT3strSS7tagNameSS_GSqV10Foundation4Data_">encryptWithRSAKey(str:tagName:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Encrypts a string using a RSA key from keychain specified by <code>tagName</code>.</p>
+
+<p>Note: The RSA key must be added to keychain by calling <code>addRSAPublicKey()</code> or <code>addRSAPrivateKey()</code> period to calling this function.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">static</span> <span class="kd">func</span> <span class="nf">encryptWithRSAKey</span><span class="p">(</span><span class="nv">str</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="nv">tagName</span><span class="p">:</span> <span class="kt">String</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Data</span><span class="p">?</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>str</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>string to be encrypted</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>tagName</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>tag name to query for RSA key from keychain.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>the data in encrypted form</p>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:ZFC14P2PSocketsSale8RSAUtils17decryptWithRSAKeyFT13encryptedDataV10Foundation4Data7tagNameSS_GSqS2__"></a>
+                    <a name="//apple_ref/swift/Method/decryptWithRSAKey(encryptedData:tagName:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:ZFC14P2PSocketsSale8RSAUtils17decryptWithRSAKeyFT13encryptedDataV10Foundation4Data7tagNameSS_GSqS2__">decryptWithRSAKey(encryptedData:tagName:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Decrypts an encrypted data using a RSA key from keychain specified by <code>tagName</code>.</p>
+
+<p>Note: The RSA key must be added to keychain by calling <code>addRSAPublicKey()</code> or <code>addRSAPrivateKey()</code> period to calling this function.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">static</span> <span class="kd">func</span> <span class="nf">decryptWithRSAKey</span><span class="p">(</span><span class="nv">encryptedData</span><span class="p">:</span> <span class="kt">Data</span><span class="p">,</span> <span class="nv">tagName</span><span class="p">:</span> <span class="kt">String</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Data</span><span class="p">?</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>encryptedData</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>data to be decrypted</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>tagName</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>tag name to query for RSA key from keychain.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>the decrypted data</p>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:ZFC14P2PSocketsSale8RSAUtils23encryptWithRSAPublicKeyFzT4dataV10Foundation4Data12pubkeyBase64SS_GSqS2__"></a>
+                    <a name="//apple_ref/swift/Method/encryptWithRSAPublicKey(data:pubkeyBase64:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:ZFC14P2PSocketsSale8RSAUtils23encryptWithRSAPublicKeyFzT4dataV10Foundation4Data12pubkeyBase64SS_GSqS2__">encryptWithRSAPublicKey(data:pubkeyBase64:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Encrypts data using RSA public key.</p>
+
+<p>Note: the public key will be stored in keychain with tag as <code>pubkeyBase64.hashValue</code>.</p>
+<div class="aside aside-throws">
+    <p class="aside-title">Throws</p>
+    <p><code><a href="../Classes/RSAUtils/RSAUtilsError.html">RSAUtilsError</a></code> if the supplied key is not a valid X509 public key</p>
+
+</div>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">static</span> <span class="kd">func</span> <span class="nf">encryptWithRSAPublicKey</span><span class="p">(</span><span class="nv">data</span><span class="p">:</span> <span class="kt">Data</span><span class="p">,</span> <span class="nv">pubkeyBase64</span><span class="p">:</span> <span class="kt">String</span><span class="p">)</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt">Data</span><span class="p">?</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>data</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>data to be encrypted</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>pubkeyBase64</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>X509 public key in base64 (data between <q>&mdash;&ndash;BEGIN PUBLIC KEY&mdash;&ndash;</q> and <q>&mdash;&ndash;END PUBLIC KEY&mdash;&ndash;</q>)</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>the data in encrypted form</p>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:ZFC14P2PSocketsSale8RSAUtils23encryptWithRSAPublicKeyFzT3strSS12pubkeyBase64SS_GSqV10Foundation4Data_"></a>
+                    <a name="//apple_ref/swift/Method/encryptWithRSAPublicKey(str:pubkeyBase64:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:ZFC14P2PSocketsSale8RSAUtils23encryptWithRSAPublicKeyFzT3strSS12pubkeyBase64SS_GSqV10Foundation4Data_">encryptWithRSAPublicKey(str:pubkeyBase64:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Encrypts a string using RSA public key.</p>
+
+<p>Note: the public key will be stored in keychain with tag as <code>pubkeyBase64.hashValue</code>.</p>
+<div class="aside aside-throws">
+    <p class="aside-title">Throws</p>
+    <p><code><a href="../Classes/RSAUtils/RSAUtilsError.html">RSAUtilsError</a></code> if the supplied key is not a valid X509 public key</p>
+
+</div>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">static</span> <span class="kd">func</span> <span class="nf">encryptWithRSAPublicKey</span><span class="p">(</span><span class="nv">str</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="nv">pubkeyBase64</span><span class="p">:</span> <span class="kt">String</span><span class="p">)</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt">Data</span><span class="p">?</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>str</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>string to be encrypted</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>pubkeyBase64</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>X509 public key in base64 (data between <q>&mdash;&ndash;BEGIN PUBLIC KEY&mdash;&ndash;</q> and <q>&mdash;&ndash;END PUBLIC KEY&mdash;&ndash;</q>)</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>the data in encrypted form</p>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:ZFC14P2PSocketsSale8RSAUtils23encryptWithRSAPublicKeyFzT4dataV10Foundation4Data12pubkeyBase64SS7tagNameSS_GSqS2__"></a>
+                    <a name="//apple_ref/swift/Method/encryptWithRSAPublicKey(data:pubkeyBase64:tagName:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:ZFC14P2PSocketsSale8RSAUtils23encryptWithRSAPublicKeyFzT4dataV10Foundation4Data12pubkeyBase64SS7tagNameSS_GSqS2__">encryptWithRSAPublicKey(data:pubkeyBase64:tagName:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Encrypts data using RSA public key.</p>
+
+<p>Note: the public key will be stored in keychain specified by tagName.</p>
+<div class="aside aside-throws">
+    <p class="aside-title">Throws</p>
+    <p><code><a href="../Classes/RSAUtils/RSAUtilsError.html">RSAUtilsError</a></code> if the supplied key is not a valid X509 public key</p>
+
+</div>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">static</span> <span class="kd">func</span> <span class="nf">encryptWithRSAPublicKey</span><span class="p">(</span><span class="nv">data</span><span class="p">:</span> <span class="kt">Data</span><span class="p">,</span> <span class="nv">pubkeyBase64</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="nv">tagName</span><span class="p">:</span> <span class="kt">String</span><span class="p">)</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt">Data</span><span class="p">?</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>data</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>data to be encrypted</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>pubkeyBase64</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>X509 public key in base64 (data between <q>&mdash;&ndash;BEGIN PUBLIC KEY&mdash;&ndash;</q> and <q>&mdash;&ndash;END PUBLIC KEY&mdash;&ndash;</q>)</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>tagName</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>tag name to store RSA key to keychain</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>the data in encrypted form</p>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:ZFC14P2PSocketsSale8RSAUtils23encryptWithRSAPublicKeyFzT3strSS12pubkeyBase64SS7tagNameSS_GSqV10Foundation4Data_"></a>
+                    <a name="//apple_ref/swift/Method/encryptWithRSAPublicKey(str:pubkeyBase64:tagName:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:ZFC14P2PSocketsSale8RSAUtils23encryptWithRSAPublicKeyFzT3strSS12pubkeyBase64SS7tagNameSS_GSqV10Foundation4Data_">encryptWithRSAPublicKey(str:pubkeyBase64:tagName:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Encrypts a string using RSA public key.</p>
+
+<p>Note: the public key will be stored in keychain specified by tagName.</p>
+<div class="aside aside-throws">
+    <p class="aside-title">Throws</p>
+    <p><code><a href="../Classes/RSAUtils/RSAUtilsError.html">RSAUtilsError</a></code> if the supplied key is not a valid X509 public key</p>
+
+</div>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">static</span> <span class="kd">func</span> <span class="nf">encryptWithRSAPublicKey</span><span class="p">(</span><span class="nv">str</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="nv">pubkeyBase64</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="nv">tagName</span><span class="p">:</span> <span class="kt">String</span><span class="p">)</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt">Data</span><span class="p">?</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>str</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>string to be encrypted</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>pubkeyBase64</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>X509 public key in base64 (data between <q>&mdash;&ndash;BEGIN PUBLIC KEY&mdash;&ndash;</q> and <q>&mdash;&ndash;END PUBLIC KEY&mdash;&ndash;</q>)</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>tagName</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>tag name to store RSA key to keychain</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>the data in encrypted form</p>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:ZFC14P2PSocketsSale8RSAUtils24decryptWithRSAPrivateKeyFzT13encryptedDataV10Foundation4Data13privkeyBase64SS_GSqS2__"></a>
+                    <a name="//apple_ref/swift/Method/decryptWithRSAPrivateKey(encryptedData:privkeyBase64:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:ZFC14P2PSocketsSale8RSAUtils24decryptWithRSAPrivateKeyFzT13encryptedDataV10Foundation4Data13privkeyBase64SS_GSqS2__">decryptWithRSAPrivateKey(encryptedData:privkeyBase64:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Decrypts an encrypted data using a RSA private key.</p>
+
+<p>Note: the private key will be stored in keychain with tag as <code>privkeyBase64.hashValue</code>.</p>
+<div class="aside aside-throws">
+    <p class="aside-title">Throws</p>
+    <p><code><a href="../Classes/RSAUtils/RSAUtilsError.html">RSAUtilsError</a></code> if the supplied key is not a valid RSA PKCS#8 private key</p>
+
+</div>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">static</span> <span class="kd">func</span> <span class="nf">decryptWithRSAPrivateKey</span><span class="p">(</span><span class="nv">encryptedData</span><span class="p">:</span> <span class="kt">Data</span><span class="p">,</span> <span class="nv">privkeyBase64</span><span class="p">:</span> <span class="kt">String</span><span class="p">)</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt">Data</span><span class="p">?</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>encryptedData</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>data to be decrypted</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>privkeyBase64</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>RSA PKCS#8 private key in base64 (data between <q>&mdash;&ndash;BEGIN PRIVATE KEY&mdash;&ndash;</q> and <q>&mdash;&ndash;END PRIVATE KEY&mdash;&ndash;</q>)</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>the decrypted data</p>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:ZFC14P2PSocketsSale8RSAUtils24decryptWithRSAPrivateKeyFzT13encryptedDataV10Foundation4Data13privkeyBase64SS7tagNameSS_GSqS2__"></a>
+                    <a name="//apple_ref/swift/Method/decryptWithRSAPrivateKey(encryptedData:privkeyBase64:tagName:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:ZFC14P2PSocketsSale8RSAUtils24decryptWithRSAPrivateKeyFzT13encryptedDataV10Foundation4Data13privkeyBase64SS7tagNameSS_GSqS2__">decryptWithRSAPrivateKey(encryptedData:privkeyBase64:tagName:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Decrypts an encrypted data using a RSA private key.</p>
+
+<p>Note: the private key will be stored in keychain specified by tagName.</p>
+<div class="aside aside-throws">
+    <p class="aside-title">Throws</p>
+    <p><code><a href="../Classes/RSAUtils/RSAUtilsError.html">RSAUtilsError</a></code> if the supplied key is not a valid RSA PKCS#8 private key</p>
+
+</div>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">static</span> <span class="kd">func</span> <span class="nf">decryptWithRSAPrivateKey</span><span class="p">(</span><span class="nv">encryptedData</span><span class="p">:</span> <span class="kt">Data</span><span class="p">,</span> <span class="nv">privkeyBase64</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="nv">tagName</span><span class="p">:</span> <span class="kt">String</span><span class="p">)</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt">Data</span><span class="p">?</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>encryptedData</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>data to be decrypted</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>privkeyBase64</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>RSA PKCS#8 private key in base64 (data between <q>&mdash;&ndash;BEGIN PRIVATE KEY&mdash;&ndash;</q> and <q>&mdash;&ndash;END PRIVATE KEY&mdash;&ndash;</q>)</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>tagName</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>tag name to store RSA key to keychain</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>the data in encrypted form</p>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </section>
+        </section>
+        <section id="footer">
+          <p>&copy; 2017 <a class="link" href="" target="_blank" rel="external"></a>. All rights reserved. (Last updated: 2017-09-13)</p>
+          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.8.3</a>, a <a class="link" href="http://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+        </section>
+      </article>
+    </div>
+  </body>
+</div>
+</html>

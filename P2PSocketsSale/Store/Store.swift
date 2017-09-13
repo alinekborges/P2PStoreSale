@@ -16,6 +16,8 @@ protocol StoreDelegate {
     
 }
 
+
+
 class Store: NSObject {
     
     var manager: StoreMultipeerManager
@@ -37,8 +39,6 @@ class Store: NSObject {
         return bossManager != nil
     }
     
-    
-    
     init(name: String, products: [Product]) {
         self.name = name
         self.products = products
@@ -53,10 +53,11 @@ class Store: NSObject {
         super.init()
         manager.delegate = self
         
-        let crypto = Crypto()
-        crypto.testEncrypt()
     }
     
+    /**
+     * Sends keep alive (if current store is boss) or check if keep alive is being sent (if it isn't the boss
+     */
     func onTick() {
         if self.isBoss {
             self.bossManager?.sendKeepAlive()
@@ -65,10 +66,18 @@ class Store: NSObject {
         }
     }
     
+    /**
+     * Forces disconnection of a store
+     */
     func disconnect() {
         self.manager.disconnect()
     }
    
+    /**
+     * Converts store to a simpler object with all properties
+     * 
+     * - Returns: Base Store
+     */
     func baseStore() -> StoreBase {
         let base = StoreBase(name: self.name,
              products: self.products,
@@ -77,6 +86,11 @@ class Store: NSObject {
         return base
     }
     
+    /**
+     * Creates message that announces all products for this store
+     *
+     * - Returns: message with store and products information
+     */
     func announceStoreMessage() -> Message {
         let base = self.baseStore()
         let message = Message()
@@ -88,6 +102,11 @@ class Store: NSObject {
         return message
     }
     
+    /**
+     * Sends a buy order to the boss, that should choose from which peer I should buy the product from
+     *
+     * - Parameter order: Buy Order
+     */
     func sendBuyOrder(_ order: BuyOrder) {
         let message = Message()
         message.type = .buyOrder

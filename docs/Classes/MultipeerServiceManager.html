@@ -1,0 +1,599 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>MultipeerServiceManager Class Reference</title>
+    <link rel="stylesheet" type="text/css" href="../css/jazzy.css" />
+    <link rel="stylesheet" type="text/css" href="../css/highlight.css" />
+    <meta charset='utf-8'>
+    <script src="../js/jquery.min.js" defer></script>
+    <script src="../js/jazzy.js" defer></script>
+    
+  </head>
+  <body>
+    <a name="//apple_ref/swift/Class/MultipeerServiceManager" class="dashAnchor"></a>
+    <a title="MultipeerServiceManager Class Reference"></a>
+    <header>
+      <div class="content-wrapper">
+        <p><a href="../index.html"> Docs</a> (8% documented)</p>
+      </div>
+    </header>
+    <div class="content-wrapper">
+      <p id="breadcrumbs">
+        <a href="../index.html"> Reference</a>
+        <img id="carat" src="../img/carat.png" />
+        MultipeerServiceManager Class Reference
+      </p>
+    </div>
+    <div class="content-wrapper">
+      <nav class="sidebar">
+        <ul class="nav-groups">
+          <li class="nav-group-name">
+            <a href="../Classes.html">Classes</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Classes/AppDelegate.html">AppDelegate</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/BuyOrder.html">BuyOrder</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/BuyOrderResponse.html">BuyOrderResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/CustomPickerCollectionViewController.html">CustomPickerCollectionViewController</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/CustomPickerCollectionViewController/Style.html">– Style</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/Message.html">Message</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/Message/MessageType.html">– MessageType</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/MultipeerServiceManager.html">MultipeerServiceManager</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/NewStoreViewController.html">NewStoreViewController</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/NotificationUtils.html">NotificationUtils</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/PickerCollectionViewCell.html">PickerCollectionViewCell</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/Product.html">Product</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/ProductCell.html">ProductCell</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/RSAUtils.html">RSAUtils</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/RSAUtils/RSAUtilsError.html">– RSAUtilsError</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/Store.html">Store</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/StoreBase.html">StoreBase</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/StoreBossManager.html">StoreBossManager</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/StoreCell.html">StoreCell</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/StoreMultipeerManager.html">StoreMultipeerManager</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/StoreProductCell.html">StoreProductCell</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/StoreViewController.html">StoreViewController</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/UIViewControllerFromXib.html">UIViewControllerFromXib</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/ViewController.html">ViewController</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Global Variables.html">Global Variables</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Global Variables.html#/s:v14P2PSocketsSaleP33_55C4AA10B6989A87E62EF8AB53793D3119queueAssociationKeyVs5UInt8">queueAssociationKey</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Global Variables.html#/s:v14P2PSocketsSaleP33_68ADC7A650E85510312839F7CE1F542015reuseIdentifierSS">reuseIdentifier</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Extensions.html">Extensions</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Extensions/Array.html">Array</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Extensions/Int.html">Int</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Extensions/NSObject.html">NSObject</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Extensions/UIColor.html">UIColor</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Extensions/UIView.html">UIView</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Protocols.html">Protocols</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Protocols/CreateNewStore.html">CreateNewStore</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols/PeerMessageDelegate.html">PeerMessageDelegate</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols/ServiceManagerDelegate.html">ServiceManagerDelegate</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols/StoreDelegate.html">StoreDelegate</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols/StoreMultipeerDelegate.html">StoreMultipeerDelegate</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Structs.html">Structs</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Structs/Constants.html">Constants</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/Keys.html">Keys</a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </nav>
+      <article class="main-content">
+        <section>
+          <section class="section">
+            <h1>MultipeerServiceManager</h1>
+            <p>Undocumented</p>
+
+          </section>
+          <section class="section task-group-section">
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:vC14P2PSocketsSale23MultipeerServiceManagerP33_F5391A4A949DE2DAC46012C1EA6BF98911ServiceTypeSS"></a>
+                    <a name="//apple_ref/swift/Property/ServiceType" class="dashAnchor"></a>
+                    <a class="token" href="#/s:vC14P2PSocketsSale23MultipeerServiceManagerP33_F5391A4A949DE2DAC46012C1EA6BF98911ServiceTypeSS">ServiceType</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:vC14P2PSocketsSale23MultipeerServiceManager8myPeerIdGSQCSo8MCPeerID_"></a>
+                    <a name="//apple_ref/swift/Property/myPeerId" class="dashAnchor"></a>
+                    <a class="token" href="#/s:vC14P2PSocketsSale23MultipeerServiceManager8myPeerIdGSQCSo8MCPeerID_">myPeerId</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:vC14P2PSocketsSale23MultipeerServiceManagerP33_F5391A4A949DE2DAC46012C1EA6BF98917serviceAdvertiserCSo25MCNearbyServiceAdvertiser"></a>
+                    <a name="//apple_ref/swift/Property/serviceAdvertiser" class="dashAnchor"></a>
+                    <a class="token" href="#/s:vC14P2PSocketsSale23MultipeerServiceManagerP33_F5391A4A949DE2DAC46012C1EA6BF98917serviceAdvertiserCSo25MCNearbyServiceAdvertiser">serviceAdvertiser</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:vC14P2PSocketsSale23MultipeerServiceManagerP33_F5391A4A949DE2DAC46012C1EA6BF98914serviceBrowserCSo22MCNearbyServiceBrowser"></a>
+                    <a name="//apple_ref/swift/Property/serviceBrowser" class="dashAnchor"></a>
+                    <a class="token" href="#/s:vC14P2PSocketsSale23MultipeerServiceManagerP33_F5391A4A949DE2DAC46012C1EA6BF98914serviceBrowserCSo22MCNearbyServiceBrowser">serviceBrowser</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:vC14P2PSocketsSale23MultipeerServiceManager14connectedPeersGSaCSo8MCPeerID_"></a>
+                    <a name="//apple_ref/swift/Property/connectedPeers" class="dashAnchor"></a>
+                    <a class="token" href="#/s:vC14P2PSocketsSale23MultipeerServiceManager14connectedPeersGSaCSo8MCPeerID_">connectedPeers</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:vC14P2PSocketsSale23MultipeerServiceManager8delegateGSqPS_22ServiceManagerDelegate__"></a>
+                    <a name="//apple_ref/swift/Property/delegate" class="dashAnchor"></a>
+                    <a class="token" href="#/s:vC14P2PSocketsSale23MultipeerServiceManager8delegateGSqPS_22ServiceManagerDelegate__">delegate</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:vC14P2PSocketsSale23MultipeerServiceManager7sessionCSo9MCSession"></a>
+                    <a name="//apple_ref/swift/Property/session" class="dashAnchor"></a>
+                    <a class="token" href="#/s:vC14P2PSocketsSale23MultipeerServiceManager7sessionCSo9MCSession">session</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FC14P2PSocketsSale23MultipeerServiceManagercFT6peerIDSS_S0_"></a>
+                    <a name="//apple_ref/swift/Method/init(peerID:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FC14P2PSocketsSale23MultipeerServiceManagercFT6peerIDSS_S0_">init(peerID:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FC14P2PSocketsSale23MultipeerServiceManagerd"></a>
+                    <a name="//apple_ref/swift/Method/deinit" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FC14P2PSocketsSale23MultipeerServiceManagerd">deinit</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FC14P2PSocketsSale23MultipeerServiceManager10disconnectFT_T_"></a>
+                    <a name="//apple_ref/swift/Method/disconnect()" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FC14P2PSocketsSale23MultipeerServiceManager10disconnectFT_T_">disconnect()</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FC14P2PSocketsSale23MultipeerServiceManager7browserFTCSo22MCNearbyServiceBrowser27didNotStartBrowsingForPeersPs5Error__T_"></a>
+                    <a name="//apple_ref/swift/Method/browser(_:didNotStartBrowsingForPeers:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FC14P2PSocketsSale23MultipeerServiceManager7browserFTCSo22MCNearbyServiceBrowser27didNotStartBrowsingForPeersPs5Error__T_">browser(_:didNotStartBrowsingForPeers:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FC14P2PSocketsSale23MultipeerServiceManager7browserFTCSo22MCNearbyServiceBrowser9foundPeerCSo8MCPeerID17withDiscoveryInfoGSqGVs10DictionarySSSS___T_"></a>
+                    <a name="//apple_ref/swift/Method/browser(_:foundPeer:withDiscoveryInfo:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FC14P2PSocketsSale23MultipeerServiceManager7browserFTCSo22MCNearbyServiceBrowser9foundPeerCSo8MCPeerID17withDiscoveryInfoGSqGVs10DictionarySSSS___T_">browser(_:foundPeer:withDiscoveryInfo:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FC14P2PSocketsSale23MultipeerServiceManager7browserFTCSo22MCNearbyServiceBrowser8lostPeerCSo8MCPeerID_T_"></a>
+                    <a name="//apple_ref/swift/Method/browser(_:lostPeer:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FC14P2PSocketsSale23MultipeerServiceManager7browserFTCSo22MCNearbyServiceBrowser8lostPeerCSo8MCPeerID_T_">browser(_:lostPeer:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <div class="task-name-container">
+                <a name="/MCNearbyServiceAdvertiser%20Delegates"></a>
+                <a name="//apple_ref/swift/Section/MCNearbyServiceAdvertiser Delegates" class="dashAnchor"></a>
+                <a href="#/MCNearbyServiceAdvertiser%20Delegates">
+                  <h3 class="section-name">MCNearbyServiceAdvertiser Delegates</h3>
+                </a>
+              </div>
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FC14P2PSocketsSale23MultipeerServiceManager10advertiserFTCSo25MCNearbyServiceAdvertiser26didNotStartAdvertisingPeerPs5Error__T_"></a>
+                    <a name="//apple_ref/swift/Method/advertiser(_:didNotStartAdvertisingPeer:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FC14P2PSocketsSale23MultipeerServiceManager10advertiserFTCSo25MCNearbyServiceAdvertiser26didNotStartAdvertisingPeerPs5Error__T_">advertiser(_:didNotStartAdvertisingPeer:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FC14P2PSocketsSale23MultipeerServiceManager10advertiserFTCSo25MCNearbyServiceAdvertiser28didReceiveInvitationFromPeerCSo8MCPeerID11withContextGSqV10Foundation4Data_17invitationHandlerFTSbGSqCSo9MCSession__T__T_"></a>
+                    <a name="//apple_ref/swift/Method/advertiser(_:didReceiveInvitationFromPeer:withContext:invitationHandler:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FC14P2PSocketsSale23MultipeerServiceManager10advertiserFTCSo25MCNearbyServiceAdvertiser28didReceiveInvitationFromPeerCSo8MCPeerID11withContextGSqV10Foundation4Data_17invitationHandlerFTSbGSqCSo9MCSession__T__T_">advertiser(_:didReceiveInvitationFromPeer:withContext:invitationHandler:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <div class="task-name-container">
+                <a name="/MCSession%20Delegates"></a>
+                <a name="//apple_ref/swift/Section/MCSession Delegates" class="dashAnchor"></a>
+                <a href="#/MCSession%20Delegates">
+                  <h3 class="section-name">MCSession Delegates</h3>
+                </a>
+              </div>
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FC14P2PSocketsSale23MultipeerServiceManager7sessionFTCSo9MCSession4peerCSo8MCPeerID9didChangeOSC14MCSessionState_T_"></a>
+                    <a name="//apple_ref/swift/Method/session(_:peer:didChange:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FC14P2PSocketsSale23MultipeerServiceManager7sessionFTCSo9MCSession4peerCSo8MCPeerID9didChangeOSC14MCSessionState_T_">session(_:peer:didChange:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FC14P2PSocketsSale23MultipeerServiceManager7sessionFTCSo9MCSession10didReceiveV10Foundation4Data8fromPeerCSo8MCPeerID_T_"></a>
+                    <a name="//apple_ref/swift/Method/session(_:didReceive:fromPeer:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FC14P2PSocketsSale23MultipeerServiceManager7sessionFTCSo9MCSession10didReceiveV10Foundation4Data8fromPeerCSo8MCPeerID_T_">session(_:didReceive:fromPeer:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FC14P2PSocketsSale23MultipeerServiceManager7sessionFTCSo9MCSession10didReceiveCSo11InputStream8withNameSS8fromPeerCSo8MCPeerID_T_"></a>
+                    <a name="//apple_ref/swift/Method/session(_:didReceive:withName:fromPeer:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FC14P2PSocketsSale23MultipeerServiceManager7sessionFTCSo9MCSession10didReceiveCSo11InputStream8withNameSS8fromPeerCSo8MCPeerID_T_">session(_:didReceive:withName:fromPeer:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FC14P2PSocketsSale23MultipeerServiceManager7sessionFTCSo9MCSession33didStartReceivingResourceWithNameSS8fromPeerCSo8MCPeerID4withCSo8Progress_T_"></a>
+                    <a name="//apple_ref/swift/Method/session(_:didStartReceivingResourceWithName:fromPeer:with:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FC14P2PSocketsSale23MultipeerServiceManager7sessionFTCSo9MCSession33didStartReceivingResourceWithNameSS8fromPeerCSo8MCPeerID4withCSo8Progress_T_">session(_:didStartReceivingResourceWithName:fromPeer:with:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FC14P2PSocketsSale23MultipeerServiceManager7sessionFTCSo9MCSession34didFinishReceivingResourceWithNameSS8fromPeerCSo8MCPeerID2atV10Foundation3URL9withErrorGSqPs5Error___T_"></a>
+                    <a name="//apple_ref/swift/Method/session(_:didFinishReceivingResourceWithName:fromPeer:at:withError:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FC14P2PSocketsSale23MultipeerServiceManager7sessionFTCSo9MCSession34didFinishReceivingResourceWithNameSS8fromPeerCSo8MCPeerID2atV10Foundation3URL9withErrorGSqPs5Error___T_">session(_:didFinishReceivingResourceWithName:fromPeer:at:withError:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </section>
+        </section>
+        <section id="footer">
+          <p>&copy; 2017 <a class="link" href="" target="_blank" rel="external"></a>. All rights reserved. (Last updated: 2017-09-13)</p>
+          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.8.3</a>, a <a class="link" href="http://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+        </section>
+      </article>
+    </div>
+  </body>
+</div>
+</html>

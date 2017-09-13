@@ -1,0 +1,2091 @@
+{
+  "warnings": [
+    {
+      "file": "/Users/alineborges/Documents/P2PSocketSale/P2PSocketsSale/P2PSocketsSale/AppDelegate.swift",
+      "line": 12,
+      "symbol": "AppDelegate",
+      "symbol_kind": "source.lang.swift.decl.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/alineborges/Documents/P2PSocketSale/P2PSocketsSale/P2PSocketsSale/AppDelegate.swift",
+      "line": 14,
+      "symbol": "AppDelegate.window",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/alineborges/Documents/P2PSocketSale/P2PSocketsSale/P2PSocketsSale/AppDelegate.swift",
+      "line": 16,
+      "symbol": "AppDelegate.application(_:didFinishLaunchingWithOptions:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/alineborges/Documents/P2PSocketSale/P2PSocketsSale/P2PSocketsSale/AppDelegate.swift",
+      "line": 21,
+      "symbol": "AppDelegate.applicationWillResignActive(_:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/alineborges/Documents/P2PSocketSale/P2PSocketsSale/P2PSocketsSale/AppDelegate.swift",
+      "line": 26,
+      "symbol": "AppDelegate.applicationDidEnterBackground(_:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/alineborges/Documents/P2PSocketSale/P2PSocketsSale/P2PSocketsSale/AppDelegate.swift",
+      "line": 31,
+      "symbol": "AppDelegate.applicationWillEnterForeground(_:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/alineborges/Documents/P2PSocketSale/P2PSocketsSale/P2PSocketsSale/AppDelegate.swift",
+      "line": 35,
+      "symbol": "AppDelegate.applicationDidBecomeActive(_:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/alineborges/Documents/P2PSocketSale/P2PSocketsSale/P2PSocketsSale/AppDelegate.swift",
+      "line": 39,
+      "symbol": "AppDelegate.applicationWillTerminate(_:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/alineborges/Documents/P2PSocketSale/P2PSocketsSale/P2PSocketsSale/Model/Message.swift",
+      "line": 12,
+      "symbol": "Message",
+      "symbol_kind": "source.lang.swift.decl.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/alineborges/Documents/P2PSocketSale/P2PSocketsSale/P2PSocketsSale/Model/Message.swift",
+      "line": 14,
+      "symbol": "Message.MessageType",
+      "symbol_kind": "source.lang.swift.decl.enum",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/alineborges/Documents/P2PSocketSale/P2PSocketsSale/P2PSocketsSale/Model/Message.swift",
+      "line": 15,
+      "symbol": "Message.MessageType.newElection",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/alineborges/Documents/P2PSocketSale/P2PSocketsSale/P2PSocketsSale/Model/Message.swift",
+      "line": 16,
+      "symbol": "Message.MessageType.bossKeepAlive",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/alineborges/Documents/P2PSocketSale/P2PSocketsSale/P2PSocketsSale/Model/Message.swift",
+      "line": 17,
+      "symbol": "Message.MessageType.announcingProducts",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/alineborges/Documents/P2PSocketSale/P2PSocketsSale/P2PSocketsSale/Model/Message.swift",
+      "line": 18,
+      "symbol": "Message.MessageType.buyOrder",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/alineborges/Documents/P2PSocketSale/P2PSocketsSale/P2PSocketsSale/Model/Message.swift",
+      "line": 19,
+      "symbol": "Message.MessageType.buyOrderResponse",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/alineborges/Documents/P2PSocketSale/P2PSocketsSale/P2PSocketsSale/Model/Message.swift",
+      "line": 20,
+      "symbol": "Message.MessageType.completeBuy",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/alineborges/Documents/P2PSocketSale/P2PSocketsSale/P2PSocketsSale/Model/Message.swift",
+      "line": 21,
+      "symbol": "Message.MessageType.sendingProduct",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/alineborges/Documents/P2PSocketSale/P2PSocketsSale/P2PSocketsSale/Model/Message.swift",
+      "line": 24,
+      "symbol": "Message.type",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/alineborges/Documents/P2PSocketSale/P2PSocketsSale/P2PSocketsSale/Model/Message.swift",
+      "line": 25,
+      "symbol": "Message.peerID",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/alineborges/Documents/P2PSocketSale/P2PSocketsSale/P2PSocketsSale/Model/Message.swift",
+      "line": 26,
+      "symbol": "Message.message",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/alineborges/Documents/P2PSocketSale/P2PSocketsSale/P2PSocketsSale/Model/Message.swift",
+      "line": 27,
+      "symbol": "Message.baseStore",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/alineborges/Documents/P2PSocketSale/P2PSocketsSale/P2PSocketsSale/Model/Message.swift",
+      "line": 28,
+      "symbol": "Message.buyOrder",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/alineborges/Documents/P2PSocketSale/P2PSocketsSale/P2PSocketsSale/Model/Message.swift",
+      "line": 29,
+      "symbol": "Message.buyOrderResponse",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/alineborges/Documents/P2PSocketSale/P2PSocketsSale/P2PSocketsSale/Model/Message.swift",
+      "line": 31,
+      "symbol": "Message.init()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/alineborges/Documents/P2PSocketSale/P2PSocketsSale/P2PSocketsSale/Model/Message.swift",
+      "line": 35,
+      "symbol": "Message.init(map:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/alineborges/Documents/P2PSocketSale/P2PSocketsSale/P2PSocketsSale/Model/Message.swift",
+      "line": 39,
+      "symbol": "Message.mapping(map:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/alineborges/Documents/P2PSocketSale/P2PSocketsSale/P2PSocketsSale/Model/Message.swift",
+      "line": 48,
+      "symbol": "Message.toData()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/alineborges/Documents/P2PSocketSale/P2PSocketsSale/P2PSocketsSale/Model/Message.swift",
+      "line": 54,
+      "symbol": "Message.encrypt(withPublicKey:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/alineborges/Documents/P2PSocketSale/P2PSocketsSale/P2PSocketsSale/Model/Message.swift",
+      "line": 60,
+      "symbol": "BuyOrder",
+      "symbol_kind": "source.lang.swift.decl.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/alineborges/Documents/P2PSocketSale/P2PSocketsSale/P2PSocketsSale/Model/Message.swift",
+      "line": 62,
+      "symbol": "BuyOrder.emoji",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/alineborges/Documents/P2PSocketSale/P2PSocketsSale/P2PSocketsSale/Model/Message.swift",
+      "line": 63,
+      "symbol": "BuyOrder.quantity",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/alineborges/Documents/P2PSocketSale/P2PSocketsSale/P2PSocketsSale/Model/Message.swift",
+      "line": 65,
+      "symbol": "BuyOrder.init(emoji:quantity:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/alineborges/Documents/P2PSocketSale/P2PSocketsSale/P2PSocketsSale/Model/Message.swift",
+      "line": 70,
+      "symbol": "BuyOrder.init(map:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/alineborges/Documents/P2PSocketSale/P2PSocketsSale/P2PSocketsSale/Model/Message.swift",
+      "line": 74,
+      "symbol": "BuyOrder.mapping(map:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/alineborges/Documents/P2PSocketSale/P2PSocketsSale/P2PSocketsSale/Model/Message.swift",
+      "line": 79,
+      "symbol": "BuyOrder.description",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/alineborges/Documents/P2PSocketSale/P2PSocketsSale/P2PSocketsSale/Model/Message.swift",
+      "line": 85,
+      "symbol": "BuyOrderResponse",
+      "symbol_kind": "source.lang.swift.decl.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/alineborges/Documents/P2PSocketSale/P2PSocketsSale/P2PSocketsSale/Model/Message.swift",
+      "line": 87,
+      "symbol": "BuyOrderResponse.peerID",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/alineborges/Documents/P2PSocketSale/P2PSocketsSale/P2PSocketsSale/Model/Message.swift",
+      "line": 88,
+      "symbol": "BuyOrderResponse.publicKey",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/alineborges/Documents/P2PSocketSale/P2PSocketsSale/P2PSocketsSale/Model/Message.swift",
+      "line": 90,
+      "symbol": "BuyOrderResponse.init(peerID:publicKey:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/alineborges/Documents/P2PSocketSale/P2PSocketsSale/P2PSocketsSale/Model/Message.swift",
+      "line": 95,
+      "symbol": "BuyOrderResponse.init(map:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/alineborges/Documents/P2PSocketSale/P2PSocketsSale/P2PSocketsSale/Model/Message.swift",
+      "line": 99,
+      "symbol": "BuyOrderResponse.mapping(map:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/alineborges/Documents/P2PSocketSale/P2PSocketsSale/P2PSocketsSale/Model/Product.swift",
+      "line": 12,
+      "symbol": "Product",
+      "symbol_kind": "source.lang.swift.decl.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/alineborges/Documents/P2PSocketSale/P2PSocketsSale/P2PSocketsSale/Model/Product.swift",
+      "line": 14,
+      "symbol": "Product.emoji",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/alineborges/Documents/P2PSocketSale/P2PSocketsSale/P2PSocketsSale/Model/Product.swift",
+      "line": 15,
+      "symbol": "Product.quantity",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/alineborges/Documents/P2PSocketSale/P2PSocketsSale/P2PSocketsSale/Model/Product.swift",
+      "line": 16,
+      "symbol": "Product.price",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/alineborges/Documents/P2PSocketSale/P2PSocketsSale/P2PSocketsSale/Model/Product.swift",
+      "line": 18,
+      "symbol": "Product.init()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/alineborges/Documents/P2PSocketSale/P2PSocketsSale/P2PSocketsSale/Model/Product.swift",
+      "line": 22,
+      "symbol": "Product.init(emoji:quantity:price:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/alineborges/Documents/P2PSocketSale/P2PSocketsSale/P2PSocketsSale/Model/Product.swift",
+      "line": 28,
+      "symbol": "Product.init(map:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/alineborges/Documents/P2PSocketSale/P2PSocketsSale/P2PSocketsSale/Model/Product.swift",
+      "line": 32,
+      "symbol": "Product.mapping(map:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/alineborges/Documents/P2PSocketSale/P2PSocketsSale/P2PSocketsSale/Model/StoreBase.swift",
+      "line": null,
+      "symbol": "StoreBase",
+      "symbol_kind": "source.lang.swift.decl.extension",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/alineborges/Documents/P2PSocketSale/P2PSocketsSale/P2PSocketsSale/Model/StoreBase.swift",
+      "line": 12,
+      "symbol": "StoreBase",
+      "symbol_kind": "source.lang.swift.decl.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/alineborges/Documents/P2PSocketSale/P2PSocketsSale/P2PSocketsSale/Model/StoreBase.swift",
+      "line": 14,
+      "symbol": "StoreBase.name",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/alineborges/Documents/P2PSocketSale/P2PSocketsSale/P2PSocketsSale/Model/StoreBase.swift",
+      "line": 15,
+      "symbol": "StoreBase.products",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/alineborges/Documents/P2PSocketSale/P2PSocketsSale/P2PSocketsSale/Model/StoreBase.swift",
+      "line": 16,
+      "symbol": "StoreBase.score",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/alineborges/Documents/P2PSocketSale/P2PSocketsSale/P2PSocketsSale/Model/StoreBase.swift",
+      "line": 17,
+      "symbol": "StoreBase.publicKey",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/alineborges/Documents/P2PSocketSale/P2PSocketsSale/P2PSocketsSale/Model/StoreBase.swift",
+      "line": 19,
+      "symbol": "StoreBase.init(name:products:score:publicKey:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/alineborges/Documents/P2PSocketSale/P2PSocketsSale/P2PSocketsSale/Model/StoreBase.swift",
+      "line": 26,
+      "symbol": "StoreBase.init(map:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/alineborges/Documents/P2PSocketSale/P2PSocketsSale/P2PSocketsSale/Model/StoreBase.swift",
+      "line": 30,
+      "symbol": "StoreBase.mapping(map:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/alineborges/Documents/P2PSocketSale/P2PSocketsSale/P2PSocketsSale/Model/StoreBase.swift",
+      "line": 37,
+      "symbol": "StoreBase.hasEmoji(emoji:withQuantity:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/alineborges/Documents/P2PSocketSale/P2PSocketsSale/P2PSocketsSale/Model/StoreBase.swift",
+      "line": 47,
+      "symbol": "StoreBase.productForEmoji(emoji:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/alineborges/Documents/P2PSocketSale/P2PSocketsSale/P2PSocketsSale/Model/StoreBase.swift",
+      "line": 57,
+      "symbol": "StoreBase.updateValues(store:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/alineborges/Documents/P2PSocketSale/P2PSocketsSale/P2PSocketsSale/Model/StoreBase.swift",
+      "line": 63,
+      "symbol": "StoreBase.description",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/alineborges/Documents/P2PSocketSale/P2PSocketsSale/P2PSocketsSale/NewStoreViewController.swift",
+      "line": null,
+      "symbol": "NewStoreViewController",
+      "symbol_kind": "source.lang.swift.decl.extension",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/alineborges/Documents/P2PSocketSale/P2PSocketsSale/P2PSocketsSale/NewStoreViewController.swift",
+      "line": 11,
+      "symbol": "CreateNewStore",
+      "symbol_kind": "source.lang.swift.decl.protocol",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/alineborges/Documents/P2PSocketSale/P2PSocketsSale/P2PSocketsSale/NewStoreViewController.swift",
+      "line": 12,
+      "symbol": "CreateNewStore.didCreateStore(withName:products:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/alineborges/Documents/P2PSocketSale/P2PSocketsSale/P2PSocketsSale/NewStoreViewController.swift",
+      "line": 15,
+      "symbol": "NewStoreViewController",
+      "symbol_kind": "source.lang.swift.decl.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/alineborges/Documents/P2PSocketSale/P2PSocketsSale/P2PSocketsSale/NewStoreViewController.swift",
+      "line": 17,
+      "symbol": "NewStoreViewController.tableView",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/alineborges/Documents/P2PSocketSale/P2PSocketsSale/P2PSocketsSale/NewStoreViewController.swift",
+      "line": 19,
+      "symbol": "NewStoreViewController.nameTextField",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/alineborges/Documents/P2PSocketSale/P2PSocketsSale/P2PSocketsSale/NewStoreViewController.swift",
+      "line": 20,
+      "symbol": "NewStoreViewController.emojiTextField",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/alineborges/Documents/P2PSocketSale/P2PSocketsSale/P2PSocketsSale/NewStoreViewController.swift",
+      "line": 21,
+      "symbol": "NewStoreViewController.quantityTextField",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/alineborges/Documents/P2PSocketSale/P2PSocketsSale/P2PSocketsSale/NewStoreViewController.swift",
+      "line": 22,
+      "symbol": "NewStoreViewController.priceTextField",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/alineborges/Documents/P2PSocketSale/P2PSocketsSale/P2PSocketsSale/NewStoreViewController.swift",
+      "line": 24,
+      "symbol": "NewStoreViewController.products",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/alineborges/Documents/P2PSocketSale/P2PSocketsSale/P2PSocketsSale/NewStoreViewController.swift",
+      "line": 26,
+      "symbol": "NewStoreViewController.delegate",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/alineborges/Documents/P2PSocketSale/P2PSocketsSale/P2PSocketsSale/NewStoreViewController.swift",
+      "line": 28,
+      "symbol": "NewStoreViewController.viewDidLoad()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/alineborges/Documents/P2PSocketSale/P2PSocketsSale/P2PSocketsSale/NewStoreViewController.swift",
+      "line": 35,
+      "symbol": "NewStoreViewController.didReceiveMemoryWarning()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/alineborges/Documents/P2PSocketSale/P2PSocketsSale/P2PSocketsSale/NewStoreViewController.swift",
+      "line": 40,
+      "symbol": "NewStoreViewController.newProductAction(_:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/alineborges/Documents/P2PSocketSale/P2PSocketsSale/P2PSocketsSale/NewStoreViewController.swift",
+      "line": 59,
+      "symbol": "NewStoreViewController.doneButtonAction(_:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/alineborges/Documents/P2PSocketSale/P2PSocketsSale/P2PSocketsSale/NewStoreViewController.swift",
+      "line": 72,
+      "symbol": "NewStoreViewController.tableView(_:cellForRowAt:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/alineborges/Documents/P2PSocketSale/P2PSocketsSale/P2PSocketsSale/NewStoreViewController.swift",
+      "line": 81,
+      "symbol": "NewStoreViewController.numberOfSections(in:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/alineborges/Documents/P2PSocketSale/P2PSocketsSale/P2PSocketsSale/NewStoreViewController.swift",
+      "line": 85,
+      "symbol": "NewStoreViewController.tableView(_:numberOfRowsInSection:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/alineborges/Documents/P2PSocketSale/P2PSocketsSale/P2PSocketsSale/NewStoreViewController.swift",
+      "line": 90,
+      "symbol": "ProductCell",
+      "symbol_kind": "source.lang.swift.decl.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/alineborges/Documents/P2PSocketSale/P2PSocketsSale/P2PSocketsSale/NewStoreViewController.swift",
+      "line": 92,
+      "symbol": "ProductCell.identifier",
+      "symbol_kind": "source.lang.swift.decl.var.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/alineborges/Documents/P2PSocketSale/P2PSocketsSale/P2PSocketsSale/NewStoreViewController.swift",
+      "line": 94,
+      "symbol": "ProductCell.emojiLabel",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/alineborges/Documents/P2PSocketSale/P2PSocketsSale/P2PSocketsSale/NewStoreViewController.swift",
+      "line": 95,
+      "symbol": "ProductCell.quantityLabel",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/alineborges/Documents/P2PSocketSale/P2PSocketsSale/P2PSocketsSale/NewStoreViewController.swift",
+      "line": 96,
+      "symbol": "ProductCell.priceLabel",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/alineborges/Documents/P2PSocketSale/P2PSocketsSale/P2PSocketsSale/NewStoreViewController.swift",
+      "line": 98,
+      "symbol": "ProductCell.printProduct(_:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/alineborges/Documents/P2PSocketSale/P2PSocketsSale/P2PSocketsSale/Picker/CustomPickerCollectionViewController.swift",
+      "line": 11,
+      "symbol": "reuseIdentifier",
+      "symbol_kind": "source.lang.swift.decl.var.global",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/alineborges/Documents/P2PSocketSale/P2PSocketsSale/P2PSocketsSale/Picker/CustomPickerCollectionViewController.swift",
+      "line": 13,
+      "symbol": "CustomPickerCollectionViewController",
+      "symbol_kind": "source.lang.swift.decl.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/alineborges/Documents/P2PSocketSale/P2PSocketsSale/P2PSocketsSale/Picker/CustomPickerCollectionViewController.swift",
+      "line": 15,
+      "symbol": "CustomPickerCollectionViewController.emojis",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/alineborges/Documents/P2PSocketSale/P2PSocketsSale/P2PSocketsSale/Picker/CustomPickerCollectionViewController.swift",
+      "line": 16,
+      "symbol": "CustomPickerCollectionViewController.numbers",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/alineborges/Documents/P2PSocketSale/P2PSocketsSale/P2PSocketsSale/Picker/CustomPickerCollectionViewController.swift",
+      "line": 18,
+      "symbol": "CustomPickerCollectionViewController.didPickEmoji",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/alineborges/Documents/P2PSocketSale/P2PSocketsSale/P2PSocketsSale/Picker/CustomPickerCollectionViewController.swift",
+      "line": 19,
+      "symbol": "CustomPickerCollectionViewController.didPickNumber",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/alineborges/Documents/P2PSocketSale/P2PSocketsSale/P2PSocketsSale/Picker/CustomPickerCollectionViewController.swift",
+      "line": 21,
+      "symbol": "CustomPickerCollectionViewController.Style",
+      "symbol_kind": "source.lang.swift.decl.enum",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/alineborges/Documents/P2PSocketSale/P2PSocketsSale/P2PSocketsSale/Picker/CustomPickerCollectionViewController.swift",
+      "line": 22,
+      "symbol": "CustomPickerCollectionViewController.Style.emoji",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/alineborges/Documents/P2PSocketSale/P2PSocketsSale/P2PSocketsSale/Picker/CustomPickerCollectionViewController.swift",
+      "line": 22,
+      "symbol": "CustomPickerCollectionViewController.Style.number",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/alineborges/Documents/P2PSocketSale/P2PSocketsSale/P2PSocketsSale/Picker/CustomPickerCollectionViewController.swift",
+      "line": 25,
+      "symbol": "CustomPickerCollectionViewController.items",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/alineborges/Documents/P2PSocketSale/P2PSocketsSale/P2PSocketsSale/Picker/CustomPickerCollectionViewController.swift",
+      "line": 26,
+      "symbol": "CustomPickerCollectionViewController.style",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/alineborges/Documents/P2PSocketSale/P2PSocketsSale/P2PSocketsSale/Picker/CustomPickerCollectionViewController.swift",
+      "line": 38,
+      "symbol": "CustomPickerCollectionViewController.fromStoryboard(withStyle:sourceView:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/alineborges/Documents/P2PSocketSale/P2PSocketsSale/P2PSocketsSale/Picker/CustomPickerCollectionViewController.swift",
+      "line": 50,
+      "symbol": "CustomPickerCollectionViewController.viewDidLoad()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/alineborges/Documents/P2PSocketSale/P2PSocketsSale/P2PSocketsSale/Picker/CustomPickerCollectionViewController.swift",
+      "line": 55,
+      "symbol": "CustomPickerCollectionViewController.didReceiveMemoryWarning()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/alineborges/Documents/P2PSocketSale/P2PSocketsSale/P2PSocketsSale/Picker/CustomPickerCollectionViewController.swift",
+      "line": 64,
+      "symbol": "CustomPickerCollectionViewController.numberOfSections(in:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/alineborges/Documents/P2PSocketSale/P2PSocketsSale/P2PSocketsSale/Picker/CustomPickerCollectionViewController.swift",
+      "line": 70,
+      "symbol": "CustomPickerCollectionViewController.collectionView(_:numberOfItemsInSection:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/alineborges/Documents/P2PSocketSale/P2PSocketsSale/P2PSocketsSale/Picker/CustomPickerCollectionViewController.swift",
+      "line": 75,
+      "symbol": "CustomPickerCollectionViewController.collectionView(_:cellForItemAt:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/alineborges/Documents/P2PSocketSale/P2PSocketsSale/P2PSocketsSale/Picker/CustomPickerCollectionViewController.swift",
+      "line": 84,
+      "symbol": "CustomPickerCollectionViewController.collectionView(_:didSelectItemAt:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/alineborges/Documents/P2PSocketSale/P2PSocketsSale/P2PSocketsSale/Picker/CustomPickerCollectionViewController.swift",
+      "line": 132,
+      "symbol": "PickerCollectionViewCell",
+      "symbol_kind": "source.lang.swift.decl.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/alineborges/Documents/P2PSocketSale/P2PSocketsSale/P2PSocketsSale/Picker/CustomPickerCollectionViewController.swift",
+      "line": 134,
+      "symbol": "PickerCollectionViewCell.titleLabel",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/alineborges/Documents/P2PSocketSale/P2PSocketsSale/P2PSocketsSale/Store/MultipeerServiceManager.swift",
+      "line": null,
+      "symbol": "MultipeerServiceManager",
+      "symbol_kind": "source.lang.swift.decl.extension",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/alineborges/Documents/P2PSocketSale/P2PSocketsSale/P2PSocketsSale/Store/MultipeerServiceManager.swift",
+      "line": 13,
+      "symbol": "ServiceManagerDelegate",
+      "symbol_kind": "source.lang.swift.decl.protocol",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/alineborges/Documents/P2PSocketSale/P2PSocketsSale/P2PSocketsSale/Store/MultipeerServiceManager.swift",
+      "line": 15,
+      "symbol": "ServiceManagerDelegate.receiveData(manager:user:string:data:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/alineborges/Documents/P2PSocketSale/P2PSocketsSale/P2PSocketsSale/Store/MultipeerServiceManager.swift",
+      "line": 16,
+      "symbol": "ServiceManagerDelegate.connectedDevicesChanged(_:peer:didChange:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/alineborges/Documents/P2PSocketSale/P2PSocketsSale/P2PSocketsSale/Store/MultipeerServiceManager.swift",
+      "line": 20,
+      "symbol": "MultipeerServiceManager",
+      "symbol_kind": "source.lang.swift.decl.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/alineborges/Documents/P2PSocketSale/P2PSocketsSale/P2PSocketsSale/Store/MultipeerServiceManager.swift",
+      "line": 22,
+      "symbol": "MultipeerServiceManager.ServiceType",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/alineborges/Documents/P2PSocketSale/P2PSocketsSale/P2PSocketsSale/Store/MultipeerServiceManager.swift",
+      "line": 23,
+      "symbol": "MultipeerServiceManager.myPeerId",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/alineborges/Documents/P2PSocketSale/P2PSocketsSale/P2PSocketsSale/Store/MultipeerServiceManager.swift",
+      "line": 24,
+      "symbol": "MultipeerServiceManager.serviceAdvertiser",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/alineborges/Documents/P2PSocketSale/P2PSocketsSale/P2PSocketsSale/Store/MultipeerServiceManager.swift",
+      "line": 25,
+      "symbol": "MultipeerServiceManager.serviceBrowser",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/alineborges/Documents/P2PSocketSale/P2PSocketsSale/P2PSocketsSale/Store/MultipeerServiceManager.swift",
+      "line": 27,
+      "symbol": "MultipeerServiceManager.connectedPeers",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/alineborges/Documents/P2PSocketSale/P2PSocketsSale/P2PSocketsSale/Store/MultipeerServiceManager.swift",
+      "line": 29,
+      "symbol": "MultipeerServiceManager.delegate",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/alineborges/Documents/P2PSocketSale/P2PSocketsSale/P2PSocketsSale/Store/MultipeerServiceManager.swift",
+      "line": 31,
+      "symbol": "MultipeerServiceManager.session",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/alineborges/Documents/P2PSocketSale/P2PSocketsSale/P2PSocketsSale/Store/MultipeerServiceManager.swift",
+      "line": 37,
+      "symbol": "MultipeerServiceManager.init(peerID:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/alineborges/Documents/P2PSocketSale/P2PSocketsSale/P2PSocketsSale/Store/MultipeerServiceManager.swift",
+      "line": 52,
+      "symbol": "MultipeerServiceManager.deinit",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/alineborges/Documents/P2PSocketSale/P2PSocketsSale/P2PSocketsSale/Store/MultipeerServiceManager.swift",
+      "line": 57,
+      "symbol": "MultipeerServiceManager.disconnect()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/alineborges/Documents/P2PSocketSale/P2PSocketsSale/P2PSocketsSale/Store/MultipeerServiceManager.swift",
+      "line": 66,
+      "symbol": "MultipeerServiceManager.browser(_:didNotStartBrowsingForPeers:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/alineborges/Documents/P2PSocketSale/P2PSocketsSale/P2PSocketsSale/Store/MultipeerServiceManager.swift",
+      "line": 70,
+      "symbol": "MultipeerServiceManager.browser(_:foundPeer:withDiscoveryInfo:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/alineborges/Documents/P2PSocketSale/P2PSocketsSale/P2PSocketsSale/Store/MultipeerServiceManager.swift",
+      "line": 75,
+      "symbol": "MultipeerServiceManager.browser(_:lostPeer:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/alineborges/Documents/P2PSocketSale/P2PSocketsSale/P2PSocketsSale/Store/MultipeerServiceManager.swift",
+      "line": 82,
+      "symbol": "MultipeerServiceManager.advertiser(_:didNotStartAdvertisingPeer:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/alineborges/Documents/P2PSocketSale/P2PSocketsSale/P2PSocketsSale/Store/MultipeerServiceManager.swift",
+      "line": 86,
+      "symbol": "MultipeerServiceManager.advertiser(_:didReceiveInvitationFromPeer:withContext:invitationHandler:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/alineborges/Documents/P2PSocketSale/P2PSocketsSale/P2PSocketsSale/Store/MultipeerServiceManager.swift",
+      "line": 95,
+      "symbol": "MultipeerServiceManager.session(_:peer:didChange:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/alineborges/Documents/P2PSocketSale/P2PSocketsSale/P2PSocketsSale/Store/MultipeerServiceManager.swift",
+      "line": 110,
+      "symbol": "MultipeerServiceManager.session(_:didReceive:fromPeer:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/alineborges/Documents/P2PSocketSale/P2PSocketsSale/P2PSocketsSale/Store/MultipeerServiceManager.swift",
+      "line": 117,
+      "symbol": "MultipeerServiceManager.session(_:didReceive:withName:fromPeer:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/alineborges/Documents/P2PSocketSale/P2PSocketsSale/P2PSocketsSale/Store/MultipeerServiceManager.swift",
+      "line": 121,
+      "symbol": "MultipeerServiceManager.session(_:didStartReceivingResourceWithName:fromPeer:with:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/alineborges/Documents/P2PSocketSale/P2PSocketsSale/P2PSocketsSale/Store/MultipeerServiceManager.swift",
+      "line": 125,
+      "symbol": "MultipeerServiceManager.session(_:didFinishReceivingResourceWithName:fromPeer:at:withError:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/alineborges/Documents/P2PSocketSale/P2PSocketsSale/P2PSocketsSale/Store/PublicPrivateKeys.swift",
+      "line": 11,
+      "symbol": "Keys",
+      "symbol_kind": "source.lang.swift.decl.struct",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/alineborges/Documents/P2PSocketSale/P2PSocketsSale/P2PSocketsSale/Store/PublicPrivateKeys.swift",
+      "line": 13,
+      "symbol": "Keys.publicKey",
+      "symbol_kind": "source.lang.swift.decl.var.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/alineborges/Documents/P2PSocketSale/P2PSocketsSale/P2PSocketsSale/Store/PublicPrivateKeys.swift",
+      "line": 15,
+      "symbol": "Keys.privateKey",
+      "symbol_kind": "source.lang.swift.decl.var.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/alineborges/Documents/P2PSocketSale/P2PSocketsSale/P2PSocketsSale/Store/PublicPrivateKeys.swift",
+      "line": 17,
+      "symbol": "Keys.key",
+      "symbol_kind": "source.lang.swift.decl.var.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/alineborges/Documents/P2PSocketSale/P2PSocketsSale/P2PSocketsSale/Store/PublicPrivateKeys.swift",
+      "line": 19,
+      "symbol": "Keys.allkeys",
+      "symbol_kind": "source.lang.swift.decl.var.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/alineborges/Documents/P2PSocketSale/P2PSocketsSale/P2PSocketsSale/Store/Store.swift",
+      "line": null,
+      "symbol": "Store",
+      "symbol_kind": "source.lang.swift.decl.extension",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/alineborges/Documents/P2PSocketSale/P2PSocketsSale/P2PSocketsSale/Store/Store.swift",
+      "line": 13,
+      "symbol": "StoreDelegate",
+      "symbol_kind": "source.lang.swift.decl.protocol",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/alineborges/Documents/P2PSocketSale/P2PSocketsSale/P2PSocketsSale/Store/Store.swift",
+      "line": 15,
+      "symbol": "StoreDelegate.isSelectedAsBoss()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/alineborges/Documents/P2PSocketSale/P2PSocketsSale/P2PSocketsSale/Store/Store.swift",
+      "line": 21,
+      "symbol": "Store",
+      "symbol_kind": "source.lang.swift.decl.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/alineborges/Documents/P2PSocketSale/P2PSocketsSale/P2PSocketsSale/Store/Store.swift",
+      "line": 23,
+      "symbol": "Store.manager",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/alineborges/Documents/P2PSocketSale/P2PSocketsSale/P2PSocketsSale/Store/Store.swift",
+      "line": 24,
+      "symbol": "Store.bossManager",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/alineborges/Documents/P2PSocketSale/P2PSocketsSale/P2PSocketsSale/Store/Store.swift",
+      "line": 26,
+      "symbol": "Store.delegate",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/alineborges/Documents/P2PSocketSale/P2PSocketsSale/P2PSocketsSale/Store/Store.swift",
+      "line": 28,
+      "symbol": "Store.name",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/alineborges/Documents/P2PSocketSale/P2PSocketsSale/P2PSocketsSale/Store/Store.swift",
+      "line": 30,
+      "symbol": "Store.products",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/alineborges/Documents/P2PSocketSale/P2PSocketsSale/P2PSocketsSale/Store/Store.swift",
+      "line": 31,
+      "symbol": "Store.score",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/alineborges/Documents/P2PSocketSale/P2PSocketsSale/P2PSocketsSale/Store/Store.swift",
+      "line": 33,
+      "symbol": "Store.privateKey",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/alineborges/Documents/P2PSocketSale/P2PSocketsSale/P2PSocketsSale/Store/Store.swift",
+      "line": 34,
+      "symbol": "Store.publicKey",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/alineborges/Documents/P2PSocketSale/P2PSocketsSale/P2PSocketsSale/Store/Store.swift",
+      "line": 36,
+      "symbol": "Store.buyOrder",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/alineborges/Documents/P2PSocketSale/P2PSocketsSale/P2PSocketsSale/Store/Store.swift",
+      "line": 38,
+      "symbol": "Store.isBoss",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/alineborges/Documents/P2PSocketSale/P2PSocketsSale/P2PSocketsSale/Store/Store.swift",
+      "line": 42,
+      "symbol": "Store.init(name:products:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/alineborges/Documents/P2PSocketSale/P2PSocketsSale/P2PSocketsSale/Store/Store.swift",
+      "line": 121,
+      "symbol": "Store.completeBuy(_:peerID:publicKey:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/alineborges/Documents/P2PSocketSale/P2PSocketsSale/P2PSocketsSale/Store/Store.swift",
+      "line": 133,
+      "symbol": "Store.announceStore()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/alineborges/Documents/P2PSocketSale/P2PSocketsSale/P2PSocketsSale/Store/Store.swift",
+      "line": 141,
+      "symbol": "Store.isSelectedAsBoss()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/alineborges/Documents/P2PSocketSale/P2PSocketsSale/P2PSocketsSale/Store/Store.swift",
+      "line": 146,
+      "symbol": "Store.selectedNewBoss(_:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/alineborges/Documents/P2PSocketSale/P2PSocketsSale/P2PSocketsSale/Store/Store.swift",
+      "line": 151,
+      "symbol": "Store.selectedPeerForBuy(_:publicKey:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/alineborges/Documents/P2PSocketSale/P2PSocketsSale/P2PSocketsSale/Store/Store.swift",
+      "line": 160,
+      "symbol": "Store.decrypt(data:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/alineborges/Documents/P2PSocketSale/P2PSocketsSale/P2PSocketsSale/Store/Store.swift",
+      "line": 165,
+      "symbol": "Store.sell(_:toPeer:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/alineborges/Documents/P2PSocketSale/P2PSocketsSale/P2PSocketsSale/Store/Store.swift",
+      "line": 193,
+      "symbol": "Store.receivedProduct(_:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/alineborges/Documents/P2PSocketSale/P2PSocketsSale/P2PSocketsSale/Store/StoreBossManager.swift",
+      "line": null,
+      "symbol": "StoreBossManager",
+      "symbol_kind": "source.lang.swift.decl.extension",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/alineborges/Documents/P2PSocketSale/P2PSocketsSale/P2PSocketsSale/Store/StoreBossManager.swift",
+      "line": 11,
+      "symbol": "StoreBossManager",
+      "symbol_kind": "source.lang.swift.decl.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/alineborges/Documents/P2PSocketSale/P2PSocketsSale/P2PSocketsSale/Store/StoreBossManager.swift",
+      "line": 13,
+      "symbol": "StoreBossManager.allStores",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/alineborges/Documents/P2PSocketSale/P2PSocketsSale/P2PSocketsSale/Store/StoreBossManager.swift",
+      "line": 14,
+      "symbol": "StoreBossManager.manager",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/alineborges/Documents/P2PSocketSale/P2PSocketsSale/P2PSocketsSale/Store/StoreBossManager.swift",
+      "line": 16,
+      "symbol": "StoreBossManager.keepAlive",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/alineborges/Documents/P2PSocketSale/P2PSocketsSale/P2PSocketsSale/Store/StoreBossManager.swift",
+      "line": 18,
+      "symbol": "StoreBossManager.init(manager:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/alineborges/Documents/P2PSocketSale/P2PSocketsSale/P2PSocketsSale/Store/StoreBossManager.swift",
+      "line": 31,
+      "symbol": "StoreBossManager.sendKeepAlive()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/alineborges/Documents/P2PSocketSale/P2PSocketsSale/P2PSocketsSale/Store/StoreBossManager.swift",
+      "line": 37,
+      "symbol": "StoreBossManager.addStore(baseStore:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/alineborges/Documents/P2PSocketSale/P2PSocketsSale/P2PSocketsSale/Store/StoreBossManager.swift",
+      "line": 56,
+      "symbol": "StoreBossManager.processBuyOrder(order:fromPeer:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/alineborges/Documents/P2PSocketSale/P2PSocketsSale/P2PSocketsSale/Store/StoreBossManager.swift",
+      "line": 77,
+      "symbol": "StoreBossManager.sellerForOrder(order:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/alineborges/Documents/P2PSocketSale/P2PSocketsSale/P2PSocketsSale/Store/StoreBossManager.swift",
+      "line": 105,
+      "symbol": "StoreBossManager.didReceiveMessage(message:fromUser:string:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/alineborges/Documents/P2PSocketSale/P2PSocketsSale/P2PSocketsSale/Store/StoreMultipeerManager.swift",
+      "line": null,
+      "symbol": "StoreMultipeerManager",
+      "symbol_kind": "source.lang.swift.decl.extension",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/alineborges/Documents/P2PSocketSale/P2PSocketsSale/P2PSocketsSale/Store/StoreMultipeerManager.swift",
+      "line": 12,
+      "symbol": "StoreMultipeerDelegate",
+      "symbol_kind": "source.lang.swift.decl.protocol",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/alineborges/Documents/P2PSocketSale/P2PSocketsSale/P2PSocketsSale/Store/StoreMultipeerManager.swift",
+      "line": 14,
+      "symbol": "StoreMultipeerDelegate.isSelectedAsBoss()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/alineborges/Documents/P2PSocketSale/P2PSocketsSale/P2PSocketsSale/Store/StoreMultipeerManager.swift",
+      "line": 15,
+      "symbol": "StoreMultipeerDelegate.selectedNewBoss(_:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/alineborges/Documents/P2PSocketSale/P2PSocketsSale/P2PSocketsSale/Store/StoreMultipeerManager.swift",
+      "line": 16,
+      "symbol": "StoreMultipeerDelegate.selectedPeerForBuy(_:publicKey:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/alineborges/Documents/P2PSocketSale/P2PSocketsSale/P2PSocketsSale/Store/StoreMultipeerManager.swift",
+      "line": 17,
+      "symbol": "StoreMultipeerDelegate.decrypt(data:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/alineborges/Documents/P2PSocketSale/P2PSocketsSale/P2PSocketsSale/Store/StoreMultipeerManager.swift",
+      "line": 18,
+      "symbol": "StoreMultipeerDelegate.sell(_:toPeer:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/alineborges/Documents/P2PSocketSale/P2PSocketsSale/P2PSocketsSale/Store/StoreMultipeerManager.swift",
+      "line": 19,
+      "symbol": "StoreMultipeerDelegate.receivedProduct(_:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/alineborges/Documents/P2PSocketSale/P2PSocketsSale/P2PSocketsSale/Store/StoreMultipeerManager.swift",
+      "line": 22,
+      "symbol": "PeerMessageDelegate",
+      "symbol_kind": "source.lang.swift.decl.protocol",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/alineborges/Documents/P2PSocketSale/P2PSocketsSale/P2PSocketsSale/Store/StoreMultipeerManager.swift",
+      "line": 23,
+      "symbol": "PeerMessageDelegate.didReceiveMessage(message:fromUser:string:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/alineborges/Documents/P2PSocketSale/P2PSocketsSale/P2PSocketsSale/Store/StoreMultipeerManager.swift",
+      "line": 26,
+      "symbol": "StoreMultipeerManager",
+      "symbol_kind": "source.lang.swift.decl.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/alineborges/Documents/P2PSocketSale/P2PSocketsSale/P2PSocketsSale/Store/StoreMultipeerManager.swift",
+      "line": 28,
+      "symbol": "StoreMultipeerManager.peerID",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/alineborges/Documents/P2PSocketSale/P2PSocketsSale/P2PSocketsSale/Store/StoreMultipeerManager.swift",
+      "line": 29,
+      "symbol": "StoreMultipeerManager.manager",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/alineborges/Documents/P2PSocketSale/P2PSocketsSale/P2PSocketsSale/Store/StoreMultipeerManager.swift",
+      "line": 30,
+      "symbol": "StoreMultipeerManager.session",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/alineborges/Documents/P2PSocketSale/P2PSocketsSale/P2PSocketsSale/Store/StoreMultipeerManager.swift",
+      "line": 32,
+      "symbol": "StoreMultipeerManager.boss",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/alineborges/Documents/P2PSocketSale/P2PSocketsSale/P2PSocketsSale/Store/StoreMultipeerManager.swift",
+      "line": 33,
+      "symbol": "StoreMultipeerManager.isBoss",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/alineborges/Documents/P2PSocketSale/P2PSocketsSale/P2PSocketsSale/Store/StoreMultipeerManager.swift",
+      "line": 34,
+      "symbol": "StoreMultipeerManager.bossIsAlive",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/alineborges/Documents/P2PSocketSale/P2PSocketsSale/P2PSocketsSale/Store/StoreMultipeerManager.swift",
+      "line": 36,
+      "symbol": "StoreMultipeerManager.delegate",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/alineborges/Documents/P2PSocketSale/P2PSocketsSale/P2PSocketsSale/Store/StoreMultipeerManager.swift",
+      "line": 37,
+      "symbol": "StoreMultipeerManager.messageDelegate",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/alineborges/Documents/P2PSocketSale/P2PSocketsSale/P2PSocketsSale/Store/StoreMultipeerManager.swift",
+      "line": 39,
+      "symbol": "StoreMultipeerManager.timeAfterElection",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/alineborges/Documents/P2PSocketSale/P2PSocketsSale/P2PSocketsSale/Store/StoreMultipeerManager.swift",
+      "line": 41,
+      "symbol": "StoreMultipeerManager.queue",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/alineborges/Documents/P2PSocketSale/P2PSocketsSale/P2PSocketsSale/Store/StoreMultipeerManager.swift",
+      "line": 43,
+      "symbol": "StoreMultipeerManager.init(peerID:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/alineborges/Documents/P2PSocketSale/P2PSocketsSale/P2PSocketsSale/Store/StoreMultipeerManager.swift",
+      "line": 57,
+      "symbol": "StoreMultipeerManager.newElection()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/alineborges/Documents/P2PSocketSale/P2PSocketsSale/P2PSocketsSale/Store/StoreMultipeerManager.swift",
+      "line": 92,
+      "symbol": "StoreMultipeerManager.newBoss(_:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/alineborges/Documents/P2PSocketSale/P2PSocketsSale/P2PSocketsSale/Store/StoreMultipeerManager.swift",
+      "line": 99,
+      "symbol": "StoreMultipeerManager.onTick()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/alineborges/Documents/P2PSocketSale/P2PSocketsSale/P2PSocketsSale/Store/StoreMultipeerManager.swift",
+      "line": 117,
+      "symbol": "StoreMultipeerManager.peerWithID(_:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/alineborges/Documents/P2PSocketSale/P2PSocketsSale/P2PSocketsSale/Store/StoreMultipeerManager.swift",
+      "line": 121,
+      "symbol": "StoreMultipeerManager.sendToBoss(message:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/alineborges/Documents/P2PSocketSale/P2PSocketsSale/P2PSocketsSale/Store/StoreMultipeerManager.swift",
+      "line": 125,
+      "symbol": "StoreMultipeerManager.send(message:toPeer:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/alineborges/Documents/P2PSocketSale/P2PSocketsSale/P2PSocketsSale/Store/StoreMultipeerManager.swift",
+      "line": 131,
+      "symbol": "StoreMultipeerManager.sendEncrypted(message:withPublicKey:toPeer:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/alineborges/Documents/P2PSocketSale/P2PSocketsSale/P2PSocketsSale/Store/StoreMultipeerManager.swift",
+      "line": 147,
+      "symbol": "StoreMultipeerManager.send(message:toPeer:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/alineborges/Documents/P2PSocketSale/P2PSocketsSale/P2PSocketsSale/Store/StoreMultipeerManager.swift",
+      "line": 170,
+      "symbol": "StoreMultipeerManager.disconnect()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/alineborges/Documents/P2PSocketSale/P2PSocketsSale/P2PSocketsSale/Store/StoreMultipeerManager.swift",
+      "line": 175,
+      "symbol": "StoreMultipeerManager.handleEnctryptedMessage(string:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/alineborges/Documents/P2PSocketSale/P2PSocketsSale/P2PSocketsSale/Store/StoreMultipeerManager.swift",
+      "line": 183,
+      "symbol": "StoreMultipeerManager.receiveData(manager:user:string:data:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/alineborges/Documents/P2PSocketSale/P2PSocketsSale/P2PSocketsSale/Store/StoreMultipeerManager.swift",
+      "line": 232,
+      "symbol": "StoreMultipeerManager.connectedDevicesChanged(_:peer:didChange:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/alineborges/Documents/P2PSocketSale/P2PSocketsSale/P2PSocketsSale/Store/StoreViewController.swift",
+      "line": null,
+      "symbol": "StoreViewController",
+      "symbol_kind": "source.lang.swift.decl.extension",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/alineborges/Documents/P2PSocketSale/P2PSocketsSale/P2PSocketsSale/Store/StoreViewController.swift",
+      "line": null,
+      "symbol": "StoreViewController",
+      "symbol_kind": "source.lang.swift.decl.extension",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/alineborges/Documents/P2PSocketSale/P2PSocketsSale/P2PSocketsSale/Store/StoreViewController.swift",
+      "line": 11,
+      "symbol": "StoreViewController",
+      "symbol_kind": "source.lang.swift.decl.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/alineborges/Documents/P2PSocketSale/P2PSocketsSale/P2PSocketsSale/Store/StoreViewController.swift",
+      "line": 13,
+      "symbol": "StoreViewController.store",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/alineborges/Documents/P2PSocketSale/P2PSocketsSale/P2PSocketsSale/Store/StoreViewController.swift",
+      "line": 15,
+      "symbol": "StoreViewController.titleLabel",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/alineborges/Documents/P2PSocketSale/P2PSocketsSale/P2PSocketsSale/Store/StoreViewController.swift",
+      "line": 16,
+      "symbol": "StoreViewController.backgroundView",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/alineborges/Documents/P2PSocketSale/P2PSocketsSale/P2PSocketsSale/Store/StoreViewController.swift",
+      "line": 17,
+      "symbol": "StoreViewController.buyView",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/alineborges/Documents/P2PSocketSale/P2PSocketsSale/P2PSocketsSale/Store/StoreViewController.swift",
+      "line": 18,
+      "symbol": "StoreViewController.buyButton",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/alineborges/Documents/P2PSocketSale/P2PSocketsSale/P2PSocketsSale/Store/StoreViewController.swift",
+      "line": 19,
+      "symbol": "StoreViewController.tableView",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/alineborges/Documents/P2PSocketSale/P2PSocketsSale/P2PSocketsSale/Store/StoreViewController.swift",
+      "line": 21,
+      "symbol": "StoreViewController.timer",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/alineborges/Documents/P2PSocketSale/P2PSocketsSale/P2PSocketsSale/Store/StoreViewController.swift",
+      "line": 23,
+      "symbol": "StoreViewController.currentEmoji",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/alineborges/Documents/P2PSocketSale/P2PSocketsSale/P2PSocketsSale/Store/StoreViewController.swift",
+      "line": 24,
+      "symbol": "StoreViewController.currentQuantity",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/alineborges/Documents/P2PSocketSale/P2PSocketsSale/P2PSocketsSale/Store/StoreViewController.swift",
+      "line": 26,
+      "symbol": "StoreViewController.init(store:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/alineborges/Documents/P2PSocketSale/P2PSocketsSale/P2PSocketsSale/Store/StoreViewController.swift",
+      "line": 32,
+      "symbol": "StoreViewController.init(coder:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/alineborges/Documents/P2PSocketSale/P2PSocketsSale/P2PSocketsSale/Store/StoreViewController.swift",
+      "line": 38,
+      "symbol": "StoreViewController.viewDidLoad()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/alineborges/Documents/P2PSocketSale/P2PSocketsSale/P2PSocketsSale/Store/StoreViewController.swift",
+      "line": 56,
+      "symbol": "StoreViewController.onTick()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/alineborges/Documents/P2PSocketSale/P2PSocketsSale/P2PSocketsSale/Store/StoreViewController.swift",
+      "line": 60,
+      "symbol": "StoreViewController.announceStoreAgain()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/alineborges/Documents/P2PSocketSale/P2PSocketsSale/P2PSocketsSale/Store/StoreViewController.swift",
+      "line": 64,
+      "symbol": "StoreViewController.emojiPickerAction(_:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/alineborges/Documents/P2PSocketSale/P2PSocketsSale/P2PSocketsSale/Store/StoreViewController.swift",
+      "line": 75,
+      "symbol": "StoreViewController.pickQuantityAction(_:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/alineborges/Documents/P2PSocketSale/P2PSocketsSale/P2PSocketsSale/Store/StoreViewController.swift",
+      "line": 89,
+      "symbol": "StoreViewController.buyAction(_:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/alineborges/Documents/P2PSocketSale/P2PSocketsSale/P2PSocketsSale/Store/StoreViewController.swift",
+      "line": 95,
+      "symbol": "StoreViewController.disconnectStore(_:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/alineborges/Documents/P2PSocketSale/P2PSocketsSale/P2PSocketsSale/Store/StoreViewController.swift",
+      "line": 112,
+      "symbol": "StoreViewController.updateBossUI()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/alineborges/Documents/P2PSocketSale/P2PSocketsSale/P2PSocketsSale/Store/StoreViewController.swift",
+      "line": 127,
+      "symbol": "StoreViewController.updateUI()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/alineborges/Documents/P2PSocketSale/P2PSocketsSale/P2PSocketsSale/Store/StoreViewController.swift",
+      "line": 133,
+      "symbol": "StoreViewController.isSelectedAsBoss()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/alineborges/Documents/P2PSocketSale/P2PSocketsSale/P2PSocketsSale/Store/StoreViewController.swift",
+      "line": 141,
+      "symbol": "StoreViewController.numberOfSections(in:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/alineborges/Documents/P2PSocketSale/P2PSocketsSale/P2PSocketsSale/Store/StoreViewController.swift",
+      "line": 145,
+      "symbol": "StoreViewController.tableView(_:numberOfRowsInSection:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/alineborges/Documents/P2PSocketSale/P2PSocketsSale/P2PSocketsSale/Store/StoreViewController.swift",
+      "line": 153,
+      "symbol": "StoreViewController.tableView(_:cellForRowAt:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/alineborges/Documents/P2PSocketSale/P2PSocketsSale/P2PSocketsSale/Store/TableViewCell/StoreCell.swift",
+      "line": 11,
+      "symbol": "StoreCell",
+      "symbol_kind": "source.lang.swift.decl.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/alineborges/Documents/P2PSocketSale/P2PSocketsSale/P2PSocketsSale/Store/TableViewCell/StoreCell.swift",
+      "line": 13,
+      "symbol": "StoreCell.identifier",
+      "symbol_kind": "source.lang.swift.decl.var.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/alineborges/Documents/P2PSocketSale/P2PSocketsSale/P2PSocketsSale/Store/TableViewCell/StoreCell.swift",
+      "line": 15,
+      "symbol": "StoreCell.titleLabel",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/alineborges/Documents/P2PSocketSale/P2PSocketsSale/P2PSocketsSale/Store/TableViewCell/StoreCell.swift",
+      "line": 16,
+      "symbol": "StoreCell.scoreLabel",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/alineborges/Documents/P2PSocketSale/P2PSocketsSale/P2PSocketsSale/Store/TableViewCell/StoreCell.swift",
+      "line": 18,
+      "symbol": "StoreCell.awakeFromNib()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/alineborges/Documents/P2PSocketSale/P2PSocketsSale/P2PSocketsSale/Store/TableViewCell/StoreCell.swift",
+      "line": 23,
+      "symbol": "StoreCell.setStore(_:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/alineborges/Documents/P2PSocketSale/P2PSocketsSale/P2PSocketsSale/Store/TableViewCell/StoreCell.swift",
+      "line": 31,
+      "symbol": "StoreCell.setSelected(_:animated:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/alineborges/Documents/P2PSocketSale/P2PSocketsSale/P2PSocketsSale/Store/TableViewCell/StoreProductCell.swift",
+      "line": 11,
+      "symbol": "StoreProductCell",
+      "symbol_kind": "source.lang.swift.decl.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/alineborges/Documents/P2PSocketSale/P2PSocketsSale/P2PSocketsSale/Store/TableViewCell/StoreProductCell.swift",
+      "line": 13,
+      "symbol": "StoreProductCell.identifier",
+      "symbol_kind": "source.lang.swift.decl.var.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/alineborges/Documents/P2PSocketSale/P2PSocketsSale/P2PSocketsSale/Store/TableViewCell/StoreProductCell.swift",
+      "line": 15,
+      "symbol": "StoreProductCell.emojiLabel",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/alineborges/Documents/P2PSocketSale/P2PSocketsSale/P2PSocketsSale/Store/TableViewCell/StoreProductCell.swift",
+      "line": 16,
+      "symbol": "StoreProductCell.priceLabel",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/alineborges/Documents/P2PSocketSale/P2PSocketsSale/P2PSocketsSale/Store/TableViewCell/StoreProductCell.swift",
+      "line": 17,
+      "symbol": "StoreProductCell.quantityLabel",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/alineborges/Documents/P2PSocketSale/P2PSocketsSale/P2PSocketsSale/Store/TableViewCell/StoreProductCell.swift",
+      "line": 20,
+      "symbol": "StoreProductCell.awakeFromNib()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/alineborges/Documents/P2PSocketSale/P2PSocketsSale/P2PSocketsSale/Store/TableViewCell/StoreProductCell.swift",
+      "line": 25,
+      "symbol": "StoreProductCell.setSelected(_:animated:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/alineborges/Documents/P2PSocketSale/P2PSocketsSale/P2PSocketsSale/Store/TableViewCell/StoreProductCell.swift",
+      "line": 31,
+      "symbol": "StoreProductCell.setProduct(_:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/alineborges/Documents/P2PSocketSale/P2PSocketsSale/P2PSocketsSale/Util/Constants.swift",
+      "line": 14,
+      "symbol": "UIColor.teal",
+      "symbol_kind": "source.lang.swift.decl.var.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/alineborges/Documents/P2PSocketSale/P2PSocketsSale/P2PSocketsSale/Util/Constants.swift",
+      "line": 20,
+      "symbol": "Constants",
+      "symbol_kind": "source.lang.swift.decl.struct",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/alineborges/Documents/P2PSocketSale/P2PSocketsSale/P2PSocketsSale/Util/Constants.swift",
+      "line": 22,
+      "symbol": "Constants.timeInterval",
+      "symbol_kind": "source.lang.swift.decl.var.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/alineborges/Documents/P2PSocketSale/P2PSocketsSale/P2PSocketsSale/Util/Constants.swift",
+      "line": 23,
+      "symbol": "Constants.emojis",
+      "symbol_kind": "source.lang.swift.decl.var.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/alineborges/Documents/P2PSocketSale/P2PSocketsSale/P2PSocketsSale/Util/Notification+NSObject.swift",
+      "line": 12,
+      "symbol": "queueAssociationKey",
+      "symbol_kind": "source.lang.swift.decl.var.global",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/alineborges/Documents/P2PSocketSale/P2PSocketsSale/P2PSocketsSale/Util/Notification+NSObject.swift",
+      "line": 19,
+      "symbol": "NSObject.registerNotification(notificationName:withSelector:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/alineborges/Documents/P2PSocketSale/P2PSocketsSale/P2PSocketsSale/Util/Notification+NSObject.swift",
+      "line": 23,
+      "symbol": "NSObject.unregisterNotification(notificationName:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/alineborges/Documents/P2PSocketSale/P2PSocketsSale/P2PSocketsSale/Util/Notification+NSObject.swift",
+      "line": 27,
+      "symbol": "NSObject.unregisterAllNotifications()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/alineborges/Documents/P2PSocketSale/P2PSocketsSale/P2PSocketsSale/Util/Notification+NSObject.swift",
+      "line": 31,
+      "symbol": "NSObject.postNotification(notificationName:withObject:userInfo:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/alineborges/Documents/P2PSocketSale/P2PSocketsSale/P2PSocketsSale/Util/Notification+NSObject.swift",
+      "line": 35,
+      "symbol": "NSObject.postNotification(notification:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/alineborges/Documents/P2PSocketSale/P2PSocketsSale/P2PSocketsSale/Util/Notification+NSObject.swift",
+      "line": 40,
+      "symbol": "NotificationUtils",
+      "symbol_kind": "source.lang.swift.decl.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/alineborges/Documents/P2PSocketSale/P2PSocketsSale/P2PSocketsSale/Util/Notification+NSObject.swift",
+      "line": 44,
+      "symbol": "NotificationUtils.registerNotification(notificationName:withSelector:fromObserver:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/alineborges/Documents/P2PSocketSale/P2PSocketsSale/P2PSocketsSale/Util/Notification+NSObject.swift",
+      "line": 50,
+      "symbol": "NotificationUtils.unregisterNotification(notificationName:fromObserver:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/alineborges/Documents/P2PSocketSale/P2PSocketsSale/P2PSocketsSale/Util/Notification+NSObject.swift",
+      "line": 54,
+      "symbol": "NotificationUtils.unregisterAllNotificationsFromObserver(observer:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/alineborges/Documents/P2PSocketSale/P2PSocketsSale/P2PSocketsSale/Util/Notification+NSObject.swift",
+      "line": 60,
+      "symbol": "NotificationUtils.postNotification(notificationName:withObject:userInfo:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/alineborges/Documents/P2PSocketSale/P2PSocketsSale/P2PSocketsSale/Util/Notification+NSObject.swift",
+      "line": 64,
+      "symbol": "NotificationUtils.postNotification(notification:withObject:userInfo:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/alineborges/Documents/P2PSocketSale/P2PSocketsSale/P2PSocketsSale/Util/RSAUtils.swift",
+      "line": 19,
+      "symbol": "RSAUtils",
+      "symbol_kind": "source.lang.swift.decl.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/alineborges/Documents/P2PSocketSale/P2PSocketsSale/P2PSocketsSale/Util/RSAUtils.swift",
+      "line": 21,
+      "symbol": "RSAUtils.PADDING_FOR_DECRYPT",
+      "symbol_kind": "source.lang.swift.decl.var.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/alineborges/Documents/P2PSocketSale/P2PSocketsSale/P2PSocketsSale/Util/RSAUtils.swift",
+      "line": 24,
+      "symbol": "RSAUtils.RSAUtilsError",
+      "symbol_kind": "source.lang.swift.decl.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/alineborges/Documents/P2PSocketSale/P2PSocketsSale/P2PSocketsSale/Util/RSAUtils.swift",
+      "line": 25,
+      "symbol": "RSAUtils.RSAUtilsError.init(_:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/alineborges/Documents/P2PSocketSale/P2PSocketsSale/P2PSocketsSale/Util/RSAUtils.swift",
+      "line": 39,
+      "symbol": "RSAUtils.base64Encode(_:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/alineborges/Documents/P2PSocketSale/P2PSocketsSale/P2PSocketsSale/Util/RSAUtils.swift",
+      "line": 45,
+      "symbol": "RSAUtils.base64Decode(_:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/alineborges/Documents/P2PSocketSale/P2PSocketsSale/P2PSocketsSale/Util/RSAUtils.swift",
+      "line": 428,
+      "symbol": "RSAUtils.removePadding(_:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/alineborges/Documents/P2PSocketSale/P2PSocketsSale/P2PSocketsSale/Util/Random.swift",
+      "line": 11,
+      "symbol": "Array.random()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/alineborges/Documents/P2PSocketSale/P2PSocketsSale/P2PSocketsSale/Util/Random.swift",
+      "line": 19,
+      "symbol": "Int.random()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/alineborges/Documents/P2PSocketSale/P2PSocketsSale/P2PSocketsSale/Util/UIColor+Hex.swift",
+      "line": 12,
+      "symbol": "UIColor.init(rgba:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/alineborges/Documents/P2PSocketSale/P2PSocketsSale/P2PSocketsSale/Util/UIView+Utils.swift",
+      "line": 14,
+      "symbol": "UIView.pinEdgesToSuperview()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/alineborges/Documents/P2PSocketSale/P2PSocketsSale/P2PSocketsSale/Util/UIView+Utils.swift",
+      "line": 24,
+      "symbol": "UIView.centerVerticallyInSuperview()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/alineborges/Documents/P2PSocketSale/P2PSocketsSale/P2PSocketsSale/Util/UIView+Utils.swift",
+      "line": 31,
+      "symbol": "UIView.centerHorizontallyInSuperview()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/alineborges/Documents/P2PSocketSale/P2PSocketsSale/P2PSocketsSale/Util/UIView+Utils.swift",
+      "line": 38,
+      "symbol": "UIView.pinLeftEdgeToSuperview(withOffset:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/alineborges/Documents/P2PSocketSale/P2PSocketsSale/P2PSocketsSale/Util/UIView+Utils.swift",
+      "line": 45,
+      "symbol": "UIView.pinRightEdgeToSuperview(withOffset:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/alineborges/Documents/P2PSocketSale/P2PSocketsSale/P2PSocketsSale/Util/UIView+Utils.swift",
+      "line": 52,
+      "symbol": "UIView.pinTopEdgeToSuperview(withOffset:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/alineborges/Documents/P2PSocketSale/P2PSocketsSale/P2PSocketsSale/Util/UIView+Utils.swift",
+      "line": 59,
+      "symbol": "UIView.pinBottomEdgeToSuperview(withOffset:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/alineborges/Documents/P2PSocketSale/P2PSocketsSale/P2PSocketsSale/Util/UIView+Utils.swift",
+      "line": 66,
+      "symbol": "UIView.constraintHeight(toConstant:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/alineborges/Documents/P2PSocketSale/P2PSocketsSale/P2PSocketsSale/Util/UIView+Utils.swift",
+      "line": 70,
+      "symbol": "UIView.constraintWidth(toConstant:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/alineborges/Documents/P2PSocketSale/P2PSocketsSale/P2PSocketsSale/Util/UIView+Utils.swift",
+      "line": 74,
+      "symbol": "UIView.roundView()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/alineborges/Documents/P2PSocketSale/P2PSocketsSale/P2PSocketsSale/Util/ViewController+FromXib.swift",
+      "line": 12,
+      "symbol": "UIViewControllerFromXib",
+      "symbol_kind": "source.lang.swift.decl.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/alineborges/Documents/P2PSocketSale/P2PSocketsSale/P2PSocketsSale/Util/ViewController+FromXib.swift",
+      "line": 14,
+      "symbol": "UIViewControllerFromXib.loadView()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/alineborges/Documents/P2PSocketSale/P2PSocketsSale/P2PSocketsSale/ViewController.swift",
+      "line": null,
+      "symbol": "ViewController",
+      "symbol_kind": "source.lang.swift.decl.extension",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/alineborges/Documents/P2PSocketSale/P2PSocketsSale/P2PSocketsSale/ViewController.swift",
+      "line": 11,
+      "symbol": "ViewController",
+      "symbol_kind": "source.lang.swift.decl.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/alineborges/Documents/P2PSocketSale/P2PSocketsSale/P2PSocketsSale/ViewController.swift",
+      "line": 13,
+      "symbol": "ViewController.stores",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/alineborges/Documents/P2PSocketSale/P2PSocketsSale/P2PSocketsSale/ViewController.swift",
+      "line": 14,
+      "symbol": "ViewController.viewControllers",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/alineborges/Documents/P2PSocketSale/P2PSocketsSale/P2PSocketsSale/ViewController.swift",
+      "line": 16,
+      "symbol": "ViewController.containerViews",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/alineborges/Documents/P2PSocketSale/P2PSocketsSale/P2PSocketsSale/ViewController.swift",
+      "line": 18,
+      "symbol": "ViewController.viewDidLoad()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/alineborges/Documents/P2PSocketSale/P2PSocketsSale/P2PSocketsSale/ViewController.swift",
+      "line": 27,
+      "symbol": "ViewController.didReceiveMemoryWarning()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/alineborges/Documents/P2PSocketSale/P2PSocketsSale/P2PSocketsSale/ViewController.swift",
+      "line": 31,
+      "symbol": "ViewController.newStoreAction(_:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/alineborges/Documents/P2PSocketSale/P2PSocketsSale/P2PSocketsSale/ViewController.swift",
+      "line": 39,
+      "symbol": "ViewController.buttonAction(_:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/alineborges/Documents/P2PSocketSale/P2PSocketsSale/P2PSocketsSale/ViewController.swift",
+      "line": 47,
+      "symbol": "ViewController.random()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/alineborges/Documents/P2PSocketSale/P2PSocketsSale/P2PSocketsSale/ViewController.swift",
+      "line": 52,
+      "symbol": "ViewController.sendMessageAction(_:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/alineborges/Documents/P2PSocketSale/P2PSocketsSale/P2PSocketsSale/ViewController.swift",
+      "line": 56,
+      "symbol": "ViewController.prepare(for:sender:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/alineborges/Documents/P2PSocketSale/P2PSocketsSale/P2PSocketsSale/ViewController.swift",
+      "line": 65,
+      "symbol": "ViewController.didCreateStore(withName:products:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/alineborges/Documents/P2PSocketSale/P2PSocketsSale/P2PSocketsSale/ViewController.swift",
+      "line": 74,
+      "symbol": "ViewController.addNewStoreController(_:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    }
+  ],
+  "source_directory": "/Users/alineborges/Documents/P2PSocketSale/P2PSocketsSale"
+}

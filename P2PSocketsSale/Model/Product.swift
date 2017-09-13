@@ -29,7 +29,7 @@ class Product: Mappable {
         
     }
     
-    func mapping(map: Map) {
+    public func mapping(map: Map) {
         emoji    <- map["emoji"]
         quantity    <- map["quantity"]
         price    <- map["price"]

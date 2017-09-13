@@ -1,0 +1,117 @@
+{
+  "warnings": [
+    {
+      "file": "/Users/alineborges/Documents/P2PSocketSale/P2PSocketsSale/P2PSocketsSale/Store/Store.swift",
+      "line": 21,
+      "symbol": "Store",
+      "symbol_kind": "source.lang.swift.decl.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/alineborges/Documents/P2PSocketSale/P2PSocketsSale/P2PSocketsSale/Util/Constants.swift",
+      "line": 14,
+      "symbol": "UIColor.teal",
+      "symbol_kind": "source.lang.swift.decl.var.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/alineborges/Documents/P2PSocketSale/P2PSocketsSale/P2PSocketsSale/Util/Notification+NSObject.swift",
+      "line": 19,
+      "symbol": "NSObject.registerNotification(notificationName:withSelector:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/alineborges/Documents/P2PSocketSale/P2PSocketsSale/P2PSocketsSale/Util/Notification+NSObject.swift",
+      "line": 23,
+      "symbol": "NSObject.unregisterNotification(notificationName:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/alineborges/Documents/P2PSocketSale/P2PSocketsSale/P2PSocketsSale/Util/Notification+NSObject.swift",
+      "line": 27,
+      "symbol": "NSObject.unregisterAllNotifications()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/alineborges/Documents/P2PSocketSale/P2PSocketsSale/P2PSocketsSale/Util/Notification+NSObject.swift",
+      "line": 31,
+      "symbol": "NSObject.postNotification(notificationName:withObject:userInfo:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/alineborges/Documents/P2PSocketSale/P2PSocketsSale/P2PSocketsSale/Util/Notification+NSObject.swift",
+      "line": 35,
+      "symbol": "NSObject.postNotification(notification:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/alineborges/Documents/P2PSocketSale/P2PSocketsSale/P2PSocketsSale/Util/Notification+NSObject.swift",
+      "line": 40,
+      "symbol": "NotificationUtils",
+      "symbol_kind": "source.lang.swift.decl.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/alineborges/Documents/P2PSocketSale/P2PSocketsSale/P2PSocketsSale/Util/Notification+NSObject.swift",
+      "line": 44,
+      "symbol": "NotificationUtils.registerNotification(notificationName:withSelector:fromObserver:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/alineborges/Documents/P2PSocketSale/P2PSocketsSale/P2PSocketsSale/Util/Notification+NSObject.swift",
+      "line": 50,
+      "symbol": "NotificationUtils.unregisterNotification(notificationName:fromObserver:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/alineborges/Documents/P2PSocketSale/P2PSocketsSale/P2PSocketsSale/Util/Notification+NSObject.swift",
+      "line": 54,
+      "symbol": "NotificationUtils.unregisterAllNotificationsFromObserver(observer:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/alineborges/Documents/P2PSocketSale/P2PSocketsSale/P2PSocketsSale/Util/Notification+NSObject.swift",
+      "line": 60,
+      "symbol": "NotificationUtils.postNotification(notificationName:withObject:userInfo:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/alineborges/Documents/P2PSocketSale/P2PSocketsSale/P2PSocketsSale/Util/Notification+NSObject.swift",
+      "line": 64,
+      "symbol": "NotificationUtils.postNotification(notification:withObject:userInfo:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/alineborges/Documents/P2PSocketSale/P2PSocketsSale/P2PSocketsSale/Util/RSAUtils.swift",
+      "line": 19,
+      "symbol": "RSAUtils",
+      "symbol_kind": "source.lang.swift.decl.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/alineborges/Documents/P2PSocketSale/P2PSocketsSale/P2PSocketsSale/Util/RSAUtils.swift",
+      "line": 24,
+      "symbol": "RSAUtils.RSAUtilsError",
+      "symbol_kind": "source.lang.swift.decl.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/alineborges/Documents/P2PSocketSale/P2PSocketsSale/P2PSocketsSale/Util/UIColor+Hex.swift",
+      "line": 12,
+      "symbol": "UIColor.init(rgba:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    }
+  ],
+  "source_directory": "/Users/alineborges/Documents/P2PSocketSale/P2PSocketsSale"
+}
