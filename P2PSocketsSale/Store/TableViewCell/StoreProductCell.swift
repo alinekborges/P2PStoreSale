@@ -30,8 +30,8 @@ class StoreProductCell: UITableViewCell {
     
     func setProduct(_ product: Product) {
         emojiLabel.text = product.emoji!
-        priceLabel.text = "\(product.price!)"
-        quantityLabel.text = "quantity:\(product.quantity!)"
+        priceLabel.text = "R$\(product.price!),00"
+        quantityLabel.text = "\(product.quantity!)"
     }
     
 }

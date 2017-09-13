@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12121" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12121" systemVersion="16G29" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -20,8 +20,8 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="❤️" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MwS-D9-Tf1">
-                        <rect key="frame" x="21" y="9.5" width="25" height="24"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                        <rect key="frame" x="48" y="7.5" width="27" height="29"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="24"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
@@ -31,19 +31,30 @@
                         <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="quantity: 10" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sMo-XH-ide">
-                        <rect key="frame" x="190.5" y="19" width="61.5" height="13.5"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="10" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sMo-XH-ide">
+                        <rect key="frame" x="8" y="13.5" width="18" height="20.5"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4rE-QL-nUK">
+                        <rect key="frame" x="26" y="42.5" width="294" height="1"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="1" id="bhY-0g-sId"/>
+                        </constraints>
+                    </view>
                 </subviews>
+                <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                 <constraints>
-                    <constraint firstItem="FQs-Hx-AZC" firstAttribute="leading" secondItem="sMo-XH-ide" secondAttribute="trailing" constant="8.5" id="DcW-lh-vLy"/>
+                    <constraint firstItem="4rE-QL-nUK" firstAttribute="leading" secondItem="sMo-XH-ide" secondAttribute="trailing" id="6ic-PT-F16"/>
                     <constraint firstItem="sMo-XH-ide" firstAttribute="baseline" secondItem="FQs-Hx-AZC" secondAttribute="baseline" id="MOP-HO-ayG"/>
                     <constraint firstItem="MwS-D9-Tf1" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="OQN-U5-UuM"/>
                     <constraint firstItem="FQs-Hx-AZC" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="Rc2-n0-MLn"/>
-                    <constraint firstItem="MwS-D9-Tf1" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="13" id="phM-C3-mKz"/>
+                    <constraint firstItem="sMo-XH-ide" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" id="ara-dq-fno"/>
+                    <constraint firstAttribute="trailing" secondItem="4rE-QL-nUK" secondAttribute="trailing" id="l5I-9N-l7X"/>
+                    <constraint firstAttribute="bottom" secondItem="4rE-QL-nUK" secondAttribute="bottom" id="lC6-qX-W7F"/>
+                    <constraint firstItem="MwS-D9-Tf1" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="40" id="phM-C3-mKz"/>
                     <constraint firstItem="FQs-Hx-AZC" firstAttribute="trailing" secondItem="H2p-sc-9uM" secondAttribute="trailingMargin" id="vOy-2Y-pyU"/>
                 </constraints>
             </tableViewCellContentView>

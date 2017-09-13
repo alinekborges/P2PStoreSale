@@ -14,6 +14,7 @@ class StoreCell: UITableViewCell {
 
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var scoreLabel: UILabel!
+    @IBOutlet weak var productsLabel: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -22,9 +23,10 @@ class StoreCell: UITableViewCell {
     
     func setStore(_ store: StoreBase) {
         let icons = store.products!
-            .map( {$0.emoji!} )
+            .map( { "\($0.quantity!) " + $0.emoji! + " "} )
             .joined()
-        self.titleLabel.text = "\(store.name ?? "")\(icons)"
+        self.titleLabel.text = "\(store.name ?? "")"
+        self.productsLabel.text = icons
         self.scoreLabel.text = "\(store.score!)"
     }
 
