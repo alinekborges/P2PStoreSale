@@ -68,6 +68,7 @@ class StoreBossManager: NSObject {
             
         } else {
             //TODO: SHow errror: no stores have this product
+            print("boss error finding a store to sell: \(order.emoji)")
         }
     }
     

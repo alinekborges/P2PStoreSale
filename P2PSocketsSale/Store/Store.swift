@@ -28,7 +28,8 @@ class Store: NSObject {
     var products: [Product]
     var score: Int
     
-    var privateKey: String
+    private var privateKey: String
+    private var publicKey: String
     
     var buyOrder: BuyOrder?
     
@@ -45,6 +46,7 @@ class Store: NSObject {
         self.score = 0
         
         privateKey = name + products.first!.emoji! //create random privateKey using name + emoji
+        publicKey = "blabla"
         
         super.init()
         manager.delegate = self
@@ -66,7 +68,7 @@ class Store: NSObject {
         let base = StoreBase(name: self.name,
              products: self.products,
              score: self.score,
-             publicKey: self.name) //for now, public key is my name
+             publicKey: self.publicKey)
         return base
     }
     
@@ -92,18 +94,22 @@ class Store: NSObject {
         self.buyOrder = order
     }
     
-    func completeBuy(_ order: BuyOrder, peerID: MCPeerID, publicKey: String) {
+    func completeBuy(_ order: BuyOrder, peerID: String, publicKey: String) {
         let message = Message()
         message.message = "I will buy \(order.emoji!) from \(peerID) and I have the key"
         message.type = .completeBuy
         message.buyOrder = order
         
+        self.manager.sendEncrypted(message: message, withPublicKey: publicKey, toPeer: peerID)
         
-        //encrypt message with public key
-        let encrypted = message.encrypt(withPublicKey: publicKey)
-        
-        self.manager.send(message: message, toPeer: peerID)
     }
+    
+    func decrypt(_ string: String) -> String {
+        //TODO: decrypt message
+        return "blabla"
+    }
+    
+    
 }
 
 extension Store: StoreMultipeerDelegate {
@@ -118,15 +124,19 @@ extension Store: StoreMultipeerDelegate {
         self.manager.send(message: message, toPeer: peerID)
     }
     
-    func selectedPeerForBuy(_ peerID: MCPeerID?, publicKey: String?) {
+    func selectedPeerForBuy(_ peerID: String?, publicKey: String?) {
         guard let peerID = peerID, let publicKey = publicKey, let buyOrder = self.buyOrder else {
             print("(boss) not enought parameters to complete buy")
             return
         }
-        
         self.completeBuy(buyOrder, peerID: peerID, publicKey: publicKey)
 
     }
+
+    func decryptString(string: String) -> String {
+        return decrypt(string)
+    }
+    
 }
 
 

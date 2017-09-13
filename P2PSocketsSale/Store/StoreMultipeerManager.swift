@@ -13,7 +13,8 @@ protocol StoreMultipeerDelegate {
     
     func isSelectedAsBoss()
     func selectedNewBoss(_ peerID: MCPeerID)
-    func selectedPeerForBuy(_ peerID: MCPeerID?, publicKey: String?)
+    func selectedPeerForBuy(_ peerID: String?, publicKey: String?)
+    func decryptString(string: String) -> String
     
 }
 
@@ -121,6 +122,20 @@ class StoreMultipeerManager: NSObject {
         }
     }
     
+    func sendEncrypted(message: Message, withPublicKey publicKey: String, toPeer peer: String) {
+        if let peerToSend = self.manager.connectedPeers.filter({$0.displayName == peer}).first {
+            let encrypted = message.encrypt(withPublicKey: publicKey)
+            
+            do {
+                try self.session.send(encrypted.data(using: .utf8)!, toPeers: [peerToSend], with: MCSessionSendDataMode.reliable)
+            } catch let error {
+                print("boss: error sending encrypted message: \(error.localizedDescription) to peer: \(peer)")
+            }
+        } else {
+            print("peer not connected: \(peer)")
+        }
+    }
+    
     //func sendEncryptedMessage(
     
     func send(message: Message, toPeer peer: MCPeerID? = nil) {
@@ -144,9 +159,15 @@ class StoreMultipeerManager: NSObject {
         
     }
     
+    
+    
     func disconnect() {
         self.manager.disconnect()
         print("disconnecting \(self.peerID)")
+    }
+    
+    func handleEnctryptedMessage(string: String) -> Message {
+        
     }
     
 }
@@ -155,31 +176,36 @@ extension StoreMultipeerManager: ServiceManagerDelegate {
     
     func receiveData(manager : MultipeerServiceManager, user: String, string: String) {
         
-        let message = Message(JSONString: string)
+        var msg: Message!
         
-        guard let type = message?.type else {
+        if let m = Message(JSONString: string) {
+            msg = m
+        } else {
+            
+        }
+        
+        guard let message = msg, let type = message.type else {
+            print("(boss) string received: \(string)")
             return
         }
         
-        self.messageDelegate?.didReceiveMessage(message: message!, fromUser: user, string: string)
+        self.messageDelegate?.didReceiveMessage(message: message, fromUser: user, string: string)
         
-        print("\(self.peerID) message received: \(message!.message!)")
+        print("\(self.peerID) message received: \(message.message!)")
         
         switch type {
         case .bossKeepAlive:
             self.bossIsAlive = true
             if (boss == nil) {
-                boss = self.peerWithID(message!.peerID!)
+                boss = self.peerWithID(message.peerID!)
                 print("received message from boss \(boss?.displayName)! He is the boss!")
                 newBoss(self.boss!)
             }
         case .buyOrderResponse:
-            guard let peer = message?.buyOrderResponse?.peerID else {
+            guard let peer = message.buyOrderResponse?.peerID else {
+                print("boss did not send complete message!")
                 return
             }
-            
-            let peerID = MCPeerID(displayName: peer)
-                
             self.delegate?.selectedPeerForBuy(peer, publicKey: message?.buyOrderResponse?.publicKey)
         default:
             break

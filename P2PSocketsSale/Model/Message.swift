@@ -41,6 +41,7 @@ class Message: Mappable {
         message    <- map["message"]
         buyOrder    <- map["buyOrder"]
         baseStore    <- map["baseStore"]
+        buyOrderResponse    <- map["buyOrderResponse"]
     }
     
     func toData() -> Data {
@@ -51,7 +52,8 @@ class Message: Mappable {
     
     func encrypt(withPublicKey key: String) -> String {
         //TODO: Actually encrypt this
-        return self.toJSONString()!
+        //return self.toJSONString()!
+        return "E7lU380okEnsV2rPVNh4idtkAKaRXbRQu7a2Atx9ePTmyeXO0x65daiNjCd2E4ePXfV1bpyp627KMQ4bxhGmiQ=="
     }
 }
 
