@@ -18,6 +18,7 @@ class Message: Mappable {
         case buyOrder = "buyOrder"
         case buyOrderResponse = "buyOrderResponse"
         case completeBuy = "completeBuy"
+        case sendingProduct = "sendingProduct"
     }
     
     var type: MessageType?
@@ -50,10 +51,9 @@ class Message: Mappable {
     }
     
     
-    func encrypt(withPublicKey key: String) -> String {
-        //TODO: Actually encrypt this
-        //return self.toJSONString()!
-        return "E7lU380okEnsV2rPVNh4idtkAKaRXbRQu7a2Atx9ePTmyeXO0x65daiNjCd2E4ePXfV1bpyp627KMQ4bxhGmiQ=="
+    func encrypt(withPublicKey key: String) -> Data {
+        let json = self.toJSONString()
+        return try! RSAUtils.encryptWithRSAPublicKey(str: json!, pubkeyBase64: key)!
     }
 }
 

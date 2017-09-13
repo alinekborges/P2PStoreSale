@@ -14,12 +14,13 @@ protocol StoreMultipeerDelegate {
     func isSelectedAsBoss()
     func selectedNewBoss(_ peerID: MCPeerID)
     func selectedPeerForBuy(_ peerID: String?, publicKey: String?)
-    func decryptString(string: String) -> String
-    
+    func decrypt(data: Data) -> String
+    func sell(_ buyOrder: BuyOrder, toPeer peer: String)
+    func receivedProduct(_ buyOrder: BuyOrder)
 }
 
 protocol PeerMessageDelegate {
-    func didReceiveMessage(message: Message, fromUser user: String, string: String)
+    func didReceiveMessage(message: Message, fromUser user: String, string: String?)
 }
 
 class StoreMultipeerManager: NSObject {
@@ -127,7 +128,7 @@ class StoreMultipeerManager: NSObject {
             let encrypted = message.encrypt(withPublicKey: publicKey)
             
             do {
-                try self.session.send(encrypted.data(using: .utf8)!, toPeers: [peerToSend], with: MCSessionSendDataMode.reliable)
+                try self.session.send(encrypted, toPeers: [peerToSend], with: MCSessionSendDataMode.reliable)
             } catch let error {
                 print("boss: error sending encrypted message: \(error.localizedDescription) to peer: \(peer)")
             }
@@ -167,21 +168,23 @@ class StoreMultipeerManager: NSObject {
     }
     
     func handleEnctryptedMessage(string: String) -> Message {
-        
+        return Message()
     }
     
 }
 
 extension StoreMultipeerManager: ServiceManagerDelegate {
     
-    func receiveData(manager : MultipeerServiceManager, user: String, string: String) {
+    func receiveData(manager : MultipeerServiceManager, user: String, string: String?, data: Data) {
         
-        var msg: Message!
+        var msg: Message?
         
-        if let m = Message(JSONString: string) {
-            msg = m
+        if string != nil  {
+            msg = Message(JSONString: string!)
         } else {
-            
+            let str = self.delegate?.decrypt(data: data)
+            msg = Message(JSONString: str!)
+            print("(boss) decrypting message with my PRIVATE KEY: \(msg?.message ?? "no message")")
         }
         
         guard let message = msg, let type = message.type else {
@@ -191,22 +194,30 @@ extension StoreMultipeerManager: ServiceManagerDelegate {
         
         self.messageDelegate?.didReceiveMessage(message: message, fromUser: user, string: string)
         
-        print("\(self.peerID) message received: \(message.message!)")
+        if type != .bossKeepAlive {
+            print("\(self.peerID) message received: \(message.message!)")
+        }
         
         switch type {
         case .bossKeepAlive:
             self.bossIsAlive = true
             if (boss == nil) {
-                boss = self.peerWithID(message.peerID!)
-                print("received message from boss \(boss?.displayName)! He is the boss!")
-                newBoss(self.boss!)
+                if let newboss = self.peerWithID(message.peerID!) {
+                    self.boss = newboss
+                    print("received message from boss \(boss?.displayName)! He is the boss!")
+                    newBoss(self.boss!)
+                }
             }
         case .buyOrderResponse:
             guard let peer = message.buyOrderResponse?.peerID else {
                 print("boss did not send complete message!")
                 return
             }
-            self.delegate?.selectedPeerForBuy(peer, publicKey: message?.buyOrderResponse?.publicKey)
+            self.delegate?.selectedPeerForBuy(peer, publicKey: message.buyOrderResponse?.publicKey)
+        case .completeBuy:
+            self.delegate?.sell(message.buyOrder!, toPeer: message.peerID!)
+        case .sendingProduct:
+            self.delegate?.receivedProduct(message.buyOrder!)
         default:
             break
         }

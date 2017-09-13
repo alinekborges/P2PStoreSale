@@ -12,7 +12,7 @@ import MultipeerConnectivity
 
 protocol ServiceManagerDelegate {
     
-    func receiveData(manager : MultipeerServiceManager, user: String, string: String)
+    func receiveData(manager : MultipeerServiceManager, user: String, string: String?, data: Data)
     func connectedDevicesChanged(_ session: MCSession, peer peerID: MCPeerID, didChange state: MCSessionState)
     
 }
@@ -111,8 +111,8 @@ extension MultipeerServiceManager: MCSessionDelegate, MCNearbyServiceBrowserDele
     func session(_ session: MCSession, didReceive data: Data, fromPeer peerID: MCPeerID) {
         NSLog("%@", "didReceiveData: \(data)")
         NSLog("%@", "MCPeerID: \(peerID.displayName)")
-        let str = String(data: data, encoding: .utf8)!
-        self.delegate?.receiveData(manager : self, user: peerID.displayName, string: str)
+        let str = String(data: data, encoding: .utf8)
+        self.delegate?.receiveData(manager : self, user: peerID.displayName, string: str, data: data)
     }
     
     func session(_ session: MCSession, didReceive stream: InputStream, withName streamName: String, fromPeer peerID: MCPeerID) {

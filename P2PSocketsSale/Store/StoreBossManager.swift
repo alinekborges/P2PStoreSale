@@ -100,7 +100,7 @@ class StoreBossManager: NSObject {
 
 extension StoreBossManager: PeerMessageDelegate {
     
-    func didReceiveMessage(message: Message, fromUser user: String, string: String) {
+    func didReceiveMessage(message: Message, fromUser user: String, string: String?) {
         switch message.type! {
         case .announcingProducts:
             self.addStore(baseStore: message.baseStore)

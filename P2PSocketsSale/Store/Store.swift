@@ -28,8 +28,8 @@ class Store: NSObject {
     var products: [Product]
     var score: Int
     
-    private var privateKey: String
-    private var publicKey: String
+    fileprivate var privateKey: String
+    fileprivate var publicKey: String
     
     var buyOrder: BuyOrder?
     
@@ -45,11 +45,16 @@ class Store: NSObject {
         self.manager = StoreMultipeerManager(peerID: name)
         self.score = 0
         
-        privateKey = name + products.first!.emoji! //create random privateKey using name + emoji
-        publicKey = "blabla"
+        let key = Keys.allkeys.random()!
+        
+        publicKey = key.0
+        privateKey = key.1
         
         super.init()
         manager.delegate = self
+        
+        let crypto = Crypto()
+        crypto.testEncrypt()
     }
     
     func onTick() {
@@ -99,16 +104,17 @@ class Store: NSObject {
         message.message = "I will buy \(order.emoji!) from \(peerID) and I have the key"
         message.type = .completeBuy
         message.buyOrder = order
+        message.peerID = self.name
         
         self.manager.sendEncrypted(message: message, withPublicKey: publicKey, toPeer: peerID)
         
     }
     
-    func decrypt(_ string: String) -> String {
-        //TODO: decrypt message
-        return "blabla"
-    }
     
+    func announceStore() {
+        let message = announceStoreMessage()
+        self.manager.sendToBoss(message: message)
+    }
     
 }
 
@@ -120,8 +126,7 @@ extension Store: StoreMultipeerDelegate {
     
     func selectedNewBoss(_ peerID: MCPeerID) {
         //when new boss is selected, I send to him my products,
-        let message = announceStoreMessage()
-        self.manager.send(message: message, toPeer: peerID)
+        announceStore()
     }
     
     func selectedPeerForBuy(_ peerID: String?, publicKey: String?) {
@@ -133,8 +138,48 @@ extension Store: StoreMultipeerDelegate {
 
     }
 
-    func decryptString(string: String) -> String {
-        return decrypt(string)
+    func decrypt(data: Data) -> String {
+        let decrypted = try! RSAUtils.decryptWithRSAPrivateKey(encryptedData: data, privkeyBase64: self.privateKey)
+        return String(data: decrypted!, encoding: .utf8)!
+    }
+    
+    func sell(_ buyOrder: BuyOrder, toPeer peer: String) {
+        for (index, product) in self.products.enumerated() {
+            if product.emoji == buyOrder.emoji {
+                //this is the product, so remove quantity or delete
+                if product.quantity! > buyOrder.quantity! {
+                    product.quantity! -= buyOrder.quantity!
+                } else {
+                    self.products.remove(at: index)
+                }
+                break
+            }
+        }
+        
+        let message = Message()
+        message.type = .sendingProduct
+        message.message = "(boss) sending products to destination peer!"
+        message.buyOrder = buyOrder
+        message.peerID = self.name
+        
+        self.manager.send(message: message, toPeer: peer)
+        
+        announceStore()
+        
+        DispatchQueue.main.async {
+            self.postNotification(notificationName: "update_UI")
+        }
+    }
+    
+    func receivedProduct(_ buyOrder: BuyOrder) {
+        for product in self.products {
+            if product.emoji == buyOrder.emoji {
+                product.quantity! += buyOrder.quantity!
+                return
+            }
+        }
+        
+        self.products.append(Product(emoji: buyOrder.emoji!, quantity: buyOrder.quantity!, price: 9.random()))
     }
     
 }
