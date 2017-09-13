@@ -21,16 +21,19 @@ class MultipeerServiceManager: NSObject {
     
     private let ServiceType = "emoji-amazon"
     var myPeerId: MCPeerID!
-    private var serviceAdvertiser : MCNearbyServiceAdvertiser
-    private let serviceBrowser : MCNearbyServiceBrowser
+    fileprivate var serviceAdvertiser : MCNearbyServiceAdvertiser
+    fileprivate let serviceBrowser : MCNearbyServiceBrowser
     
     var delegate : ServiceManagerDelegate?
+
     
     lazy var session : MCSession = {
         let session = MCSession(peer: self.myPeerId, securityIdentity: nil, encryptionPreference: .none)
         session.delegate = self
         return session
     }()
+    
+    static var hasAdvertiser = false
     
     init(peerID: String) {
         
@@ -40,11 +43,16 @@ class MultipeerServiceManager: NSObject {
         
         super.init()
         
-        self.serviceAdvertiser.delegate = self
-        self.serviceAdvertiser.startAdvertisingPeer()
+        //if (!MultipeerServiceManager.hasAdvertiser) {
+            self.serviceAdvertiser.delegate = self
+            self.serviceAdvertiser.startAdvertisingPeer()
+            MultipeerServiceManager.hasAdvertiser = true
+        //}
         
          self.serviceBrowser.delegate = self
          self.serviceBrowser.startBrowsingForPeers()
+        
+        
     }
     
     deinit {
@@ -56,6 +64,14 @@ class MultipeerServiceManager: NSObject {
         self.serviceAdvertiser.stopAdvertisingPeer()
         self.serviceBrowser.stopBrowsingForPeers()
         self.session.disconnect()
+    }
+    
+    func isBoss() {
+        //self.serviceAdvertiser.startAdvertisingPeer()
+    }
+    
+    func isNotBoss() {
+        //self.serviceAdvertiser.stopAdvertisingPeer()
     }
 }
 
@@ -86,11 +102,10 @@ extension MultipeerServiceManager: MCSessionDelegate, MCNearbyServiceBrowserDele
     func advertiser(_ advertiser: MCNearbyServiceAdvertiser, didReceiveInvitationFromPeer peerID: MCPeerID, withContext context: Data?, invitationHandler: @escaping (Bool, MCSession?) -> Void) {
         //NSLog("%@", "didReceiveInvitationFromPeer \(peerID)")
         if (peerID.displayName < self.myPeerId.displayName) {
-        invitationHandler(true, self.session)
+            invitationHandler(true, self.session)
         }
+        self.serviceAdvertiser.stopAdvertisingPeer()
     }
-    
-    
     
     //MARK: MCSession Delegates
     

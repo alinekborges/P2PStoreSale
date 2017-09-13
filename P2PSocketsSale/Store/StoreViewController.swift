@@ -19,6 +19,7 @@ class StoreViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     
     var timer: Timer?
+    var secondTimer: Timer?
     
     var currentEmoji: String = "💩"
     var currentQuantity: Int = 1
@@ -48,7 +49,7 @@ class StoreViewController: UIViewController {
         
         timer = Timer.scheduledTimer(timeInterval: Constants.timeInterval, target: self, selector: #selector(self.onTick), userInfo: nil, repeats: true)
         
-        timer = Timer.scheduledTimer(timeInterval: 60, target: self, selector: #selector(self.announceStoreAgain), userInfo: nil, repeats: true)
+        secondTimer = Timer.scheduledTimer(timeInterval: 60, target: self, selector: #selector(self.announceStoreAgain), userInfo: nil, repeats: true)
         
         self.registerNotification(notificationName: "update_UI", withSelector: #selector(self.updateUI))
     }
@@ -100,6 +101,7 @@ class StoreViewController: UIViewController {
             self.store.disconnect()
             self.view.removeFromSuperview()
             self.timer?.invalidate()
+            self.secondTimer?.invalidate()
         }))
         
         alert.addAction(UIAlertAction(title: "NO", style: .cancel, handler: nil))

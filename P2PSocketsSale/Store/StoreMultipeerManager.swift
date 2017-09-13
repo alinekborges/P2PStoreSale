@@ -58,7 +58,7 @@ class StoreMultipeerManager: NSObject {
         }
     }
     
-    
+
     
     //Election will happen in alphabetical order
     func newElection() {
@@ -87,9 +87,10 @@ class StoreMultipeerManager: NSObject {
                     self.timeAfterElection = 0
                     self.delegate?.isSelectedAsBoss()
                     self.boss = self.manager.myPeerId
+                    self.manager.isBoss()
                 } else {
                     //self.boss = peerWithID(elected)
-                    
+                    self.manager.isNotBoss()
                 }
                 
             }
@@ -114,7 +115,7 @@ class StoreMultipeerManager: NSObject {
             print("\(self.peerID):: boss is dead")
             
             self.boss = nil
-            if (self.connectedPeers.count >= 4) {
+            if (self.connectedPeers.count >= 3) {
                 self.newElection()
             }
         }
@@ -196,7 +197,7 @@ class StoreMultipeerManager: NSObject {
             self.connectedPeers.append(peerID)
         }
         
-        if self.boss == nil && self.connectedPeers.count >= 3 {
+        if self.boss == nil && self.connectedPeers.count >= 2 {
             self.queue.async {
                 self.newElection()
             }
@@ -236,10 +237,10 @@ extension StoreMultipeerManager: ServiceManagerDelegate {
         
         self.messageDelegate?.didReceiveMessage(message: message, fromUser: peerID.displayName, string: string)
         
-        //if type != .bossKeepAlive {
-            //print("\(self.peerID) message received: \(message.message ?? "")")
-        print("(boss) \(self.peerID) connectedPeers: \(self.manager.session.connectedPeers.map({$0.displayName}).joined(separator: " | "))")
-        //}
+        if type != .bossKeepAlive {
+            print("\(self.peerID) message received: \(message.message ?? "")")
+        //print("(boss) \(self.peerID) connectedPeers: \(self.manager.session.connectedPeers.map({$0.displayName}).joined(separator: " | "))")
+        }
         
         switch type {
         case .discovery:
