@@ -38,15 +38,17 @@ class StoreMultipeerManager: NSObject {
     
     var timeAfterElection: Int = 0
     
+    var queue: DispatchQueue
     
     init(peerID: String) {
         self.peerID = peerID
         self.manager = MultipeerServiceManager(peerID: peerID)
         self.session = self.manager.session
-        
+        queue = DispatchQueue(label: "com.peers.\(peerID)")
         super.init()
         
         self.manager.delegate = self
+        
     }
     
     
@@ -55,31 +57,34 @@ class StoreMultipeerManager: NSObject {
     func newElection() {
         if (self.boss != nil) { return }
         
-        var allPeers = self.manager.connectedPeers
-            .map( { $0.displayName} )
-        
-        allPeers.append(self.peerID) //include my own name in connected peers
-        
-        print("\(self.peerID) electing new boss from \(allPeers.description)")
-        
-        if let elected =
-            allPeers.sorted(by: { $0 < $1 } )
-            .first {
+        queue.asyncAfter(deadline: .now() + Constants.timeInterval) {
             
-            //save the boss
-            if (elected == self.peerID) {
-                //call delegate letting store know it's the new boss
-                print("I'm elected as boss: \(elected)")
-                self.isBoss = true
-                self.bossIsAlive = true
-                self.timeAfterElection = 0
-                self.delegate?.isSelectedAsBoss()
-                self.boss = self.manager.myPeerId
-            } else {
-                //self.boss = peerWithID(elected)
+            var allPeers = self.manager.connectedPeers
+                .map( { $0.displayName} )
+            
+            allPeers.append(self.peerID) //include my own name in connected peers
+            
+            print("\(self.peerID) electing new boss from \(allPeers.description)")
+            
+            if let elected =
+                allPeers.sorted(by: { $0 < $1 } )
+                    .first {
+                
+                //save the boss
+                if (elected == self.peerID) {
+                    //call delegate letting store know it's the new boss
+                    print("I'm elected as boss: \(elected)")
+                    self.isBoss = true
+                    self.bossIsAlive = true
+                    self.timeAfterElection = 0
+                    self.delegate?.isSelectedAsBoss()
+                    self.boss = self.manager.myPeerId
+                } else {
+                    //self.boss = peerWithID(elected)
+                    
+                }
                 
             }
-            
         }
         
     }
@@ -98,7 +103,7 @@ class StoreMultipeerManager: NSObject {
         if self.isBoss { return } //boss is handled elsewhere
         if bossIsAlive == false {
             //TODO: Oh shit boss is dead! 
-            print("boss is dead")
+            print("\(self.peerID):: boss is dead")
             
             self.boss = nil
             if (self.manager.connectedPeers.count >= 4) {
@@ -155,7 +160,7 @@ class StoreMultipeerManager: NSObject {
         do {
             try self.session.send(message.toData(), toPeers: peers, with: MCSessionSendDataMode.reliable)
         } catch let error {
-            print("boss: error sending message: \(error.localizedDescription) to peers: \(peers.map( {$0.displayName} ).description)")
+            //print("boss: error sending message: \(error.localizedDescription) to peers: \(peers.map( {$0.displayName} ).description)")
         }
         
     }
@@ -204,7 +209,7 @@ extension StoreMultipeerManager: ServiceManagerDelegate {
             if (boss == nil) {
                 if let newboss = self.peerWithID(message.peerID!) {
                     self.boss = newboss
-                    print("received message from boss \(boss?.displayName)! He is the boss!")
+                    print("received message from boss \(boss!.displayName)! He is the boss!")
                     newBoss(self.boss!)
                 }
             }
@@ -230,7 +235,7 @@ extension StoreMultipeerManager: ServiceManagerDelegate {
         //wait 5 seconds to see if a boss announces himself
         
         if state != .connected { return }
-        DispatchQueue.main.asyncAfter(deadline: .now() + Constants.timeInterval + 1.0) {
+        DispatchQueue.main.asyncAfter(deadline: .now() + Constants.timeInterval * 2) {
             if self.boss == nil && self.manager.connectedPeers.count >= 3 {
                 self.newElection()
             }

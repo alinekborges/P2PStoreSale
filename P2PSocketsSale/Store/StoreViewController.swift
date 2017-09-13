@@ -48,11 +48,17 @@ class StoreViewController: UIViewController {
         
         timer = Timer.scheduledTimer(timeInterval: Constants.timeInterval, target: self, selector: #selector(self.onTick), userInfo: nil, repeats: true)
         
+        timer = Timer.scheduledTimer(timeInterval: 60, target: self, selector: #selector(self.announceStoreAgain), userInfo: nil, repeats: true)
+        
         self.registerNotification(notificationName: "update_UI", withSelector: #selector(self.updateUI))
     }
     
     func onTick() {
         self.store.onTick()
+    }
+    
+    func announceStoreAgain() {
+        self.store.announceStore()
     }
 
     @IBAction func emojiPickerAction(_ sender: UIButton) {

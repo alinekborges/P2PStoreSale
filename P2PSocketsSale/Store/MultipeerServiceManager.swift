@@ -94,7 +94,6 @@ extension MultipeerServiceManager: MCSessionDelegate, MCNearbyServiceBrowserDele
     
     func session(_ session: MCSession, peer peerID: MCPeerID, didChange state: MCSessionState) {
         
-        
         let isInPeerList: Bool = self.connectedPeers.map({$0.displayName}).contains(peerID.displayName)
         
         if state == .connected && !isInPeerList {

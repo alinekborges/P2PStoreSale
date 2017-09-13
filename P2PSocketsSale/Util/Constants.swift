@@ -19,6 +19,6 @@ extension UIColor {
 
 struct Constants {
     
-    static let timeInterval = 5.0
+    static let timeInterval = 3.0
     static let emojis: [String] = ["❤️", "💩", "😈", "👻", "🐶", "💸", "🎃", "😍", "😸"]
 }

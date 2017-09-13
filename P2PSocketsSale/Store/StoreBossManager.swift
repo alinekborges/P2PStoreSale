@@ -48,7 +48,9 @@ class StoreBossManager: NSObject {
         
         
         print("boss received products from \(baseStore?.description). Current store count: \(self.allStores.count)")
-        self.postNotification(notificationName: "update_UI")
+        DispatchQueue.main.async {
+            self.postNotification(notificationName: "update_UI")
+        }
     }
     
     func processBuyOrder(order: BuyOrder, fromPeer peer: String) {
