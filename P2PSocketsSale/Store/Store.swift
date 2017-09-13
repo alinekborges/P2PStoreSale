@@ -207,7 +207,7 @@ extension Store: StoreMultipeerDelegate {
     func sendDiscovery() {
         let message = Message()
         message.type = .discovery
-        message.message = "Hey guys! I'm new around here! Do you guys have a boss yet?"
+        message.message = "Hey guys! I'm \(self.name) and I'm new around here! Do you guys have a boss yet?"
         message.peerID = self.name
         self.manager.send(message: message)
         

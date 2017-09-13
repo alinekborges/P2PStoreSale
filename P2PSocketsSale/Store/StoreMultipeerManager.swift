@@ -67,7 +67,7 @@ class StoreMultipeerManager: NSObject {
         queue.asyncAfter(deadline: .now() + Constants.timeInterval * 2) {
             if self.boss != nil { return }
             
-            var allPeers = self.connectedPeers
+            var allPeers = self.manager.session.connectedPeers
                 .map( { $0.displayName} )
             
             allPeers.append(self.peerID) //include my own name in connected peers
@@ -171,7 +171,11 @@ class StoreMultipeerManager: NSObject {
         do {
             try self.session.send(message.toData(), toPeers: peers, with: MCSessionSendDataMode.reliable)
         } catch let error {
-            //print("boss: error sending message: \(error.localizedDescription) to peers: \(peers.map( {$0.displayName} ).description)")
+            if (message.type == .bossKeepAlive) {
+                print("error sending boss keepalive!")
+                
+            }
+            print("boss: error sending message: \(error.localizedDescription) to peers: \(peers.map( {$0.displayName} ).description)")
         }
         
     }
@@ -232,9 +236,10 @@ extension StoreMultipeerManager: ServiceManagerDelegate {
         
         self.messageDelegate?.didReceiveMessage(message: message, fromUser: peerID.displayName, string: string)
         
-        if type != .bossKeepAlive {
-            print("\(self.peerID) message received: \(message.message!)")
-        }
+        //if type != .bossKeepAlive {
+            //print("\(self.peerID) message received: \(message.message ?? "")")
+        print("(boss) \(self.peerID) connectedPeers: \(self.manager.session.connectedPeers.map({$0.displayName}).joined(separator: " | "))")
+        //}
         
         switch type {
         case .discovery:
