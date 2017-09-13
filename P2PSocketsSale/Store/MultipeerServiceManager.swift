@@ -12,7 +12,7 @@ import MultipeerConnectivity
 
 protocol ServiceManagerDelegate {
     
-    func receiveData(manager : MultipeerServiceManager, user: String, string: String?, data: Data)
+    func receiveData(manager : MultipeerServiceManager, peerID: MCPeerID, string: String?, data: Data)
     func connectedDevicesChanged(_ session: MCSession, peer peerID: MCPeerID, didChange state: MCSessionState)
     
 }
@@ -23,8 +23,6 @@ class MultipeerServiceManager: NSObject {
     var myPeerId: MCPeerID!
     private var serviceAdvertiser : MCNearbyServiceAdvertiser
     private let serviceBrowser : MCNearbyServiceBrowser
-    
-    var connectedPeers: [MCPeerID] = []
     
     var delegate : ServiceManagerDelegate?
     
@@ -94,7 +92,7 @@ extension MultipeerServiceManager: MCSessionDelegate, MCNearbyServiceBrowserDele
     
     func session(_ session: MCSession, peer peerID: MCPeerID, didChange state: MCSessionState) {
         
-        let isInPeerList: Bool = self.connectedPeers.map({$0.displayName}).contains(peerID.displayName)
+        /*let isInPeerList: Bool = self.connectedPeers.map({$0.displayName}).contains(peerID.displayName)
         
         if state == .connected && !isInPeerList {
             self.connectedPeers.append(peerID)
@@ -104,14 +102,14 @@ extension MultipeerServiceManager: MCSessionDelegate, MCNearbyServiceBrowserDele
             } 
         }
         
-        self.delegate?.connectedDevicesChanged(session, peer: peerID, didChange: state)
+        self.delegate?.connectedDevicesChanged(session, peer: peerID, didChange: state)*/
     }
     
     func session(_ session: MCSession, didReceive data: Data, fromPeer peerID: MCPeerID) {
         NSLog("%@", "didReceiveData: \(data)")
         NSLog("%@", "MCPeerID: \(peerID.displayName)")
         let str = String(data: data, encoding: .utf8)
-        self.delegate?.receiveData(manager : self, user: peerID.displayName, string: str, data: data)
+        self.delegate?.receiveData(manager : self, peerID: peerID, string: str, data: data)
     }
     
     func session(_ session: MCSession, didReceive stream: InputStream, withName streamName: String, fromPeer peerID: MCPeerID) {
@@ -126,4 +124,7 @@ extension MultipeerServiceManager: MCSessionDelegate, MCNearbyServiceBrowserDele
         //nothing
     }
     
+    func session(_ session: MCSession, didReceiveCertificate certificate: [Any]?, fromPeer peerID: MCPeerID, certificateHandler: @escaping (Bool) -> Void) {
+        
+    }
 }

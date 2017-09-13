@@ -12,6 +12,8 @@ import ObjectMapper
 class Message: Mappable {
     
     enum MessageType: String {
+        case discovery = "discovery"
+        case discoveryResponse = "discoveryResponse"
         case newElection = "newElection"
         case bossKeepAlive = "bossKeepAlive"
         case announcingProducts = "announcingProducts"

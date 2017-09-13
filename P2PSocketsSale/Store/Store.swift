@@ -53,6 +53,8 @@ class Store: NSObject {
         super.init()
         manager.delegate = self
         
+        
+        
     }
     
     /**
@@ -201,6 +203,15 @@ extension Store: StoreMultipeerDelegate {
         self.products.append(Product(emoji: buyOrder.emoji!, quantity: buyOrder.quantity!, price: 9.random()))
     }
     
+    
+    func sendDiscovery() {
+        let message = Message()
+        message.type = .discovery
+        message.message = "Hey guys! I'm new around here! Do you guys have a boss yet?"
+        message.peerID = self.name
+        self.manager.send(message: message)
+        
+    }
 }
 
 
