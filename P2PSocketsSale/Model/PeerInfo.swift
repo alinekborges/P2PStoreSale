@@ -31,6 +31,9 @@ class PeerInfo : Mappable {
         publicKey    <- map["publicKey"]
     }
     
+    var description: String {
+        return name ?? ""
+    }
 }
 
 extension PeerInfo: Equatable {

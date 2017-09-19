@@ -156,9 +156,11 @@ extension StoreViewController: UITableViewDelegate, UITableViewDataSource {
         
         if store.isBoss {
             let cell = tableView.dequeueReusableCell(withIdentifier: StoreCell.identifier, for: indexPath) as! StoreCell
-            if (!self.store.bossManager!.allStores.isEmpty) {
-                let item = self.store.bossManager!.allStores[indexPath.row]
-                cell.setStore(item)
+            if let allStores = self.store.bossManager?.allStores {
+                if allStores.count > indexPath.row {
+                    let item = allStores[indexPath.row]
+                    cell.setStore(item)
+                }
             }
             return cell
         } else {

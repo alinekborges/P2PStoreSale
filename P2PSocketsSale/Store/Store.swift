@@ -96,7 +96,6 @@ class Store: NSObject {
     func baseStore() -> StoreBase {
         let base = StoreBase(
              products: self.products,
-             score: self.score,
              peerInfo: self.peerInfo)
         return base
     }

@@ -56,9 +56,9 @@ class StoreBossManager: NSObject {
     }
     
     func processBuyOrder(order: BuyOrder, fromPeer peer: PeerInfo) {
-        print("boss received buy order from \(peer): \(order.description)")
+        print("boss received buy order from \(peer.description): \(order.description)")
         
-        let sellers = sellerForOrder(order: order)
+        let sellers = sellerForOrder(order: order, fromPeer: peer)
         
         if sellers.isEmpty {
             print("boss error finding a store to sell: \(order.emoji)")
@@ -83,12 +83,13 @@ class StoreBossManager: NSObject {
         
     }
     
-    func sellerForOrder(order: BuyOrder) -> [PeerInfo] {
+    func sellerForOrder(order: BuyOrder, fromPeer peer: PeerInfo) -> [PeerInfo] {
         
         var possibleStores: [StoreBase] = []
         
         //Find all stores with item requested
-        for store in self.allStores {
+        //Remove from list store that is asking for the product
+        for store in self.allStores.filter({$0.peerInfo != peer}) {
             if store.hasEmoji(emoji: order.emoji!, withQuantity: order.quantity!) {
                 possibleStores.append(store)
             }

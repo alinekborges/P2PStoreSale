@@ -37,7 +37,7 @@ class StoreMultipeerManager: NSObject {
     var delegate: StoreMultipeerDelegate?
     var messageDelegate: PeerMessageDelegate?
     
-    var timeAfterElection: Int = 0
+    var isElecting: Bool = false
     
     var queue: DispatchQueue
     
@@ -63,10 +63,25 @@ class StoreMultipeerManager: NSObject {
     //Election will happen in alphabetical order
     func newElection() {
         
+        if (isElecting) { return }
+        
         if self.boss != nil { return }
         
-        queue.async {
-            
+        print("NEW ELECTION PROCESS STARTED")
+        
+        isElecting = true
+        //remove all current connected peers
+        self.connectedPeers.removeAll()
+        
+        queue.asyncAfter(deadline: .now() + Constants.timeInterval * 2) {
+            //send discovery again to check connected peers
+            print("sending discovery")
+            self.delegate?.sendDiscovery()
+        }
+        
+        queue.asyncAfter(deadline: .now() + Constants.timeInterval * 3) {
+            if self.boss != nil { return }
+            //send discovery again to check connected peers
             let allPeers = self.connectedPeers.map({$0.name!})
             
             print("\(self.peerID) electing new boss from \(allPeers.description)")
@@ -74,6 +89,7 @@ class StoreMultipeerManager: NSObject {
             if let elected =
                 allPeers.sorted(by: { $0 < $1 } )
                     .first {
+                self.isElecting = false
                 
                 if (elected == self.peerID) {
                     //I'm the boss!!
@@ -84,8 +100,8 @@ class StoreMultipeerManager: NSObject {
                     //nothing, wait for boss contacting me
                 }
             }
-            
         }
+        
         
     }
     
@@ -98,7 +114,6 @@ class StoreMultipeerManager: NSObject {
         if bossIsAlive == false {
             print("\(self.peerID):: boss is dead")
             self.boss = nil
-
             if (self.connectedPeers.count >= 4) {
                 queue.asyncAfter(deadline: .now() + Constants.timeInterval * 2) {
                     self.newElection()
@@ -194,7 +209,7 @@ class StoreMultipeerManager: NSObject {
     }
     
     func checkNewElectionNeeded() {
-        if (self.connectedPeers.count >= 4 && self.boss == nil) {
+        if (self.connectedPeers.count >= 4 && self.boss == nil && self.isBoss == false) {
             
             queue.asyncAfter(deadline: .now() + Constants.timeInterval * 2) {
                 self.newElection()
@@ -289,72 +304,4 @@ extension StoreMultipeerManager: ServiceManagerDelegate {
         
     }
 
-    
-    func receiveData(manager : MultipeerServiceManager, peerID:MCPeerID, string: String?, data: Data) {
-        
-        queue.async {
-            
-        
-        var msg: Message?
-        
-        if string != nil  {
-            msg = Message(JSONString: string!)
-        } else {
-            let str = self.delegate?.decrypt(data: data)
-            msg = Message(JSONString: str!)
-            print("(boss) decrypting message with my PRIVATE KEY: \(msg?.message ?? "no message")")
-        }
-        
-        guard let message = msg, let type = message.type else {
-            print("(boss) string received: \(string ?? "encrypted")")
-            return
-        }
-        
-        self.messageDelegate?.didReceiveMessage(message: message, string: string)
-        
-        if type != .bossKeepAlive {
-          
-        //print("(boss) \(self.peerID) connectedPeers: \(self.manager.session.connectedPeers.map({$0.displayName}).joined(separator: " | "))")
-        }
-        
-        switch type {
-        case .discovery:
-            break
-            //self.addConnectedPeer(peerID)
-            //self.sendDiscoveryResponse(peerID: peerID)
-        case .discoveryResponse:
-            break
-            //self.addConnectedPeer(peerID)
-        case .bossKeepAlive:
-            break
-            
-        case .buyOrderResponse:
-            guard let peers = message.buyOrderResponse?.peers else {
-                print("boss did not send complete message!")
-                return
-            }
-            self.delegate?.selectedPeerForBuy(peers, buyOrder: message.buyOrder!)
-        case .completeBuy:
-            self.delegate?.sell(message.buyOrder!, toPeer: message.peerInfo!)
-        case .sendingProduct:
-            self.delegate?.receivedProduct(message.buyOrder!)
-        default:
-            break
-        }
-        }
-        
-    }
-    
-    func connectedDevicesChanged(_ session: MCSession, peer peerID: MCPeerID, didChange state: MCSessionState) {
-        
-        //if there is no current boss and connected peers is at least 3 (me + 3 = 4)
-        //wait 5 seconds to see if a boss announces himself
-        if self.boss == nil && session.connectedPeers.count >= 3 {
-            self.queue.async {
-                self.newElection()
-            }
-        }
-        
-        
-    }
 }

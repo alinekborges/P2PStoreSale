@@ -13,7 +13,6 @@ class StoreCell: UITableViewCell {
     static let identifier = "StoreCell"
 
     @IBOutlet weak var titleLabel: UILabel!
-    @IBOutlet weak var scoreLabel: UILabel!
     @IBOutlet weak var productsLabel: UILabel!
     
     override func awakeFromNib() {
@@ -27,7 +26,6 @@ class StoreCell: UITableViewCell {
             .joined()
         self.titleLabel.text = "\(store.peerInfo?.name ?? "")"
         self.productsLabel.text = icons
-        self.scoreLabel.text = "\(store.score!)"
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
