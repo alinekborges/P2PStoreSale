@@ -30,7 +30,8 @@ class StoreBossManager: NSObject {
     
     func sendKeepAlive() {
         
-        self.manager.send(message: keepAlive)
+        //self.manager.send(message: keepAlive)
+        
        
     }
     
@@ -58,12 +59,12 @@ class StoreBossManager: NSObject {
         if let seller = sellerForOrder(order: order) {
         
             print("boss elected \(seller) to sell \(order.description)")
-            let response = BuyOrderResponse(peerID: seller.name!, publicKey: seller.publicKey!)
+            //let response = BuyOrderResponse(peerID: seller.name!, publicKey: seller.publicKey!)
             
             let message = Message()
             message.type = .buyOrderResponse
-            message.message = "boss buy order response: should buy from seller \(seller.name!)"
-            message.buyOrderResponse = response
+            //message.message = "boss buy order response: should buy from seller \(seller.name!)"
+            //message.buyOrderResponse = response
             message.peerID = self.manager.peerID
             
             self.manager.send(message: message, toPeer: peer)

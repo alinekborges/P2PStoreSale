@@ -22,7 +22,7 @@ class StoreViewController: UIViewController {
     var secondTimer: Timer?
     
     var currentEmoji: String = "💩"
-    var currentQuantity: Int = 1
+    var currentQuantity: Int = 2
     
     init(store: Store) {
         self.store = store

@@ -25,6 +25,7 @@ class Message: Mappable {
     
     var type: MessageType?
     var peerID: String?
+    var peerInfo: PeerInfo?
     var message: String?
     var baseStore: StoreBase?
     var buyOrder: BuyOrder?
@@ -43,6 +44,7 @@ class Message: Mappable {
         peerID    <- map["peerID"]
         message    <- map["message"]
         buyOrder    <- map["buyOrder"]
+        peerInfo    <- map["peerInfo"]
         baseStore    <- map["baseStore"]
         buyOrderResponse    <- map["buyOrderResponse"]
     }

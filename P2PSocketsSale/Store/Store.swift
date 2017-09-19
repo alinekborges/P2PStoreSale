@@ -20,12 +20,16 @@ protocol StoreDelegate {
 
 class Store: NSObject {
     
-    var manager: StoreMultipeerManager
+    var manager: StoreMultipeerManager!
     var bossManager: StoreBossManager?
     
     var delegate: StoreDelegate?
     
     var name: String
+    var ip: String?
+    var port: Int?
+    
+    var peerInfo: PeerInfo!
     
     var products: [Product]
     var score: Int
@@ -41,8 +45,12 @@ class Store: NSObject {
     
     init(name: String, products: [Product]) {
         self.name = name
+        
+        self.peerInfo = PeerInfo(name: name)
+        
+        
         self.products = products
-        self.manager = StoreMultipeerManager(peerID: name)
+        
         self.score = 0
         
         let key = Keys.allkeys.random()!
@@ -51,9 +59,12 @@ class Store: NSObject {
         privateKey = key.1
         
         super.init()
+        self.manager = StoreMultipeerManager(peerID: name, didSetupListenSocket: { (ip, port) in
+            self.peerInfo.ip = ip
+            self.peerInfo.port = port
+        })
+        self.manager.peerInfo = peerInfo
         manager.delegate = self
-        
-        
         
     }
     
@@ -122,7 +133,7 @@ class Store: NSObject {
     
     func completeBuy(_ order: BuyOrder, peerID: String, publicKey: String) {
         let message = Message()
-        message.message = "I will buy \(order.emoji!) from \(peerID) and I have the key"
+        message.message = "I will buy \(order.emoji!) from \(peerID) and I have the key: \(publicKey)"
         message.type = .completeBuy
         message.buyOrder = order
         message.peerID = self.name
@@ -209,7 +220,8 @@ extension Store: StoreMultipeerDelegate {
         message.type = .discovery
         message.message = "Hey guys! I'm \(self.name) and I'm new around here! Do you guys have a boss yet?"
         message.peerID = self.name
-        self.manager.send(message: message)
+        message.peerInfo = self.peerInfo
+        self.manager.sendBroadcast(message: message)
         
     }
 }

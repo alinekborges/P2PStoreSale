@@ -17,13 +17,17 @@ class NewStoreViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     
     @IBOutlet weak var nameTextField: UITextField!
-    @IBOutlet weak var emojiTextField: UITextField!
-    @IBOutlet weak var quantityTextField: UITextField!
-    @IBOutlet weak var priceTextField: UITextField!
+    
+    @IBOutlet weak var emojiButton: UIButton!
+    
     
     var products: [Product] = []
     
     var delegate: CreateNewStore?
+    
+    var currentEmoji: String = "💩"
+    var currentQuantity: Int = 1
+    var currentPrice: Int = 1
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -37,20 +41,50 @@ class NewStoreViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    
+    @IBAction func emojiButtonAction(_ sender: UIButton) {
+        let picker = CustomPickerCollectionViewController.fromStoryboard(withStyle: .emoji, sourceView: sender)
+        self.present(picker, animated: true, completion: nil)
+        
+        picker.didPickEmoji = {emoji in
+            sender.setTitle(emoji, for: .normal)
+            self.currentEmoji = emoji
+            self.dismiss(animated: true, completion: nil)
+        }
+
+    }
+    
+    @IBAction func quantityButton(_ sender: UIButton) {
+        
+        let picker = CustomPickerCollectionViewController.fromStoryboard(withStyle: .number, sourceView: sender)
+        self.present(picker, animated: true, completion: nil)
+        
+        picker.didPickNumber = {number in
+            sender.setTitle("\(number)", for: .normal)
+            self.currentQuantity = number
+            self.dismiss(animated: true, completion: nil)
+            
+        }
+        
+    }
+    
+    @IBAction func priceButtonAction(_ sender: UIButton) {
+        
+        let picker = CustomPickerCollectionViewController.fromStoryboard(withStyle: .number, sourceView: sender)
+        self.present(picker, animated: true, completion: nil)
+        
+        picker.didPickNumber = {number in
+            sender.setTitle("\(number)", for: .normal)
+            self.currentPrice = number
+            self.dismiss(animated: true, completion: nil)
+            
+        }
+        
+        
+    }
+    
     @IBAction func newProductAction(_ sender: Any) {
-        guard let emoji = self.emojiTextField.text else {
-            return
-        }
-        
-        guard let price = Double(self.priceTextField.text!) else {
-            return
-        }
-        
-        guard let quantity = Int(self.quantityTextField.text!) else {
-            return
-        }
-        
-        let product = Product(emoji: emoji, quantity: quantity, price: Int(price))
+        let product = Product(emoji: self.currentEmoji, quantity: self.currentQuantity, price: self.currentPrice)
         
         self.products.append(product)
         self.tableView.reloadData()
@@ -61,7 +95,7 @@ class NewStoreViewController: UIViewController {
             return
         }
         self.delegate?.didCreateStore(withName: name, products: self.products)
-        self.navigationController?.popViewController(animated: true)
+        
     }
     
 
@@ -97,8 +131,8 @@ class ProductCell: UITableViewCell {
     
     func printProduct(_ product: Product) {
         self.emojiLabel.text = product.emoji
-        self.quantityLabel.text = "quantity: \(product.quantity)"
-        self.priceLabel.text = "\(product.price)"
+        self.quantityLabel.text = "quantity: \(product.quantity!)"
+        self.priceLabel.text = "\(product.price!)"
     }
     
 }

@@ -25,7 +25,7 @@ class StoreCell: UITableViewCell {
         let icons = store.products!
             .map( { "\($0.quantity!) " + $0.emoji! + " "} )
             .joined()
-        self.titleLabel.text = "\(store.name ?? "")"
+        self.titleLabel.text = "\(store.peerInfo?.name ?? "")"
         self.productsLabel.text = icons
         self.scoreLabel.text = "\(store.score!)"
     }

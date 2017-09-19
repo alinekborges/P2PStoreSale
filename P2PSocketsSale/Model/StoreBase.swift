@@ -11,13 +11,13 @@ import ObjectMapper
 
 class StoreBase: Mappable {
     
-    var name: String?
+    var peerInfo: PeerInfo?
     var products: [Product]?
     var score: Int?
     var publicKey: String?
     
     init(name: String, products: [Product], score: Int, publicKey: String) {
-        self.name = name
+        self.peerInfo = PeerInfo(name: name)
         self.products = products
         self.score = score
         self.publicKey = publicKey
@@ -28,10 +28,10 @@ class StoreBase: Mappable {
     }
     
     func mapping(map: Map) {
-        name    <- map["name"]
         products    <- map["products"]
         score    <- map["score"]
         publicKey    <- map["publicKey"]
+        peerInfo    <- map["peerInfo"]
     }
     
     func hasEmoji(emoji: String, withQuantity quantity: Int) -> Bool {
@@ -61,13 +61,13 @@ class StoreBase: Mappable {
     }
     
     var description: String {
-        return "Store \(self.name!): \(self.products!.map({$0.emoji!}).joined())"
+        return "Store \(self.peerInfo!.name!): \(self.products!.map({$0.emoji!}).joined())"
     }
 }
 
 extension StoreBase: Equatable {
     static func == (lhs: StoreBase, rhs: StoreBase) -> Bool {
         return
-            lhs.name == rhs.name
+            lhs.peerInfo!.port == rhs.peerInfo!.port
     }
 }

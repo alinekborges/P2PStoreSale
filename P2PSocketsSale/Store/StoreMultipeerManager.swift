@@ -25,10 +25,10 @@ protocol PeerMessageDelegate {
 }
 
 class StoreMultipeerManager: NSObject {
-    //TODO: Have a queue for each manager
+    
     var peerID: String
+    var peerInfo: PeerInfo?
     var manager: MultipeerServiceManager
-    var session: MCSession
     
     var boss: MCPeerID?
     var isBoss: Bool = false
@@ -41,19 +41,19 @@ class StoreMultipeerManager: NSObject {
     
     var queue: DispatchQueue
     
-    var connectedPeers:[MCPeerID] = []
+    var connectedPeers:[PeerInfo] = []
     
-    init(peerID: String) {
+    init(peerID: String, didSetupListenSocket: @escaping ((_ ip: String, _ port: UInt16) -> ())) {
         self.peerID = peerID
-        self.manager = MultipeerServiceManager(peerID: peerID)
-        self.session = self.manager.session
+        self.manager = MultipeerServiceManager(peerID: peerID, didSetupListenSocket: didSetupListenSocket)
+        
         queue = DispatchQueue(label: "com.peers.\(peerID)")
         super.init()
         
         self.manager.delegate = self
         
         
-        queue.asyncAfter(deadline: .now() + 2) {
+        queue.asyncAfter(deadline: .now() + 4) {
             self.delegate?.sendDiscovery()
         }
     }
@@ -62,7 +62,7 @@ class StoreMultipeerManager: NSObject {
     
     //Election will happen in alphabetical order
     func newElection() {
-        if (self.boss != nil) { return }
+        /*if (self.boss != nil) { return }
         
         queue.asyncAfter(deadline: .now() + Constants.timeInterval * 2) {
             if self.boss != nil { return }
@@ -94,7 +94,7 @@ class StoreMultipeerManager: NSObject {
                 }
                 
             }
-        }
+        }*/
         
     }
     
@@ -115,7 +115,7 @@ class StoreMultipeerManager: NSObject {
             print("\(self.peerID):: boss is dead")
             
             self.boss = nil
-            if (self.connectedPeers.count >= 3) {
+            if (self.connectedPeers.count >= 4) {
                 self.newElection()
             }
         }
@@ -124,7 +124,8 @@ class StoreMultipeerManager: NSObject {
     }
     
     func peerWithID(_ peerID: String) -> MCPeerID? {
-        return self.connectedPeers.filter( {$0.displayName == peerID} ).first
+        return nil
+        //return self.connectedPeers.filter( {$0.displayName == peerID} ).first
     }
     
     func sendToBoss(message: Message) {
@@ -133,32 +134,39 @@ class StoreMultipeerManager: NSObject {
     }
     
     func send(message: Message, toPeer peer: String) {
-        if let peerToSend = self.connectedPeers.filter({$0.displayName == peer}).first {
+        /*if let peerToSend = self.connectedPeers.filter({$0.displayName == peer}).first {
             send(message: message, toPeer: peerToSend)
-        }
+        }*/
+        
+    }
+    
+    func sendBroadcast(message: Message) {
+        let data = message.toData()
+        self.manager.sendBroadcast(data: data)
     }
     
     func sendEncrypted(message: Message, withPublicKey publicKey: String, toPeer peer: String) {
-        if let peerToSend = self.connectedPeers.filter({$0.displayName == peer}).first {
+        /*if let peerToSend = self.connectedPeers.filter({$0.displayName == peer}).first {
             let encrypted = message.encrypt(withPublicKey: publicKey)
             
             do {
-                try self.session.send(encrypted, toPeers: [peerToSend], with: MCSessionSendDataMode.reliable)
+                //try self.session.send(encrypted, toPeers: [peerToSend], with: MCSessionSendDataMode.reliable)
             } catch let error {
                 print("boss: error sending encrypted message: \(error.localizedDescription) to peer: \(peer)")
             }
         } else {
             print("peer not connected: \(peer)")
-        }
+        }*/
     }
     
     func send(message: Message, toPeer peer: MCPeerID? = nil) {
+        return
         var peers:[MCPeerID]!
         if peer == nil {
             if (self.connectedPeers.isEmpty) {
-                peers = self.manager.session.connectedPeers
+                //peers = self.manager.session.connectedPeers
             } else {
-                peers = connectedPeers
+                //peers = connectedPeers
             }
         } else {
             peers = [peer!]
@@ -170,13 +178,13 @@ class StoreMultipeerManager: NSObject {
         }
         
         do {
-            try self.session.send(message.toData(), toPeers: peers, with: MCSessionSendDataMode.reliable)
-        } catch let error {
+            //try self.session.send(message.toData(), toPeers: peers, with: MCSessionSendDataMode.reliable)
+        } catch let error  {
             if (message.type == .bossKeepAlive) {
                 print("error sending boss keepalive!")
                 
             }
-            print("boss: error sending message: \(error.localizedDescription) to peers: \(peers.map( {$0.displayName} ).description)")
+            print("boss: error sending message: \((error as! NSError).localizedDescription) to peers: \(peers.map( {$0.displayName} ).description)")
         }
         
     }
@@ -190,35 +198,61 @@ class StoreMultipeerManager: NSObject {
         return Message()
     }
     
-    func addConnectedPeer(_ peerID: MCPeerID) {
-        let isInPeerList: Bool = self.connectedPeers.map({$0.displayName}).contains(peerID.displayName)
+    func addConnectedPeer(peerInfo: PeerInfo?) {
+        guard let peerInfo = peerInfo else {
+            print("oops! forgot to send me peer info")
+            return
+        }
+        
+        let isInPeerList: Bool = self.connectedPeers
+            .contains(peerInfo)
         
         if !isInPeerList {
-            self.connectedPeers.append(peerID)
+            self.connectedPeers.append(peerInfo)
+            //print("\(self.peerID):::connectedPeers: \(self.connectedPeers.map({$0.name}))")
         }
         
-        if self.boss == nil && self.connectedPeers.count >= 2 {
-            self.queue.async {
-                self.newElection()
-            }
-        }
+        
     }
     
     
 
-    func sendDiscoveryResponse(peerID: MCPeerID) {
+    func sendDiscoveryResponse() {
         let message = Message()
         message.type = .discoveryResponse
-        message.message = "(boss) announcing myself to new peer: my name is \(self.peerID)"
+        message.message = "announcing myself to new peer: my name is \(self.peerID)"
         message.peerID = self.peerID
-        self.send(message: message, toPeer: peerID)
+        message.peerInfo = self.peerInfo
+        self.sendBroadcast(message: message)
     }
     
 }
 
 extension StoreMultipeerManager: ServiceManagerDelegate {
+    func receiveMulticastData(manager: MultipeerServiceManager, string: String?, data: Data) {
+        
+        let message = Message(JSONString: string!)
+        
+        guard let type = message?.type else {
+            return
+        }
+        
+        switch type {
+        case .discovery:
+            addConnectedPeer(peerInfo: message?.peerInfo)
+            sendDiscoveryResponse()
+        case .discoveryResponse:
+            addConnectedPeer(peerInfo: message?.peerInfo)
+        default:
+            break
+        }
+    }
+
     
     func receiveData(manager : MultipeerServiceManager, peerID:MCPeerID, string: String?, data: Data) {
+        
+        queue.async {
+            
         
         var msg: Message?
         
@@ -238,23 +272,25 @@ extension StoreMultipeerManager: ServiceManagerDelegate {
         self.messageDelegate?.didReceiveMessage(message: message, fromUser: peerID.displayName, string: string)
         
         if type != .bossKeepAlive {
-            print("\(self.peerID) message received: \(message.message ?? "")")
+          
         //print("(boss) \(self.peerID) connectedPeers: \(self.manager.session.connectedPeers.map({$0.displayName}).joined(separator: " | "))")
         }
         
         switch type {
         case .discovery:
-            self.addConnectedPeer(peerID)
-            self.sendDiscoveryResponse(peerID: peerID)
+            break
+            //self.addConnectedPeer(peerID)
+            //self.sendDiscoveryResponse(peerID: peerID)
         case .discoveryResponse:
-            self.addConnectedPeer(peerID)
+            break
+            //self.addConnectedPeer(peerID)
         case .bossKeepAlive:
             self.bossIsAlive = true
-            if (boss == nil) {
+            if (self.boss == nil) {
                 if let newboss = self.peerWithID(message.peerID!) {
                     self.boss = newboss
-                    print("\(self.peerID) received message from boss \(boss!.displayName)! He is the boss!")
-                    newBoss(self.boss!)
+                    print("\(self.peerID) received message from boss \(self.boss!.displayName)! He is the boss!")
+                    self.newBoss(self.boss!)
                 }
             }
         case .buyOrderResponse:
@@ -270,6 +306,7 @@ extension StoreMultipeerManager: ServiceManagerDelegate {
         default:
             break
         }
+        }
         
     }
     
@@ -277,7 +314,11 @@ extension StoreMultipeerManager: ServiceManagerDelegate {
         
         //if there is no current boss and connected peers is at least 3 (me + 3 = 4)
         //wait 5 seconds to see if a boss announces himself
-        
+        if self.boss == nil && session.connectedPeers.count >= 3 {
+            self.queue.async {
+                self.newElection()
+            }
+        }
         
         
     }

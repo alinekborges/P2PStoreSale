@@ -8,142 +8,137 @@
 
 import Foundation
 import MultipeerConnectivity
+import CocoaAsyncSocket
 
 
 protocol ServiceManagerDelegate {
     
-    func receiveData(manager : MultipeerServiceManager, peerID: MCPeerID, string: String?, data: Data)
+    func receiveMulticastData(manager : MultipeerServiceManager, string: String?, data: Data)
     func connectedDevicesChanged(_ session: MCSession, peer peerID: MCPeerID, didChange state: MCSessionState)
     
 }
 
 class MultipeerServiceManager: NSObject {
     
-    private let ServiceType = "emoji-amazon"
-    var myPeerId: MCPeerID!
-    fileprivate var serviceAdvertiser : MCNearbyServiceAdvertiser
-    fileprivate let serviceBrowser : MCNearbyServiceBrowser
+    static let multicastPort = UInt16(55555)
+    static let multicastGroup = "239.239.0.1"
+    
+    fileprivate var myPeerID: String?
+    
+    fileprivate var multicastSocket: GCDAsyncUdpSocket?
+    fileprivate var listenSocket: GCDAsyncSocket?
+    fileprivate var connectSocket: GCDAsyncSocket?
+    
+    private var multicastQueue: DispatchQueue!
+    private var listenSocketQueue: DispatchQueue!
+    private var connectSocketQueue: DispatchQueue!
+    
+    private var multicastDelegateQueue: DispatchQueue!
+    private var listenSocketDelegateQueue: DispatchQueue!
+    private var connectSocketDelegateQueue: DispatchQueue!
+    
+    var connectedSockets: [GCDAsyncSocket] = []
     
     var delegate : ServiceManagerDelegate?
-
     
-    lazy var session : MCSession = {
-        let session = MCSession(peer: self.myPeerId, securityIdentity: nil, encryptionPreference: .none)
-        session.delegate = self
-        return session
-    }()
+    var didSetupListenSocket: ((_ ip: String, _ port: UInt16) -> ())?
     
-    static var hasAdvertiser = false
+    var myIpAddress: String
     
-    init(peerID: String) {
-        
-        self.myPeerId = MCPeerID(displayName: peerID)
-        self.serviceAdvertiser = MCNearbyServiceAdvertiser(peer: myPeerId, discoveryInfo: nil, serviceType: ServiceType)
-        self.serviceBrowser = MCNearbyServiceBrowser(peer: myPeerId, serviceType: ServiceType)
-        
+    init(peerID: String,  didSetupListenSocket: @escaping ((_ ip: String, _ port: UInt16) -> ())) {
+        self.didSetupListenSocket = didSetupListenSocket
+        self.myPeerID = peerID
+        myIpAddress = Network.getIFAddresses()!.first!
         super.init()
+        initQueue(peerID: peerID)
+        startMulticastSocket()
+        startListenSocket()
         
-        //if (!MultipeerServiceManager.hasAdvertiser) {
-            self.serviceAdvertiser.delegate = self
-            self.serviceAdvertiser.startAdvertisingPeer()
-            MultipeerServiceManager.hasAdvertiser = true
-        //}
+    }
+    
+    func startMulticastSocket() {
         
-         self.serviceBrowser.delegate = self
-         self.serviceBrowser.startBrowsingForPeers()
+        self.multicastSocket = GCDAsyncUdpSocket(delegate: self, delegateQueue: self.multicastDelegateQueue, socketQueue: self.multicastQueue)
         
+        guard let multicastSocket = self.multicastSocket else {
+            return
+        }
         
+        do {
+            try multicastSocket.enableReusePort(true)
+            try multicastSocket.bind(toPort: MultipeerServiceManager.multicastPort)
+            try multicastSocket.enableBroadcast(true)
+            try multicastSocket.joinMulticastGroup(MultipeerServiceManager.multicastGroup)
+            try multicastSocket.beginReceiving()
+            
+            print("Started multicast socket for \(myPeerID) with success")
+        } catch let error {
+            print("error creating multicast socket: \(error.localizedDescription)")
+        }
+        
+    }
+    
+    func startListenSocket() {
+        self.listenSocket = GCDAsyncSocket(delegate: self, delegateQueue: listenSocketDelegateQueue, socketQueue: listenSocketQueue)
+        
+        guard let listenSocket = listenSocket else {
+            return
+        }
+        
+        do {
+            try listenSocket.accept(onPort: 0)
+            
+            self.didSetupListenSocket?(self.myIpAddress, listenSocket.localPort)
+        } catch let error {
+            print("error creating listening socket: \(error.localizedDescription)")
+        }
+    }
+    
+    func initQueue(peerID: String) {
+        multicastQueue = DispatchQueue(label: "p2pstore.multicast.\(peerID)")
+        listenSocketQueue = DispatchQueue(label: "p2pstore.listen.\(peerID)")
+        connectSocketQueue = DispatchQueue(label: "p2pstore.connect.\(peerID)")
+        
+        multicastDelegateQueue = DispatchQueue(label: "p2pstore.multicast.delegate.\(peerID)")
+        listenSocketDelegateQueue = DispatchQueue(label: "p2pstore.listen.delegate.\(peerID)")
+        connectSocketDelegateQueue = DispatchQueue(label: "p2pstore.connect.delegate.\(peerID)")
     }
     
     deinit {
-        self.serviceAdvertiser.stopAdvertisingPeer()
-        self.serviceBrowser.stopBrowsingForPeers()
+        self.disconnect()
     }
     
     func disconnect() {
-        self.serviceAdvertiser.stopAdvertisingPeer()
-        self.serviceBrowser.stopBrowsingForPeers()
-        self.session.disconnect()
+        self.multicastSocket?.close()
+        self.listenSocket?.disconnect()
+        self.connectSocket?.disconnect()
     }
-    
-    func isBoss() {
-        //self.serviceAdvertiser.startAdvertisingPeer()
-    }
-    
-    func isNotBoss() {
-        //self.serviceAdvertiser.stopAdvertisingPeer()
+
+}
+
+extension MultipeerServiceManager {
+    func sendBroadcast(data: Data) {
+        self.multicastSocket?.send(data, toHost: MultipeerServiceManager.multicastGroup, port: MultipeerServiceManager.multicastPort, withTimeout: -1, tag: 0)
     }
 }
 
-extension MultipeerServiceManager: MCSessionDelegate, MCNearbyServiceBrowserDelegate, MCNearbyServiceAdvertiserDelegate  {
+extension MultipeerServiceManager: GCDAsyncUdpSocketDelegate {
+    func udpSocket(_ sock: GCDAsyncUdpSocket, didReceive data: Data, fromAddress address: Data, withFilterContext filterContext: Any?) {
+        let string = String(data: data, encoding: .utf8)
+        self.delegate?.receiveMulticastData(manager: self, string: string, data: data)
+    }
+}
+
+extension MultipeerServiceManager : GCDAsyncSocketDelegate {
     
-    func browser(_ browser: MCNearbyServiceBrowser, didNotStartBrowsingForPeers error: Error) {
-        //SLog("%@", "didNotStartBrowsingForPeers: \(error)")
+    func socket(_ sock: GCDAsyncSocket, didRead data: Data, withTag tag: Int) {
+        print("received some UNICAST data ~~ \(String(data: data, encoding: .utf8) ?? "")")
     }
     
-    func browser(_ browser: MCNearbyServiceBrowser, foundPeer peerID: MCPeerID, withDiscoveryInfo info: [String : String]?) {
-        //print("found peer \(peerID)")
-        
-            browser.invitePeer(peerID, to: self.session, withContext: nil, timeout: 10)
-        
+    func socket(_ sock: GCDAsyncSocket, didAcceptNewSocket newSocket: GCDAsyncSocket) {
+        print("accepting new socket")
+        self.connectedSockets.append(newSocket)
+        newSocket.readData(withTimeout: 160, tag: 0)
     }
     
-    func browser(_ browser: MCNearbyServiceBrowser, lostPeer peerID: MCPeerID) {
-        //NSLog("%@", "lostPeer: \(peerID)")
-    }
-    
-    
-    //MARK: MCNearbyServiceAdvertiser Delegates
-    
-    func advertiser(_ advertiser: MCNearbyServiceAdvertiser, didNotStartAdvertisingPeer error: Error) {
-        //NSLog("%@", "didNotStartAdvertisingPeer: \(error)")
-    }
-    
-    func advertiser(_ advertiser: MCNearbyServiceAdvertiser, didReceiveInvitationFromPeer peerID: MCPeerID, withContext context: Data?, invitationHandler: @escaping (Bool, MCSession?) -> Void) {
-        //NSLog("%@", "didReceiveInvitationFromPeer \(peerID)")
-        if (peerID.displayName < self.myPeerId.displayName) {
-            invitationHandler(true, self.session)
-        }
-        self.serviceAdvertiser.stopAdvertisingPeer()
-    }
-    
-    //MARK: MCSession Delegates
-    
-    func session(_ session: MCSession, peer peerID: MCPeerID, didChange state: MCSessionState) {
-        
-        /*let isInPeerList: Bool = self.connectedPeers.map({$0.displayName}).contains(peerID.displayName)
-        
-        if state == .connected && !isInPeerList {
-            self.connectedPeers.append(peerID)
-        } else if state == .notConnected && isInPeerList {
-            if let index = self.connectedPeers.index(of: peerID) {
-                self.connectedPeers.remove(at: index)
-            } 
-        }
-        
-        self.delegate?.connectedDevicesChanged(session, peer: peerID, didChange: state)*/
-    }
-    
-    func session(_ session: MCSession, didReceive data: Data, fromPeer peerID: MCPeerID) {
-        NSLog("%@", "didReceiveData: \(data)")
-        NSLog("%@", "MCPeerID: \(peerID.displayName)")
-        let str = String(data: data, encoding: .utf8)
-        self.delegate?.receiveData(manager : self, peerID: peerID, string: str, data: data)
-    }
-    
-    func session(_ session: MCSession, didReceive stream: InputStream, withName streamName: String, fromPeer peerID: MCPeerID) {
-        //nothing
-    }
-    
-    func session(_ session: MCSession, didStartReceivingResourceWithName resourceName: String, fromPeer peerID: MCPeerID, with progress: Progress) {
-        //nothing
-    }
-    
-    func session(_ session: MCSession, didFinishReceivingResourceWithName resourceName: String, fromPeer peerID: MCPeerID, at localURL: URL, withError error: Error?) {
-        //nothing
-    }
-    
-    func session(_ session: MCSession, didReceiveCertificate certificate: [Any]?, fromPeer peerID: MCPeerID, certificateHandler: @escaping (Bool) -> Void) {
-        certificateHandler(true)
-    }
 }

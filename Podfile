@@ -7,6 +7,6 @@ target 'P2PSocketsSale' do
 
   # Pods for P2PSocketsSale
   pod 'ObjectMapper', '~> 2.2'  
-
+  pod 'CocoaAsyncSocket'  
 
 end
