@@ -41,6 +41,8 @@ class StoreMultipeerManager: NSObject {
     
     var queue: DispatchQueue
     
+    var timer: Timer?
+    
     var connectedPeers:[PeerInfo] = []
     
     init(peerID: String, didSetupListenSocket: @escaping ((_ ip: String, _ port: UInt16) -> ())) {
@@ -62,6 +64,32 @@ class StoreMultipeerManager: NSObject {
     
     //Election will happen in alphabetical order
     func newElection() {
+        
+        if self.boss != nil { return }
+        
+        queue.async {
+            
+            var allPeers = self.connectedPeers.map({$0.name!})
+            
+            print("\(self.peerID) electing new boss from \(allPeers.description)")
+            
+            if let elected =
+                allPeers.sorted(by: { $0 < $1 } )
+                    .first {
+                
+                if (elected == self.peerID) {
+                    //I'm the boss!!
+                    self.isBoss = true
+                    self.delegate?.isSelectedAsBoss()
+                    
+                } else {
+                    //nothing, wait for boss contacting me
+                }
+            }
+            
+        }
+        
+        
         /*if (self.boss != nil) { return }
         
         queue.asyncAfter(deadline: .now() + Constants.timeInterval * 2) {
@@ -142,6 +170,7 @@ class StoreMultipeerManager: NSObject {
     
     func sendBroadcast(message: Message) {
         let data = message.toData()
+        print("BROADCAST::: \(message.message ?? "...")")
         self.manager.sendBroadcast(data: data)
     }
     
@@ -210,12 +239,20 @@ class StoreMultipeerManager: NSObject {
         if !isInPeerList {
             self.connectedPeers.append(peerInfo)
             //print("\(self.peerID):::connectedPeers: \(self.connectedPeers.map({$0.name}))")
+            checkNewElectionNeeded()
         }
-        
         
     }
     
-    
+    func checkNewElectionNeeded() {
+        if (self.connectedPeers.count >= 4 && self.boss == nil) {
+            
+            queue.asyncAfter(deadline: .now() + Constants.timeInterval * 2) {
+                self.newElection()
+            }
+            
+        }
+    }
 
     func sendDiscoveryResponse() {
         let message = Message()

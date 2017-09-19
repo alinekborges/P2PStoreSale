@@ -30,7 +30,7 @@ class StoreBossManager: NSObject {
     
     func sendKeepAlive() {
         
-        //self.manager.send(message: keepAlive)
+        self.manager.sendBroadcast(message: keepAlive)
         
        
     }
