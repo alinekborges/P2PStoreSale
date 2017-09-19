@@ -16,6 +16,10 @@ class PeerInfo : Mappable {
     var name: String?
     var publicKey: String?
     
+    var uniqueName: String {
+        return "\(name ?? "").\(port ?? 0)"
+    }
+    
     init(name: String) {
         self.name = name
     }

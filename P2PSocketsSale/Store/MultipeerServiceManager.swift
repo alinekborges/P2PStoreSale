@@ -148,7 +148,6 @@ extension MultipeerServiceManager : GCDAsyncSocketDelegate {
     }
     
     func socket(_ sock: GCDAsyncSocket, didAcceptNewSocket newSocket: GCDAsyncSocket) {
-        print("accepting new socket")
         self.connectedSockets.append(newSocket)
         newSocket.readData(withTimeout: 5, tag: 0)
     }

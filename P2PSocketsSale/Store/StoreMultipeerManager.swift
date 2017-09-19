@@ -16,7 +16,7 @@ protocol StoreMultipeerDelegate {
     func selectedPeerForBuy(_ peers: [PeerInfo], buyOrder: BuyOrder)
     func decrypt(data: Data) -> String
     func sell(_ buyOrder: BuyOrder, toPeer peer: PeerInfo)
-    func receivedProduct(_ buyOrder: BuyOrder)
+    func receivedProduct(_ buyOrder: BuyOrder, fromPeer peer: PeerInfo)
     func sendDiscovery()
 }
 
@@ -297,7 +297,7 @@ extension StoreMultipeerManager: ServiceManagerDelegate {
         case .completeBuy:
             self.delegate?.sell(message.buyOrder!, toPeer: message.peerInfo!)
         case .sendingProduct:
-            self.delegate?.receivedProduct(message.buyOrder!)
+            self.delegate?.receivedProduct(message.buyOrder!, fromPeer: message.peerInfo!)
         default:
             break
         }

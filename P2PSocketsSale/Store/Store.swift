@@ -26,8 +26,6 @@ class Store: NSObject {
     var delegate: StoreDelegate?
     
     var name: String
-    var ip: String?
-    var port: Int?
     
     var peerInfo: PeerInfo!
     
@@ -36,6 +34,8 @@ class Store: NSObject {
     
     fileprivate var privateKey: String
     fileprivate var publicKey: String
+    
+    fileprivate var peerReputations: [PeerReputation] = []
     
     var buyOrder: BuyOrder?
     
@@ -152,6 +152,21 @@ class Store: NSObject {
         self.manager.sendToBoss(message: message)
     }
     
+    func selectPeerFromReputation(peers: [PeerInfo]) -> PeerInfo {
+        
+        print("All of my peer reputations: \(self.peerReputations.map({$0.peerInfo.name! + ":" + "\($0.reputation)"}).description)")
+        
+        //filter all peer reputations with peers I might buy from
+        let reputations = self.peerReputations.filter( {peers.contains($0.peerInfo)} )
+        
+        //if there is no reputation yet computed, just use a random peer for buying
+        if reputations.isEmpty { return peers.random()! }
+        
+        //order list by higher reputation and return first peer
+        return reputations.sorted(by: {$0.reputation > $1.reputation}).first!.peerInfo
+        
+    }
+    
 }
 
 extension Store: StoreMultipeerDelegate {
@@ -169,9 +184,8 @@ extension Store: StoreMultipeerDelegate {
     
     func selectedPeerForBuy(_ peers: [PeerInfo], buyOrder: BuyOrder) {
         if (peers.isEmpty) { return }
-        //TODO: Find correct peer to buy
         
-        let peer = peers.first!
+        let peer = selectPeerFromReputation(peers: peers)
         
         
         self.completeBuy(buyOrder, peer: peer)
@@ -213,7 +227,7 @@ extension Store: StoreMultipeerDelegate {
         }
     }
     
-    func receivedProduct(_ buyOrder: BuyOrder) {
+    func receivedProduct(_ buyOrder: BuyOrder, fromPeer peer: PeerInfo) {
         for product in self.products {
             if product.emoji == buyOrder.emoji {
                 product.quantity! += buyOrder.quantity!
@@ -222,6 +236,16 @@ extension Store: StoreMultipeerDelegate {
         }
         
         self.products.append(Product(emoji: buyOrder.emoji!, quantity: buyOrder.quantity!, price: 9.random()))
+        
+        //so I have some new products in store, let's announce it again to boss
+        self.announceStore()
+        
+        //after receiving product, peer reputation will increse by one
+        if let reputation = self.peerReputations.filter({$0.peerInfo == peer}).first {
+            reputation.increaseReputation()
+        } else {
+            self.peerReputations.append(PeerReputation(peerInfo: peer))
+        }
     }
     
     
