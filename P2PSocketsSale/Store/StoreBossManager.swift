@@ -49,7 +49,7 @@ class StoreBossManager: NSObject {
         }
         
         
-        print("boss received products from \(baseStore?.description). Current store count: \(self.allStores.count)")
+        print("boss received products from \(baseStore?.description ?? "..."). Current store count: \(self.allStores.count)")
         DispatchQueue.main.async {
             self.postNotification(notificationName: "update_UI")
         }
@@ -68,7 +68,7 @@ class StoreBossManager: NSObject {
             //message.buyOrderResponse = response
             message.peerID = self.manager.peerID
             
-            self.manager.send(message: message, toPeer: peer)
+            //self.manager.send(message: message, toPeer: peer)
             
         } else {
             //TODO: SHow errror: no stores have this product
@@ -104,12 +104,13 @@ class StoreBossManager: NSObject {
 
 extension StoreBossManager: PeerMessageDelegate {
     
-    func didReceiveMessage(message: Message, fromUser user: String, string: String?) {
+    func didReceiveMessage(message: Message, string: String?) {
         switch message.type! {
         case .announcingProducts:
             self.addStore(baseStore: message.baseStore)
         case .buyOrder:
-            self.processBuyOrder(order: message.buyOrder!, fromPeer: user)
+            break
+            //self.processBuyOrder(order: message.buyOrder!, fromPeer: user)
         default:
             break
         }

@@ -14,7 +14,7 @@ import CocoaAsyncSocket
 protocol ServiceManagerDelegate {
     
     func receiveMulticastData(manager : MultipeerServiceManager, string: String?, data: Data)
-    func connectedDevicesChanged(_ session: MCSession, peer peerID: MCPeerID, didChange state: MCSessionState)
+    func receivedUnicastData(manager: MultipeerServiceManager, string: String?, data: Data)
     
 }
 
@@ -29,13 +29,13 @@ class MultipeerServiceManager: NSObject {
     fileprivate var listenSocket: GCDAsyncSocket?
     fileprivate var connectSocket: GCDAsyncSocket?
     
-    private var multicastQueue: DispatchQueue!
-    private var listenSocketQueue: DispatchQueue!
-    private var connectSocketQueue: DispatchQueue!
+    fileprivate var multicastQueue: DispatchQueue!
+    fileprivate var listenSocketQueue: DispatchQueue!
+    fileprivate var connectSocketQueue: DispatchQueue!
     
-    private var multicastDelegateQueue: DispatchQueue!
-    private var listenSocketDelegateQueue: DispatchQueue!
-    private var connectSocketDelegateQueue: DispatchQueue!
+    fileprivate var multicastDelegateQueue: DispatchQueue!
+    fileprivate var listenSocketDelegateQueue: DispatchQueue!
+    fileprivate var connectSocketDelegateQueue: DispatchQueue!
     
     var connectedSockets: [GCDAsyncSocket] = []
     
@@ -120,6 +120,17 @@ extension MultipeerServiceManager {
     func sendBroadcast(data: Data) {
         self.multicastSocket?.send(data, toHost: MultipeerServiceManager.multicastGroup, port: MultipeerServiceManager.multicastPort, withTimeout: -1, tag: 0)
     }
+    
+    func send(data: Data, toHost host: String, onPort port: UInt16) {
+        self.connectSocket = GCDAsyncSocket(delegate: self, delegateQueue: self.connectSocketDelegateQueue, socketQueue: self.connectSocketQueue)
+        do {
+            try connectSocket?.connect(toHost: host, onPort: port)
+            connectSocket?.write(data, withTimeout: 200, tag: 0)
+        } catch let error {
+            print("error creating unicast socket: \(error.localizedDescription)")
+        }
+        
+    }
 }
 
 extension MultipeerServiceManager: GCDAsyncUdpSocketDelegate {
@@ -132,13 +143,14 @@ extension MultipeerServiceManager: GCDAsyncUdpSocketDelegate {
 extension MultipeerServiceManager : GCDAsyncSocketDelegate {
     
     func socket(_ sock: GCDAsyncSocket, didRead data: Data, withTag tag: Int) {
-        print("received some UNICAST data ~~ \(String(data: data, encoding: .utf8) ?? "")")
+        let string = String(data: data, encoding: .utf8)
+        self.delegate?.receivedUnicastData(manager: self, string: string, data: data)
     }
     
     func socket(_ sock: GCDAsyncSocket, didAcceptNewSocket newSocket: GCDAsyncSocket) {
         print("accepting new socket")
         self.connectedSockets.append(newSocket)
-        newSocket.readData(withTimeout: 160, tag: 0)
+        newSocket.readData(withTimeout: 200, tag: 0)
     }
     
 }

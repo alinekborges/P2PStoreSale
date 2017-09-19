@@ -21,7 +21,7 @@ protocol StoreMultipeerDelegate {
 }
 
 protocol PeerMessageDelegate {
-    func didReceiveMessage(message: Message, fromUser user: String, string: String?)
+    func didReceiveMessage(message: Message, string: String?)
 }
 
 class StoreMultipeerManager: NSObject {
@@ -115,21 +115,19 @@ class StoreMultipeerManager: NSObject {
     }
     
     func sendToBoss(message: Message) {
-        if (self.boss == nil) { return }
-        //self.send(message: message, toPeer: self.boss)
-    }
-    
-    func send(message: Message, toPeer peer: String) {
-        /*if let peerToSend = self.connectedPeers.filter({$0.displayName == peer}).first {
-            send(message: message, toPeer: peerToSend)
-        }*/
-        
+        guard let boss = self.boss else { return }
+        self.send(message: message, toPeer: boss)
     }
     
     func sendBroadcast(message: Message) {
         let data = message.toData()
-        print("BROADCAST::: \(message.message ?? "...")")
+        //print("BROADCAST::: \(message.message ?? "...")")
         self.manager.sendBroadcast(data: data)
+    }
+    
+    func send(message: Message, toPeer peer: PeerInfo) {
+        let data = message.toData()
+        self.manager.send(data: data, toHost: peer.ip!, onPort: peer.port!)
     }
     
     func sendEncrypted(message: Message, withPublicKey publicKey: String, toPeer peer: String) {
@@ -255,6 +253,34 @@ extension StoreMultipeerManager: ServiceManagerDelegate {
             break
         }
     }
+    
+    func receivedUnicastData(manager: MultipeerServiceManager, string: String?, data: Data) {
+        var msg: Message?
+        
+        if string != nil  {
+            msg = Message(JSONString: string!)
+        } else {
+            let str = self.delegate?.decrypt(data: data)
+            msg = Message(JSONString: str!)
+            print("(boss) decrypting message with my PRIVATE KEY: \(msg?.message ?? "no message")")
+        }
+        
+        guard let message = msg, let type = message.type else {
+            return
+        }
+        
+        self.messageDelegate?.didReceiveMessage(message: message, string: string)
+        
+        if type != .bossKeepAlive {
+            print("\(self.peerID) unicast received: \(message.message ?? "nil")")
+        }
+        
+        switch type {
+        default:
+            break
+        }
+        
+    }
 
     
     func receiveData(manager : MultipeerServiceManager, peerID:MCPeerID, string: String?, data: Data) {
@@ -277,7 +303,7 @@ extension StoreMultipeerManager: ServiceManagerDelegate {
             return
         }
         
-        self.messageDelegate?.didReceiveMessage(message: message, fromUser: peerID.displayName, string: string)
+        self.messageDelegate?.didReceiveMessage(message: message, string: string)
         
         if type != .bossKeepAlive {
           

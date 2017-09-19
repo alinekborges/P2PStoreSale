@@ -68,6 +68,6 @@ class StoreBase: Mappable {
 extension StoreBase: Equatable {
     static func == (lhs: StoreBase, rhs: StoreBase) -> Bool {
         return
-            lhs.peerInfo!.port == rhs.peerInfo!.port
+            lhs.peerInfo == rhs.peerInfo
     }
 }

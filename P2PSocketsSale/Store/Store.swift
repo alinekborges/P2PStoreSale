@@ -111,6 +111,7 @@ class Store: NSObject {
         message.type = .announcingProducts
         message.message = "Announcing products to boss for store \(self.name): \(self.products.map({$0.emoji!}).joined())"
         message.peerID = self.name
+        message.peerInfo = self.peerInfo
         message.baseStore = base
         return message
     }
@@ -194,7 +195,7 @@ extension Store: StoreMultipeerDelegate {
         message.buyOrder = buyOrder
         message.peerID = self.name
         
-        self.manager.send(message: message, toPeer: peer)
+        //self.manager.send(message: message, toPeer: peer)
         
         announceStore()
         
