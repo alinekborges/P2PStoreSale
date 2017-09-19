@@ -14,6 +14,7 @@ class PeerInfo : Mappable {
     var ip: String?
     var port: UInt16?
     var name: String?
+    var publicKey: String?
     
     init(name: String) {
         self.name = name
@@ -27,6 +28,7 @@ class PeerInfo : Mappable {
         ip    <- map["ip"]
         port    <- map["port"]
         name    <- map["name"]
+        publicKey    <- map["publicKey"]
     }
     
 }

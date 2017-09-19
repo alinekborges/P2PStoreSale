@@ -14,13 +14,11 @@ class StoreBase: Mappable {
     var peerInfo: PeerInfo?
     var products: [Product]?
     var score: Int?
-    var publicKey: String?
     
-    init(name: String, products: [Product], score: Int, publicKey: String) {
-        self.peerInfo = PeerInfo(name: name)
+    init(products: [Product], score: Int, peerInfo: PeerInfo) {
+        self.peerInfo = peerInfo
         self.products = products
         self.score = score
-        self.publicKey = publicKey
     }
     
     required init?(map: Map) {
@@ -30,7 +28,6 @@ class StoreBase: Mappable {
     func mapping(map: Map) {
         products    <- map["products"]
         score    <- map["score"]
-        publicKey    <- map["publicKey"]
         peerInfo    <- map["peerInfo"]
     }
     
@@ -56,7 +53,7 @@ class StoreBase: Mappable {
     
     func updateValues(store: StoreBase) {
         self.products = store.products
-        self.publicKey = store.publicKey
+        self.peerInfo = store.peerInfo
         self.score = store.score
     }
     

@@ -55,28 +55,35 @@ class StoreBossManager: NSObject {
         }
     }
     
-    func processBuyOrder(order: BuyOrder, fromPeer peer: String) {
+    func processBuyOrder(order: BuyOrder, fromPeer peer: PeerInfo) {
         print("boss received buy order from \(peer): \(order.description)")
-        if let seller = sellerForOrder(order: order) {
         
-            print("boss elected \(seller) to sell \(order.description)")
-            //let response = BuyOrderResponse(peerID: seller.name!, publicKey: seller.publicKey!)
-            
-            let message = Message()
-            message.type = .buyOrderResponse
-            //message.message = "boss buy order response: should buy from seller \(seller.name!)"
-            //message.buyOrderResponse = response
-            message.peerID = self.manager.peerID
-            
-            //self.manager.send(message: message, toPeer: peer)
-            
-        } else {
-            //TODO: SHow errror: no stores have this product
+        let sellers = sellerForOrder(order: order)
+        
+        if sellers.isEmpty {
             print("boss error finding a store to sell: \(order.emoji)")
+            return
         }
+        
+        print("boss elected \(sellers) to sell \(order.description)")
+        
+        
+        let response = BuyOrderResponse(peers: sellers)
+            
+        let message = Message()
+        message.type = .buyOrderResponse
+        message.message = "buy order response: should buy from seller \(sellers)"
+        message.buyOrderResponse = response
+        message.peerID = self.manager.peerID
+        message.peerInfo = self.manager.peerInfo
+        message.buyOrder = order
+            
+        self.manager.send(message: message, toPeer: peer)
+            
+        
     }
     
-    func sellerForOrder(order: BuyOrder) -> StoreBase? {
+    func sellerForOrder(order: BuyOrder) -> [PeerInfo] {
         
         var possibleStores: [StoreBase] = []
         
@@ -88,15 +95,20 @@ class StoreBossManager: NSObject {
         }
         
         //if no stores have the product
-        if possibleStores.isEmpty { return nil }
+        if possibleStores.isEmpty { return [] }
         
         //if there is only one, return
-        if possibleStores.count == 1 { return possibleStores.first! }
+        if possibleStores.count == 1 { return possibleStores.map({$0.peerInfo!}) }
         
         //if there is more, check lowest price
-        return possibleStores
+        let sortedStores = possibleStores
             .sorted(by: {$0.productForEmoji(emoji: order.emoji!)!.price! < $1.productForEmoji(emoji: order.emoji!)!.price!} )
-            .first!
+        
+        let lowestPrice = sortedStores.first!.productForEmoji(emoji: order.emoji!)?.price!
+        
+        return sortedStores
+            .filter({$0.productForEmoji(emoji: order.emoji!)?.price! == lowestPrice})
+            .map({$0.peerInfo!})
         
     }
 
@@ -109,8 +121,7 @@ extension StoreBossManager: PeerMessageDelegate {
         case .announcingProducts:
             self.addStore(baseStore: message.baseStore)
         case .buyOrder:
-            break
-            //self.processBuyOrder(order: message.buyOrder!, fromPeer: user)
+            self.processBuyOrder(order: message.buyOrder!, fromPeer: message.peerInfo!)
         default:
             break
         }

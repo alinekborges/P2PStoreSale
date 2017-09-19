@@ -88,12 +88,10 @@ class BuyOrder: Mappable {
 
 class BuyOrderResponse: Mappable {
     
-    var peerID: String?
-    var publicKey: String?
+    var peers: [PeerInfo]?
     
-    init(peerID: String, publicKey: String) {
-        self.peerID = peerID
-        self.publicKey = publicKey
+    init(peers: [PeerInfo]) {
+        self.peers = peers
     }
     
     required init?(map: Map) {
@@ -101,7 +99,6 @@ class BuyOrderResponse: Mappable {
     }
     
     func mapping(map: Map) {
-        peerID    <- map["peerID"]
-        publicKey    <- map["publicKey"]
+        peers    <- map["peers"]
     }
 }

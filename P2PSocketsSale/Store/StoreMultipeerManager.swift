@@ -13,9 +13,9 @@ protocol StoreMultipeerDelegate {
     
     func isSelectedAsBoss()
     func selectedNewBoss(_ peer: PeerInfo)
-    func selectedPeerForBuy(_ peerID: String?, publicKey: String?)
+    func selectedPeerForBuy(_ peers: [PeerInfo], buyOrder: BuyOrder)
     func decrypt(data: Data) -> String
-    func sell(_ buyOrder: BuyOrder, toPeer peer: String)
+    func sell(_ buyOrder: BuyOrder, toPeer peer: PeerInfo)
     func receivedProduct(_ buyOrder: BuyOrder)
     func sendDiscovery()
 }
@@ -130,18 +130,11 @@ class StoreMultipeerManager: NSObject {
         self.manager.send(data: data, toHost: peer.ip!, onPort: peer.port!)
     }
     
-    func sendEncrypted(message: Message, withPublicKey publicKey: String, toPeer peer: String) {
-        /*if let peerToSend = self.connectedPeers.filter({$0.displayName == peer}).first {
-            let encrypted = message.encrypt(withPublicKey: publicKey)
-            
-            do {
-                //try self.session.send(encrypted, toPeers: [peerToSend], with: MCSessionSendDataMode.reliable)
-            } catch let error {
-                print("boss: error sending encrypted message: \(error.localizedDescription) to peer: \(peer)")
-            }
-        } else {
-            print("peer not connected: \(peer)")
-        }*/
+    func sendEncrypted(message: Message, withPublicKey publicKey: String, toPeer peer: PeerInfo) {
+        
+        let data = message.encrypt(withPublicKey: publicKey)
+        self.manager.send(data: data, toHost: peer.ip!, onPort: peer.port!)
+        
     }
     
     func send(message: Message, toPeer peer: MCPeerID? = nil) {
@@ -230,6 +223,14 @@ class StoreMultipeerManager: NSObject {
         }
     }
     
+    func handleBuyOrderResponse(message: Message) {
+        guard let peers = message.buyOrderResponse?.peers else {
+            print("boss did not send complete message!")
+            return
+        }
+        self.delegate?.selectedPeerForBuy(peers, buyOrder: message.buyOrder!)
+    }
+    
 }
 
 extension StoreMultipeerManager: ServiceManagerDelegate {
@@ -260,9 +261,9 @@ extension StoreMultipeerManager: ServiceManagerDelegate {
         if string != nil  {
             msg = Message(JSONString: string!)
         } else {
+        print("\(self.peerID) ENCRYPTED MESSAGE::: \(String(data: data, encoding: .ascii) ?? "...")")
             let str = self.delegate?.decrypt(data: data)
             msg = Message(JSONString: str!)
-            print("(boss) decrypting message with my PRIVATE KEY: \(msg?.message ?? "no message")")
         }
         
         guard let message = msg, let type = message.type else {
@@ -276,6 +277,12 @@ extension StoreMultipeerManager: ServiceManagerDelegate {
         }
         
         switch type {
+        case .buyOrderResponse:
+            handleBuyOrderResponse(message: message)
+        case .completeBuy:
+            self.delegate?.sell(message.buyOrder!, toPeer: message.peerInfo!)
+        case .sendingProduct:
+            self.delegate?.receivedProduct(message.buyOrder!)
         default:
             break
         }
@@ -299,7 +306,7 @@ extension StoreMultipeerManager: ServiceManagerDelegate {
         }
         
         guard let message = msg, let type = message.type else {
-            print("(boss) string received: \(string)")
+            print("(boss) string received: \(string ?? "encrypted")")
             return
         }
         
@@ -322,13 +329,13 @@ extension StoreMultipeerManager: ServiceManagerDelegate {
             break
             
         case .buyOrderResponse:
-            guard let peer = message.buyOrderResponse?.peerID else {
+            guard let peers = message.buyOrderResponse?.peers else {
                 print("boss did not send complete message!")
                 return
             }
-            self.delegate?.selectedPeerForBuy(peer, publicKey: message.buyOrderResponse?.publicKey)
+            self.delegate?.selectedPeerForBuy(peers, buyOrder: message.buyOrder!)
         case .completeBuy:
-            self.delegate?.sell(message.buyOrder!, toPeer: message.peerID!)
+            self.delegate?.sell(message.buyOrder!, toPeer: message.peerInfo!)
         case .sendingProduct:
             self.delegate?.receivedProduct(message.buyOrder!)
         default:

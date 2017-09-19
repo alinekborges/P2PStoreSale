@@ -125,7 +125,7 @@ extension MultipeerServiceManager {
         self.connectSocket = GCDAsyncSocket(delegate: self, delegateQueue: self.connectSocketDelegateQueue, socketQueue: self.connectSocketQueue)
         do {
             try connectSocket?.connect(toHost: host, onPort: port)
-            connectSocket?.write(data, withTimeout: 200, tag: 0)
+            connectSocket?.write(data, withTimeout: 5, tag: 0)
         } catch let error {
             print("error creating unicast socket: \(error.localizedDescription)")
         }
@@ -150,7 +150,7 @@ extension MultipeerServiceManager : GCDAsyncSocketDelegate {
     func socket(_ sock: GCDAsyncSocket, didAcceptNewSocket newSocket: GCDAsyncSocket) {
         print("accepting new socket")
         self.connectedSockets.append(newSocket)
-        newSocket.readData(withTimeout: 200, tag: 0)
+        newSocket.readData(withTimeout: 5, tag: 0)
     }
     
 }

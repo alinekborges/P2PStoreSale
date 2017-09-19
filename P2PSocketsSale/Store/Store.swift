@@ -63,6 +63,8 @@ class Store: NSObject {
             self.peerInfo.ip = ip
             self.peerInfo.port = port
         })
+        
+        self.peerInfo.publicKey = self.publicKey
         self.manager.peerInfo = peerInfo
         manager.delegate = self
         
@@ -92,10 +94,10 @@ class Store: NSObject {
      * - Returns: Base Store
      */
     func baseStore() -> StoreBase {
-        let base = StoreBase(name: self.name,
+        let base = StoreBase(
              products: self.products,
              score: self.score,
-             publicKey: self.publicKey)
+             peerInfo: self.peerInfo)
         return base
     }
     
@@ -126,20 +128,22 @@ class Store: NSObject {
         message.type = .buyOrder
         message.message = "I'm \(self.name) and I want to buy \(order.quantity!) \(order.emoji!)"
         message.peerID = self.name
+        message.peerInfo = self.peerInfo
         message.buyOrder = order
         
         self.manager.sendToBoss(message: message)
         self.buyOrder = order
     }
     
-    func completeBuy(_ order: BuyOrder, peerID: String, publicKey: String) {
+    func completeBuy(_ order: BuyOrder, peer: PeerInfo) {
         let message = Message()
-        message.message = "I will buy \(order.emoji!) from \(peerID) and I have the key: \(publicKey)"
+        message.message = "I will buy \(order.emoji!) from \(peer.name!) and I have the key: \(peer.publicKey!)"
         message.type = .completeBuy
         message.buyOrder = order
         message.peerID = self.name
+        message.peerInfo = self.peerInfo
         
-        self.manager.sendEncrypted(message: message, withPublicKey: publicKey, toPeer: peerID)
+        self.manager.sendEncrypted(message: message, withPublicKey: publicKey, toPeer: peer)
         
     }
     
@@ -154,7 +158,9 @@ class Store: NSObject {
 extension Store: StoreMultipeerDelegate {
     func isSelectedAsBoss() {
         self.delegate?.isSelectedAsBoss()
-        self.bossManager = StoreBossManager(manager: self.manager)
+        if self.bossManager == nil {
+            self.bossManager = StoreBossManager(manager: self.manager)
+        }
     }
     
     func selectedNewBoss(_ peer: PeerInfo) {
@@ -162,12 +168,15 @@ extension Store: StoreMultipeerDelegate {
         announceStore()
     }
     
-    func selectedPeerForBuy(_ peerID: String?, publicKey: String?) {
-        guard let peerID = peerID, let publicKey = publicKey, let buyOrder = self.buyOrder else {
-            print("(boss) not enought parameters to complete buy")
-            return
-        }
-        self.completeBuy(buyOrder, peerID: peerID, publicKey: publicKey)
+    func selectedPeerForBuy(_ peers: [PeerInfo], buyOrder: BuyOrder) {
+        if (peers.isEmpty) { return }
+        //TODO: Find correct peer to buy
+        
+        let peer = peers.first!
+        
+        
+        self.completeBuy(buyOrder, peer: peer)
+        
 
     }
 
@@ -176,7 +185,7 @@ extension Store: StoreMultipeerDelegate {
         return String(data: decrypted!, encoding: .utf8)!
     }
     
-    func sell(_ buyOrder: BuyOrder, toPeer peer: String) {
+    func sell(_ buyOrder: BuyOrder, toPeer peer: PeerInfo) {
         for (index, product) in self.products.enumerated() {
             if product.emoji == buyOrder.emoji {
                 //this is the product, so remove quantity or delete
@@ -194,8 +203,9 @@ extension Store: StoreMultipeerDelegate {
         message.message = "(boss) sending products to destination peer!"
         message.buyOrder = buyOrder
         message.peerID = self.name
+        message.peerInfo = self.peerInfo
         
-        //self.manager.send(message: message, toPeer: peer)
+        self.manager.send(message: message, toPeer: peer)
         
         announceStore()
         
