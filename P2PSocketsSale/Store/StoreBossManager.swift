@@ -20,6 +20,7 @@ class StoreBossManager: NSObject {
         
         keepAlive.type = .bossKeepAlive
         keepAlive.message = "I'm the boss and I'm alive"
+        keepAlive.peerInfo = self.manager.peerInfo
         keepAlive.peerID = self.manager.peerID
         
         super.init()

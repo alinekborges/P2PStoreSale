@@ -156,7 +156,7 @@ extension Store: StoreMultipeerDelegate {
         self.bossManager = StoreBossManager(manager: self.manager)
     }
     
-    func selectedNewBoss(_ peerID: MCPeerID) {
+    func selectedNewBoss(_ peer: PeerInfo) {
         //when new boss is selected, I send to him my products,
         announceStore()
     }
