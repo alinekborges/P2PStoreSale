@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12121" systemVersion="16G29" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12121" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -15,6 +15,7 @@
                 <outlet property="backgroundView" destination="rgg-oX-7ic" id="FYz-sU-vsT"/>
                 <outlet property="buyButton" destination="B6v-Jh-ccr" id="rbw-T4-Ilf"/>
                 <outlet property="buyView" destination="7J3-3A-mDG" id="246-Ix-l5O"/>
+                <outlet property="keepAliveView" destination="uze-Eu-Cw0" id="lGN-Z8-k39"/>
                 <outlet property="tableView" destination="6L4-3q-YIp" id="qww-VO-xG4"/>
                 <outlet property="titleLabel" destination="Bpf-hS-2qx" id="dUy-PK-aHb"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
@@ -135,11 +136,26 @@
                                 <action selector="disconnectStore:" destination="-1" eventType="touchUpInside" id="83V-9d-70P"/>
                             </connections>
                         </button>
+                        <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uze-Eu-Cw0">
+                            <rect key="frame" x="8" y="8" width="18" height="18"/>
+                            <color key="backgroundColor" red="0.1019607843" green="0.73725490199999999" blue="0.61176470589999998" alpha="1" colorSpace="calibratedRGB"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="18" id="Tkl-fZ-zNs"/>
+                                <constraint firstAttribute="width" secondItem="uze-Eu-Cw0" secondAttribute="height" multiplier="1:1" id="qRv-WZ-oP7"/>
+                            </constraints>
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                    <integer key="value" value="9"/>
+                                </userDefinedRuntimeAttribute>
+                            </userDefinedRuntimeAttributes>
+                        </view>
                     </subviews>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     <constraints>
                         <constraint firstItem="Bpf-hS-2qx" firstAttribute="centerX" secondItem="rgg-oX-7ic" secondAttribute="centerX" id="71T-kC-zqY"/>
+                        <constraint firstItem="uze-Eu-Cw0" firstAttribute="leading" secondItem="rgg-oX-7ic" secondAttribute="leading" constant="8" id="Flx-Lo-UQ0"/>
                         <constraint firstItem="QY2-xR-cIL" firstAttribute="top" secondItem="70b-Xw-VY2" secondAttribute="bottom" constant="8" id="LHG-Nf-E97"/>
+                        <constraint firstItem="uze-Eu-Cw0" firstAttribute="top" secondItem="rgg-oX-7ic" secondAttribute="top" constant="8" id="N1v-Wk-1yX"/>
                         <constraint firstAttribute="trailing" secondItem="QY2-xR-cIL" secondAttribute="trailing" constant="20" id="QKg-Pr-m3J"/>
                         <constraint firstAttribute="bottom" secondItem="QY2-xR-cIL" secondAttribute="bottom" constant="20" id="mIc-fs-OZo"/>
                         <constraint firstAttribute="trailing" secondItem="70b-Xw-VY2" secondAttribute="trailing" constant="20" id="shC-0W-epv"/>
@@ -149,7 +165,7 @@
                     </constraints>
                 </view>
             </subviews>
-            <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+            <color key="backgroundColor" red="0.92156862745098034" green="0.92156862745098034" blue="0.94509803921568625" alpha="1" colorSpace="calibratedRGB"/>
             <constraints>
                 <constraint firstAttribute="trailing" secondItem="rgg-oX-7ic" secondAttribute="trailing" id="75A-Hp-kLG"/>
                 <constraint firstAttribute="bottom" secondItem="rgg-oX-7ic" secondAttribute="bottom" id="M6G-jm-bAO"/>

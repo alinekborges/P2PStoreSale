@@ -31,7 +31,11 @@ class ViewController: UIViewController {
     @IBAction func newStoreAction(_ sender: Any) {
         
         let product1 = Product()
-        let product2 = Product()
+        var product2 = Product()
+        while product2.emoji == product1.emoji {
+            product2 = Product()
+        }
+
         self.didCreateStore(withName: "\(random())", products: [product1, product2])
         self.dismiss(animated: true, completion: nil)
         

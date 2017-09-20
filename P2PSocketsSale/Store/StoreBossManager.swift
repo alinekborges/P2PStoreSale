@@ -112,6 +112,12 @@ class StoreBossManager: NSObject {
             .map({$0.peerInfo!})
         
     }
+    
+    func postNotification(notificationName: String) {
+        DispatchQueue.main.async {
+            self.postNotification(notificationName: notificationName, withObject: nil, userInfo: nil)
+        }
+    }
 
 }
 

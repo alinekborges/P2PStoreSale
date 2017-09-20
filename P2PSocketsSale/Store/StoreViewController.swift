@@ -17,6 +17,7 @@ class StoreViewController: UIViewController {
     @IBOutlet weak var buyView: UIView!
     @IBOutlet weak var buyButton: UIButton!
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var keepAliveView: UIView!
     
     var timer: Timer?
     var secondTimer: Timer?
@@ -34,10 +35,10 @@ class StoreViewController: UIViewController {
         fatalError("init(coder:) has not been implemented")
     }
 
-    
-    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.keepAliveView.alpha = 0.0
         
         self.titleLabel.text = self.store.name
         
@@ -49,9 +50,15 @@ class StoreViewController: UIViewController {
         
         timer = Timer.scheduledTimer(timeInterval: Constants.timeInterval, target: self, selector: #selector(self.onTick), userInfo: nil, repeats: true)
         
-        secondTimer = Timer.scheduledTimer(timeInterval: 60, target: self, selector: #selector(self.announceStoreAgain), userInfo: nil, repeats: true)
+        //secondTimer = Timer.scheduledTimer(timeInterval: 60, target: self, selector: #selector(self.announceStoreAgain), userInfo: nil, repeats: true)
         
         self.registerNotification(notificationName: "update_UI", withSelector: #selector(self.updateUI))
+        
+        self.registerNotification(notificationName: "keep_alive", withSelector: #selector(self.keepAlive))
+        
+        self.registerNotification(notificationName: "start_election.\(self.store.name)", withSelector: #selector(self.startElection))
+        
+        self.registerNotification(notificationName: "end_election.\(self.store.name)", withSelector: #selector(self.endElection))
     }
     
     func onTick() {
@@ -126,8 +133,28 @@ class StoreViewController: UIViewController {
         }
     }
     
+    func startElection() {
+        self.view.backgroundColor = #colorLiteral(red: 0.02608692087, green: 0.7744804025, blue: 0.6751230955, alpha: 1).withAlphaComponent(0.2)
+        
+    }
+    
+    func endElection() {
+        self.view.backgroundColor = #colorLiteral(red: 0.9373332858, green: 0.9379555583, blue: 0.9563199878, alpha: 1)
+    }
+    
     func updateUI() {
         self.tableView.reloadData()
+    }
+    
+    func keepAlive() {
+        UIView.animate(withDuration: 0.4, animations: {
+            self.keepAliveView.alpha = 1.0
+        }) { _ in
+            UIView.animate(withDuration: 0.4, animations: { 
+                self.keepAliveView.alpha = 0.0
+            })
+            
+        }
     }
 }
 

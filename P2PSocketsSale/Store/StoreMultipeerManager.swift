@@ -7,7 +7,6 @@
 //
 
 import Foundation
-import MultipeerConnectivity
 
 protocol StoreMultipeerDelegate {
     
@@ -30,7 +29,13 @@ class StoreMultipeerManager: NSObject {
     var peerInfo: PeerInfo?
     var manager: MultipeerServiceManager
     
-    var boss: PeerInfo?
+    var boss: PeerInfo? {
+        didSet{
+            if (boss != nil) {
+                self.postNotification(notificationName: "end_election.\(self.peerInfo!.name!)")
+            }
+        }
+    }
     var isBoss: Bool = false
     var bossIsAlive: Bool = true
     
@@ -69,11 +74,14 @@ class StoreMultipeerManager: NSObject {
         
         print("NEW ELECTION PROCESS STARTED")
         
+        self.postNotification(notificationName: "start_election.\(self.peerInfo!.name!)")
+        
         isElecting = true
         //remove all current connected peers
         self.connectedPeers.removeAll()
         
         queue.asyncAfter(deadline: .now() + Constants.timeInterval * 2) {
+            if self.boss != nil { return }
             //send discovery again to check connected peers
             print("sending discovery")
             self.delegate?.sendDiscovery()
@@ -81,8 +89,11 @@ class StoreMultipeerManager: NSObject {
         
         queue.asyncAfter(deadline: .now() + Constants.timeInterval * 3) {
             if self.boss != nil { return }
-            //send discovery again to check connected peers
-            let allPeers = self.connectedPeers.map({$0.name!})
+            
+            //get all unique names (name + port)
+            let allPeers = self.connectedPeers.map({$0.uniqueName})
+            
+            
             
             print("\(self.peerID) electing new boss from \(allPeers.description)")
             
@@ -91,7 +102,7 @@ class StoreMultipeerManager: NSObject {
                     .first {
                 self.isElecting = false
                 
-                if (elected == self.peerID) {
+                if (elected == self.peerInfo?.uniqueName) {
                     //I'm the boss!!
                     self.isBoss = true
                     self.delegate?.isSelectedAsBoss()
@@ -124,11 +135,6 @@ class StoreMultipeerManager: NSObject {
         bossIsAlive = false
     }
     
-    func peerWithID(_ peerID: String) -> MCPeerID? {
-        return nil
-        //return self.connectedPeers.filter( {$0.displayName == peerID} ).first
-    }
-    
     func sendToBoss(message: Message) {
         guard let boss = self.boss else { return }
         self.send(message: message, toPeer: boss)
@@ -149,36 +155,6 @@ class StoreMultipeerManager: NSObject {
         
         let data = message.encrypt(withPublicKey: publicKey)
         self.manager.send(data: data, toHost: peer.ip!, onPort: peer.port!)
-        
-    }
-    
-    func send(message: Message, toPeer peer: MCPeerID? = nil) {
-        return
-        var peers:[MCPeerID]!
-        if peer == nil {
-            if (self.connectedPeers.isEmpty) {
-                //peers = self.manager.session.connectedPeers
-            } else {
-                //peers = connectedPeers
-            }
-        } else {
-            peers = [peer!]
-        }
-        
-        if peers.isEmpty {
-            print("no peers to send messages to! Connected peers: \(peers). Message: \(message.message)")
-            return
-        }
-        
-        do {
-            //try self.session.send(message.toData(), toPeers: peers, with: MCSessionSendDataMode.reliable)
-        } catch let error  {
-            if (message.type == .bossKeepAlive) {
-                print("error sending boss keepalive!")
-                
-            }
-            print("boss: error sending message: \((error as! NSError).localizedDescription) to peers: \(peers.map( {$0.displayName} ).description)")
-        }
         
     }
     
@@ -236,6 +212,8 @@ class StoreMultipeerManager: NSObject {
             self.delegate?.selectedNewBoss(self.boss!)
             print("\(self.peerID) received message from boss \(self.boss!.name)! He is the boss!")
         }
+        
+        self.postNotification(notificationName: "keep_alive")
     }
     
     func handleBuyOrderResponse(message: Message) {
@@ -244,6 +222,12 @@ class StoreMultipeerManager: NSObject {
             return
         }
         self.delegate?.selectedPeerForBuy(peers, buyOrder: message.buyOrder!)
+    }
+    
+    func postNotification(notificationName: String) {
+        DispatchQueue.main.async {
+            self.postNotification(notificationName: notificationName, withObject: nil, userInfo: nil)
+        }
     }
     
 }

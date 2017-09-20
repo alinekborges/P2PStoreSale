@@ -134,6 +134,11 @@ class Store: NSObject {
         self.buyOrder = order
     }
     
+    /**
+     * After boss answered from which peer we should buy and we pick the right one, it will encrypt the message with the seller public key and send as unicast to this specific seller
+     *
+     * - Parameter order: Buy Order, peer: Seller peer
+     */
     func completeBuy(_ order: BuyOrder, peer: PeerInfo) {
         let message = Message()
         message.message = "I will buy \(order.emoji!) from \(peer.name!) and I have the key: \(peer.publicKey!)"
@@ -146,12 +151,20 @@ class Store: NSObject {
         
     }
     
-    
+    /**
+     * Sends to boss all the info of this store products and public key for it to store at the index
+     *
+     */
     func announceStore() {
         let message = announceStoreMessage()
         self.manager.sendToBoss(message: message)
     }
     
+    /**
+     * Selects which peer I should buy from based on its reputation. Peer with most reputation (a.k.a I have already dealed with him) is preferred. If no peers have yet any reputation, just return any of them (random)
+     *
+     * - Parameter order: Buy Order, peer: Seller peer
+     */
     func selectPeerFromReputation(peers: [PeerInfo]) -> PeerInfo {
         
         print("All of my peer reputations: \(self.peerReputations.map({$0.peerInfo.name! + ":" + "\($0.reputation)"}).description)")
@@ -169,7 +182,13 @@ class Store: NSObject {
     
 }
 
+//MARK: Delegate implementation
 extension Store: StoreMultipeerDelegate {
+    
+    /**
+     * Selects which peer I should buy from based on its reputation. Peer with most reputation (a.k.a I have already dealed with him) is preferred. If no peers have yet any reputation, just return any of them (random)
+     *
+     */
     func isSelectedAsBoss() {
         self.delegate?.isSelectedAsBoss()
         if self.bossManager == nil {
